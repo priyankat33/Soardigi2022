@@ -1,0 +1,1191 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05538BB96D2D9555E4E458EA /* Pods_SoardigiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */; };
+		118899D2DE5DDA496EF7399F /* Pods_Soardigi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */; };
+		339E1939DE780A764178E924 /* Pods_Soardigi_SoardigiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */; };
+		8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */; };
+		8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */; };
+		8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0828FD7C7E0035BA59 /* SceneDelegate.swift */; };
+		8B36DB0B28FD7C7E0035BA59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0A28FD7C7E0035BA59 /* ViewController.swift */; };
+		8B36DB0E28FD7C7E0035BA59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B36DB0C28FD7C7E0035BA59 /* Main.storyboard */; };
+		8B36DB1028FD7C810035BA59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B36DB0F28FD7C810035BA59 /* Assets.xcassets */; };
+		8B36DB1328FD7C810035BA59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B36DB1128FD7C810035BA59 /* LaunchScreen.storyboard */; };
+		8B36DB1E28FD7C820035BA59 /* SoardigiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB1D28FD7C820035BA59 /* SoardigiTests.swift */; };
+		8B36DB2828FD7C820035BA59 /* SoardigiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB2728FD7C820035BA59 /* SoardigiUITests.swift */; };
+		8B36DB2A28FD7C820035BA59 /* SoardigiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB2928FD7C820035BA59 /* SoardigiUITestsLaunchTests.swift */; };
+		8B36DB3928FDA23E0035BA59 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3828FDA23E0035BA59 /* LoginVC.swift */; };
+		8B36DB4228FDA3590035BA59 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3B28FDA3580035BA59 /* CustomColor.swift */; };
+		8B36DB4328FDA3590035BA59 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3C28FDA3580035BA59 /* CustomImageView.swift */; };
+		8B36DB4428FDA3590035BA59 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3D28FDA3590035BA59 /* CustomLabel.swift */; };
+		8B36DB4528FDA3590035BA59 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3E28FDA3590035BA59 /* CustomView.swift */; };
+		8B36DB4628FDA3590035BA59 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3F28FDA3590035BA59 /* CustomTextField.swift */; };
+		8B36DB4728FDA3590035BA59 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB4028FDA3590035BA59 /* CustomTextView.swift */; };
+		8B36DB4828FDA3590035BA59 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB4128FDA3590035BA59 /* CustomButton.swift */; };
+		8B38060E29742A9500C78BC9 /* StaticContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38060D29742A9500C78BC9 /* StaticContentVC.swift */; };
+		8B3806112974565100C78BC9 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3806102974565000C78BC9 /* EditProfileVC.swift */; };
+		8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */; };
+		8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B41DA2029214C0E00CB0F94 /* HomeVC.swift */; };
+		8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */; };
+		8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */; };
+		8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D28942972EB41008D36DA /* SearchHomeVC.swift */; };
+		8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */; };
+		8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */; };
+		8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166B296BF8E600EA1F01 /* AccountVC.swift */; };
+		8B6B166E296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */; };
+		8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */; };
+		8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C3BD628FF15210017F62F /* SignUpVC.swift */; };
+		8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */; };
+		8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B462B2966B600008CB57D /* ShareDetailVC.swift */; };
+		8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */; };
+		8B7D3E53290058A300F4577B /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E50290058A100F4577B /* Mappable.swift */; };
+		8B7D3E54290058A300F4577B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E51290058A200F4577B /* ServiceManager.swift */; };
+		8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E52290058A200F4577B /* SMUtility.swift */; };
+		8B7D3E59290058C100F4577B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E57290058C100F4577B /* UserModel.swift */; };
+		8B7D3E5A290058C100F4577B /* CommomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E58290058C100F4577B /* CommomModel.swift */; };
+		8B7D3E5D2900591200F4577B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E5C2900591200F4577B /* UserViewModel.swift */; };
+		8B7D3E60290059A500F4577B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E5F290059A500F4577B /* Constant.swift */; };
+		8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */; };
+		8B86671E290044A100AB4C0E /* SoardigiExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86671D290044A100AB4C0E /* SoardigiExtension.swift */; };
+		8B8C6520291F89C00053C36A /* BusinessImageFrameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */; };
+		8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E160F296F352A0096D344 /* SettingsVC.swift */; };
+		8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */; };
+		8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */; };
+		8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */; };
+		8BAD1A0C2913EA1F00CD8B60 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A0B2913EA1F00CD8B60 /* HomeViewModel.swift */; };
+		8BCBD23729000AF100CED2C8 /* SwiftCountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BCBD23629000AF100CED2C8 /* SwiftCountryPicker.bundle */; };
+		8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */; };
+		8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */; };
+		8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B36DB1A28FD7C820035BA59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B36DAFB28FD7C7E0035BA59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B36DB0228FD7C7E0035BA59;
+			remoteInfo = Soardigi;
+		};
+		8B36DB2428FD7C820035BA59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B36DAFB28FD7C7E0035BA59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B36DB0228FD7C7E0035BA59;
+			remoteInfo = Soardigi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C78B7E9BDEB2532C9B60C44 /* Pods-Soardigi-SoardigiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi-SoardigiUITests.release.xcconfig"; path = "Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		323223D9E9685A680D71A10F /* Pods-SoardigiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoardigiTests.release.xcconfig"; path = "Target Support Files/Pods-SoardigiTests/Pods-SoardigiTests.release.xcconfig"; sourceTree = "<group>"; };
+		3FC222805F6C8EBF6D1730D6 /* Pods-SoardigiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoardigiTests.debug.xcconfig"; path = "Target Support Files/Pods-SoardigiTests/Pods-SoardigiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4DF13F8B4D2C9A28DA01C0AC /* Pods-Soardigi-SoardigiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi-SoardigiUITests.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi_SoardigiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPagePickerVC.swift; sourceTree = "<group>"; };
+		8B36DB0328FD7C7E0035BA59 /* Soardigi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soardigi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B36DB0828FD7C7E0035BA59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8B36DB0A28FD7C7E0035BA59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B36DB0D28FD7C7E0035BA59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B36DB0F28FD7C810035BA59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B36DB1228FD7C810035BA59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B36DB1428FD7C810035BA59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B36DB1928FD7C820035BA59 /* SoardigiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoardigiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B36DB1D28FD7C820035BA59 /* SoardigiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiTests.swift; sourceTree = "<group>"; };
+		8B36DB2328FD7C820035BA59 /* SoardigiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoardigiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B36DB2728FD7C820035BA59 /* SoardigiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiUITests.swift; sourceTree = "<group>"; };
+		8B36DB2928FD7C820035BA59 /* SoardigiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B36DB3828FDA23E0035BA59 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8B36DB3B28FDA3580035BA59 /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		8B36DB3C28FDA3580035BA59 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		8B36DB3D28FDA3590035BA59 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		8B36DB3E28FDA3590035BA59 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		8B36DB3F28FDA3590035BA59 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		8B36DB4028FDA3590035BA59 /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		8B36DB4128FDA3590035BA59 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8B38060D29742A9500C78BC9 /* StaticContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticContentVC.swift; sourceTree = "<group>"; };
+		8B3806102974565000C78BC9 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguageVC.swift; sourceTree = "<group>"; };
+		8B41DA2029214C0E00CB0F94 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessVC.swift; sourceTree = "<group>"; };
+		8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessCategoryVC.swift; sourceTree = "<group>"; };
+		8B5D28942972EB41008D36DA /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
+		8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
+		8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
+		8B6B166B296BF8E600EA1F01 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBusinessCategoryDetailVC.swift; sourceTree = "<group>"; };
+		8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCategoryPickerVC.swift; sourceTree = "<group>"; };
+		8B6C3BD628FF15210017F62F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageVC.swift; sourceTree = "<group>"; };
+		8B7B462B2966B600008CB57D /* ShareDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDetailVC.swift; sourceTree = "<group>"; };
+		8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookShareVC.swift; sourceTree = "<group>"; };
+		8B7D3E50290058A100F4577B /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		8B7D3E51290058A200F4577B /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		8B7D3E52290058A200F4577B /* SMUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMUtility.swift; sourceTree = "<group>"; };
+		8B7D3E57290058C100F4577B /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8B7D3E58290058C100F4577B /* CommomModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommomModel.swift; sourceTree = "<group>"; };
+		8B7D3E5C2900591200F4577B /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		8B7D3E5F290059A500F4577B /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiStruct.swift; sourceTree = "<group>"; };
+		8B86671D290044A100AB4C0E /* SoardigiExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiExtension.swift; sourceTree = "<group>"; };
+		8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessImageFrameVC.swift; sourceTree = "<group>"; };
+		8B964BDF2940FC9200426078 /* Soardigi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soardigi.entitlements; sourceTree = "<group>"; };
+		8B9E160F296F352A0096D344 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBusinessVC.swift; sourceTree = "<group>"; };
+		8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCategoryCVC.swift; sourceTree = "<group>"; };
+		8BAD1A0B2913EA1F00CD8B60 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8BCBD23629000AF100CED2C8 /* SwiftCountryPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SwiftCountryPicker.bundle; sourceTree = "<group>"; };
+		8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
+		8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
+		8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		9A79C2DBEA13D03035BEF33A /* Pods-Soardigi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.debug.xcconfig"; sourceTree = "<group>"; };
+		BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoardigiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E63A4BA819A94A49852CC4E3 /* Pods-Soardigi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.release.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B36DB0028FD7C7E0035BA59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				118899D2DE5DDA496EF7399F /* Pods_Soardigi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B36DB1628FD7C820035BA59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05538BB96D2D9555E4E458EA /* Pods_SoardigiTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B36DB2028FD7C820035BA59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339E1939DE780A764178E924 /* Pods_Soardigi_SoardigiUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		883F02285A7E32B92E995845 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */,
+				528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */,
+				BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B36DAFA28FD7C7E0035BA59 = {
+			isa = PBXGroup;
+			children = (
+				8B36DB0528FD7C7E0035BA59 /* Soardigi */,
+				8B36DB1C28FD7C820035BA59 /* SoardigiTests */,
+				8B36DB2628FD7C820035BA59 /* SoardigiUITests */,
+				8B36DB0428FD7C7E0035BA59 /* Products */,
+				933F443408E860E397DA84A6 /* Pods */,
+				883F02285A7E32B92E995845 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8B36DB0428FD7C7E0035BA59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B36DB0328FD7C7E0035BA59 /* Soardigi.app */,
+				8B36DB1928FD7C820035BA59 /* SoardigiTests.xctest */,
+				8B36DB2328FD7C820035BA59 /* SoardigiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B36DB0528FD7C7E0035BA59 /* Soardigi */ = {
+			isa = PBXGroup;
+			children = (
+				8B964BDF2940FC9200426078 /* Soardigi.entitlements */,
+				8B7D3E6129005A4F00F4577B /* SoardigiStruct */,
+				8B7D3E5E2900599600F4577B /* Constant */,
+				8B7D3E56290058A900F4577B /* Models */,
+				8B7D3E4F2900588F00F4577B /* ServerManager */,
+				8B86671C2900448500AB4C0E /* Extension */,
+				8BCBD23E290010B400CED2C8 /* Cells */,
+				8BCBD23B29000F6E00CED2C8 /* ViewModels */,
+				8BCBD235290009D800CED2C8 /* CountryCode */,
+				8B36DB3A28FDA3290035BA59 /* CustomComponents */,
+				8B36DB3628FD9EDC0035BA59 /* ViewControllers */,
+				8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */,
+				8B36DB0828FD7C7E0035BA59 /* SceneDelegate.swift */,
+				8B36DB0A28FD7C7E0035BA59 /* ViewController.swift */,
+				8B36DB0C28FD7C7E0035BA59 /* Main.storyboard */,
+				8B36DB0F28FD7C810035BA59 /* Assets.xcassets */,
+				8B36DB1128FD7C810035BA59 /* LaunchScreen.storyboard */,
+				8B36DB1428FD7C810035BA59 /* Info.plist */,
+			);
+			path = Soardigi;
+			sourceTree = "<group>";
+		};
+		8B36DB1C28FD7C820035BA59 /* SoardigiTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B36DB1D28FD7C820035BA59 /* SoardigiTests.swift */,
+			);
+			path = SoardigiTests;
+			sourceTree = "<group>";
+		};
+		8B36DB2628FD7C820035BA59 /* SoardigiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B36DB2728FD7C820035BA59 /* SoardigiUITests.swift */,
+				8B36DB2928FD7C820035BA59 /* SoardigiUITestsLaunchTests.swift */,
+			);
+			path = SoardigiUITests;
+			sourceTree = "<group>";
+		};
+		8B36DB3628FD9EDC0035BA59 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B38061229745E1A00C78BC9 /* PreferredLanguageVC */,
+				8B38060F2974563900C78BC9 /* EditProfileVC */,
+				8B38060C29742A7100C78BC9 /* StaticContentVC */,
+				8B6B166A296BF8C900EA1F01 /* AccountVC */,
+				8B7B462A2966B5EA008CB57D /* ShareDetailVC */,
+				8B6833902961FA3600CC6D0E /* HomeDetailVC */,
+				8BAA823B2922BB9300F9EDA8 /* TabViewController */,
+				8B41DA1F29214BF400CB0F94 /* HomeVC */,
+				8B8C651E291F89A80053C36A /* BusinessImageFrameVC */,
+				8B4821A52917E93000449E67 /* RequestBusinessCategoryVC */,
+				8B4821A22917DB2C00449E67 /* CreateBusinessVC */,
+				8BAD1A052913C9E800CD8B60 /* SelectBusinessVC */,
+				8B6FB6A629118903006529C4 /* ChooseLanguageVC */,
+				8B65E48B2901BA6D00E92F98 /* OTPVerificationVC */,
+				8BCBD23829000EE800CED2C8 /* CountryPickerVC */,
+				8B6C3BD528FF15000017F62F /* SignUpVC */,
+				8B36DB3728FD9EEB0035BA59 /* LoginVC */,
+				8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */,
+				8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */,
+				8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */,
+				8B9E160F296F352A0096D344 /* SettingsVC.swift */,
+				8B5D28942972EB41008D36DA /* SearchHomeVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B36DB3728FD9EEB0035BA59 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B36DB3828FDA23E0035BA59 /* LoginVC.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		8B36DB3A28FDA3290035BA59 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8B36DB4128FDA3590035BA59 /* CustomButton.swift */,
+				8B36DB3B28FDA3580035BA59 /* CustomColor.swift */,
+				8B36DB3C28FDA3580035BA59 /* CustomImageView.swift */,
+				8B36DB3D28FDA3590035BA59 /* CustomLabel.swift */,
+				8B36DB3F28FDA3590035BA59 /* CustomTextField.swift */,
+				8B36DB4028FDA3590035BA59 /* CustomTextView.swift */,
+				8B36DB3E28FDA3590035BA59 /* CustomView.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		8B38060C29742A7100C78BC9 /* StaticContentVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B38060D29742A9500C78BC9 /* StaticContentVC.swift */,
+			);
+			path = StaticContentVC;
+			sourceTree = "<group>";
+		};
+		8B38060F2974563900C78BC9 /* EditProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B3806102974565000C78BC9 /* EditProfileVC.swift */,
+			);
+			path = EditProfileVC;
+			sourceTree = "<group>";
+		};
+		8B38061229745E1A00C78BC9 /* PreferredLanguageVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */,
+			);
+			path = PreferredLanguageVC;
+			sourceTree = "<group>";
+		};
+		8B41DA1F29214BF400CB0F94 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B41DA2029214C0E00CB0F94 /* HomeVC.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		8B4821A22917DB2C00449E67 /* CreateBusinessVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */,
+			);
+			path = CreateBusinessVC;
+			sourceTree = "<group>";
+		};
+		8B4821A52917E93000449E67 /* RequestBusinessCategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */,
+			);
+			path = RequestBusinessCategoryVC;
+			sourceTree = "<group>";
+		};
+		8B65E48B2901BA6D00E92F98 /* OTPVerificationVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */,
+			);
+			path = OTPVerificationVC;
+			sourceTree = "<group>";
+		};
+		8B6833902961FA3600CC6D0E /* HomeDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */,
+			);
+			path = HomeDetailVC;
+			sourceTree = "<group>";
+		};
+		8B6B166A296BF8C900EA1F01 /* AccountVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6B166B296BF8E600EA1F01 /* AccountVC.swift */,
+			);
+			path = AccountVC;
+			sourceTree = "<group>";
+		};
+		8B6C3BD528FF15000017F62F /* SignUpVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6C3BD628FF15210017F62F /* SignUpVC.swift */,
+			);
+			path = SignUpVC;
+			sourceTree = "<group>";
+		};
+		8B6FB6A629118903006529C4 /* ChooseLanguageVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */,
+			);
+			path = ChooseLanguageVC;
+			sourceTree = "<group>";
+		};
+		8B7B462A2966B5EA008CB57D /* ShareDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B7B462B2966B600008CB57D /* ShareDetailVC.swift */,
+				8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */,
+			);
+			path = ShareDetailVC;
+			sourceTree = "<group>";
+		};
+		8B7D3E4F2900588F00F4577B /* ServerManager */ = {
+			isa = PBXGroup;
+			children = (
+				8B7D3E50290058A100F4577B /* Mappable.swift */,
+				8B7D3E51290058A200F4577B /* ServiceManager.swift */,
+				8B7D3E52290058A200F4577B /* SMUtility.swift */,
+			);
+			path = ServerManager;
+			sourceTree = "<group>";
+		};
+		8B7D3E56290058A900F4577B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B7D3E58290058C100F4577B /* CommomModel.swift */,
+				8B7D3E57290058C100F4577B /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B7D3E5E2900599600F4577B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				8B7D3E5F290059A500F4577B /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		8B7D3E6129005A4F00F4577B /* SoardigiStruct */ = {
+			isa = PBXGroup;
+			children = (
+				8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */,
+			);
+			path = SoardigiStruct;
+			sourceTree = "<group>";
+		};
+		8B86671C2900448500AB4C0E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B86671D290044A100AB4C0E /* SoardigiExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8B8C651E291F89A80053C36A /* BusinessImageFrameVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */,
+			);
+			path = BusinessImageFrameVC;
+			sourceTree = "<group>";
+		};
+		8BAA823B2922BB9300F9EDA8 /* TabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */,
+			);
+			path = TabViewController;
+			sourceTree = "<group>";
+		};
+		8BAD1A052913C9E800CD8B60 /* SelectBusinessVC */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */,
+			);
+			path = SelectBusinessVC;
+			sourceTree = "<group>";
+		};
+		8BAD1A082913D74900CD8B60 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		8BCBD235290009D800CED2C8 /* CountryCode */ = {
+			isa = PBXGroup;
+			children = (
+				8BCBD23629000AF100CED2C8 /* SwiftCountryPicker.bundle */,
+			);
+			path = CountryCode;
+			sourceTree = "<group>";
+		};
+		8BCBD23829000EE800CED2C8 /* CountryPickerVC */ = {
+			isa = PBXGroup;
+			children = (
+				8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */,
+			);
+			path = CountryPickerVC;
+			sourceTree = "<group>";
+		};
+		8BCBD23B29000F6E00CED2C8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B7D3E5C2900591200F4577B /* UserViewModel.swift */,
+				8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */,
+				8BAD1A0B2913EA1F00CD8B60 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8BCBD23E290010B400CED2C8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD1A082913D74900CD8B60 /* CollectionViewCells */,
+				8BCBD23F290010BA00CED2C8 /* TableViewCells */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8BCBD23F290010BA00CED2C8 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		933F443408E860E397DA84A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A79C2DBEA13D03035BEF33A /* Pods-Soardigi.debug.xcconfig */,
+				E63A4BA819A94A49852CC4E3 /* Pods-Soardigi.release.xcconfig */,
+				4DF13F8B4D2C9A28DA01C0AC /* Pods-Soardigi-SoardigiUITests.debug.xcconfig */,
+				0C78B7E9BDEB2532C9B60C44 /* Pods-Soardigi-SoardigiUITests.release.xcconfig */,
+				3FC222805F6C8EBF6D1730D6 /* Pods-SoardigiTests.debug.xcconfig */,
+				323223D9E9685A680D71A10F /* Pods-SoardigiTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B36DB0228FD7C7E0035BA59 /* Soardigi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B36DB2D28FD7C820035BA59 /* Build configuration list for PBXNativeTarget "Soardigi" */;
+			buildPhases = (
+				9805D607FB10DF47F72A27E5 /* [CP] Check Pods Manifest.lock */,
+				8B36DAFF28FD7C7E0035BA59 /* Sources */,
+				8B36DB0028FD7C7E0035BA59 /* Frameworks */,
+				8B36DB0128FD7C7E0035BA59 /* Resources */,
+				7A702BB37DE1185761E906A0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Soardigi;
+			productName = Soardigi;
+			productReference = 8B36DB0328FD7C7E0035BA59 /* Soardigi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B36DB1828FD7C820035BA59 /* SoardigiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B36DB3028FD7C820035BA59 /* Build configuration list for PBXNativeTarget "SoardigiTests" */;
+			buildPhases = (
+				E1C227132521ED9CAFD0E1AF /* [CP] Check Pods Manifest.lock */,
+				8B36DB1528FD7C820035BA59 /* Sources */,
+				8B36DB1628FD7C820035BA59 /* Frameworks */,
+				8B36DB1728FD7C820035BA59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B36DB1B28FD7C820035BA59 /* PBXTargetDependency */,
+			);
+			name = SoardigiTests;
+			productName = SoardigiTests;
+			productReference = 8B36DB1928FD7C820035BA59 /* SoardigiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B36DB2228FD7C820035BA59 /* SoardigiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B36DB3328FD7C820035BA59 /* Build configuration list for PBXNativeTarget "SoardigiUITests" */;
+			buildPhases = (
+				0E79F48FDDD38070A1D82858 /* [CP] Check Pods Manifest.lock */,
+				8B36DB1F28FD7C820035BA59 /* Sources */,
+				8B36DB2028FD7C820035BA59 /* Frameworks */,
+				8B36DB2128FD7C820035BA59 /* Resources */,
+				0FE629825F2CD242160B1914 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B36DB2528FD7C820035BA59 /* PBXTargetDependency */,
+			);
+			name = SoardigiUITests;
+			productName = SoardigiUITests;
+			productReference = 8B36DB2328FD7C820035BA59 /* SoardigiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B36DAFB28FD7C7E0035BA59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					8B36DB0228FD7C7E0035BA59 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					8B36DB1828FD7C820035BA59 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8B36DB0228FD7C7E0035BA59;
+					};
+					8B36DB2228FD7C820035BA59 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8B36DB0228FD7C7E0035BA59;
+					};
+				};
+			};
+			buildConfigurationList = 8B36DAFE28FD7C7E0035BA59 /* Build configuration list for PBXProject "Soardigi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B36DAFA28FD7C7E0035BA59;
+			productRefGroup = 8B36DB0428FD7C7E0035BA59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B36DB0228FD7C7E0035BA59 /* Soardigi */,
+				8B36DB1828FD7C820035BA59 /* SoardigiTests */,
+				8B36DB2228FD7C820035BA59 /* SoardigiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B36DB0128FD7C7E0035BA59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BCBD23729000AF100CED2C8 /* SwiftCountryPicker.bundle in Resources */,
+				8B36DB1328FD7C810035BA59 /* LaunchScreen.storyboard in Resources */,
+				8B36DB1028FD7C810035BA59 /* Assets.xcassets in Resources */,
+				8B36DB0E28FD7C7E0035BA59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B36DB1728FD7C820035BA59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B36DB2128FD7C820035BA59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E79F48FDDD38070A1D82858 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Soardigi-SoardigiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FE629825F2CD242160B1914 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A702BB37DE1185761E906A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soardigi/Pods-Soardigi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soardigi/Pods-Soardigi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Soardigi/Pods-Soardigi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9805D607FB10DF47F72A27E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Soardigi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1C227132521ED9CAFD0E1AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoardigiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B36DAFF28FD7C7E0035BA59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B36DB0B28FD7C7E0035BA59 /* ViewController.swift in Sources */,
+				8B7D3E5D2900591200F4577B /* UserViewModel.swift in Sources */,
+				8B86671E290044A100AB4C0E /* SoardigiExtension.swift in Sources */,
+				8B36DB4528FDA3590035BA59 /* CustomView.swift in Sources */,
+				8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */,
+				8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */,
+				8B36DB4328FDA3590035BA59 /* CustomImageView.swift in Sources */,
+				8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */,
+				8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */,
+				8B8C6520291F89C00053C36A /* BusinessImageFrameVC.swift in Sources */,
+				8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */,
+				8B7D3E54290058A300F4577B /* ServiceManager.swift in Sources */,
+				8B6B166E296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift in Sources */,
+				8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */,
+				8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */,
+				8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */,
+				8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */,
+				8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */,
+				8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */,
+				8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */,
+				8B7D3E60290059A500F4577B /* Constant.swift in Sources */,
+				8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */,
+				8B7D3E53290058A300F4577B /* Mappable.swift in Sources */,
+				8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */,
+				8BAD1A0C2913EA1F00CD8B60 /* HomeViewModel.swift in Sources */,
+				8B36DB4428FDA3590035BA59 /* CustomLabel.swift in Sources */,
+				8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */,
+				8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */,
+				8B36DB3928FDA23E0035BA59 /* LoginVC.swift in Sources */,
+				8B36DB4728FDA3590035BA59 /* CustomTextView.swift in Sources */,
+				8B36DB4828FDA3590035BA59 /* CustomButton.swift in Sources */,
+				8B7D3E5A290058C100F4577B /* CommomModel.swift in Sources */,
+				8B36DB4228FDA3590035BA59 /* CustomColor.swift in Sources */,
+				8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */,
+				8B7D3E59290058C100F4577B /* UserModel.swift in Sources */,
+				8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */,
+				8B38060E29742A9500C78BC9 /* StaticContentVC.swift in Sources */,
+				8B36DB4628FDA3590035BA59 /* CustomTextField.swift in Sources */,
+				8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */,
+				8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */,
+				8B3806112974565100C78BC9 /* EditProfileVC.swift in Sources */,
+				8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */,
+				8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */,
+				8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */,
+				8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */,
+				8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B36DB1528FD7C820035BA59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B36DB1E28FD7C820035BA59 /* SoardigiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B36DB1F28FD7C820035BA59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B36DB2A28FD7C820035BA59 /* SoardigiUITestsLaunchTests.swift in Sources */,
+				8B36DB2828FD7C820035BA59 /* SoardigiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B36DB1B28FD7C820035BA59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B36DB0228FD7C7E0035BA59 /* Soardigi */;
+			targetProxy = 8B36DB1A28FD7C820035BA59 /* PBXContainerItemProxy */;
+		};
+		8B36DB2528FD7C820035BA59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B36DB0228FD7C7E0035BA59 /* Soardigi */;
+			targetProxy = 8B36DB2428FD7C820035BA59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8B36DB0C28FD7C7E0035BA59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B36DB0D28FD7C7E0035BA59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B36DB1128FD7C810035BA59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B36DB1228FD7C810035BA59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B36DB2B28FD7C820035BA59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B36DB2C28FD7C820035BA59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B36DB2E28FD7C820035BA59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A79C2DBEA13D03035BEF33A /* Pods-Soardigi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soardigi/Soardigi.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = SV79D9BQY9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soardigi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Soardigi wants to access the library to add the business photo";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Soardigi;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8B36DB2F28FD7C820035BA59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E63A4BA819A94A49852CC4E3 /* Pods-Soardigi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soardigi/Soardigi.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = SV79D9BQY9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soardigi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Soardigi wants to access the library to add the business photo";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Soardigi;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		8B36DB3128FD7C820035BA59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FC222805F6C8EBF6D1730D6 /* Pods-SoardigiTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = development.SoardigiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soardigi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Soardigi";
+			};
+			name = Debug;
+		};
+		8B36DB3228FD7C820035BA59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 323223D9E9685A680D71A10F /* Pods-SoardigiTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = development.SoardigiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soardigi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Soardigi";
+			};
+			name = Release;
+		};
+		8B36DB3428FD7C820035BA59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF13F8B4D2C9A28DA01C0AC /* Pods-Soardigi-SoardigiUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = development.SoardigiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Soardigi;
+			};
+			name = Debug;
+		};
+		8B36DB3528FD7C820035BA59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C78B7E9BDEB2532C9B60C44 /* Pods-Soardigi-SoardigiUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = development.SoardigiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Soardigi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B36DAFE28FD7C7E0035BA59 /* Build configuration list for PBXProject "Soardigi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B36DB2B28FD7C820035BA59 /* Debug */,
+				8B36DB2C28FD7C820035BA59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B36DB2D28FD7C820035BA59 /* Build configuration list for PBXNativeTarget "Soardigi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B36DB2E28FD7C820035BA59 /* Debug */,
+				8B36DB2F28FD7C820035BA59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B36DB3028FD7C820035BA59 /* Build configuration list for PBXNativeTarget "SoardigiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B36DB3128FD7C820035BA59 /* Debug */,
+				8B36DB3228FD7C820035BA59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B36DB3328FD7C820035BA59 /* Build configuration list for PBXNativeTarget "SoardigiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B36DB3428FD7C820035BA59 /* Debug */,
+				8B36DB3528FD7C820035BA59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B36DAFB28FD7C7E0035BA59 /* Project object */;
+}

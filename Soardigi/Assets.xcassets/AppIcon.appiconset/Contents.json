@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "soardigi logo 1024px x 1024px.jpg",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

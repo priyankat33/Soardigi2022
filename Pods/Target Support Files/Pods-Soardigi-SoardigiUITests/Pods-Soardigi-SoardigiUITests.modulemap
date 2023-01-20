@@ -1,0 +1,6 @@
+framework module Pods_Soardigi_SoardigiUITests {
+  umbrella header "Pods-Soardigi-SoardigiUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
