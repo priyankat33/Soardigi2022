@@ -10,6 +10,9 @@ import UIKit
 class HomeViewModel: NSObject {
     var userResponseModel:UserResponseModel?
     var businessCategoryResponseModel:[BusinessCategoryResponseModel] = [BusinessCategoryResponseModel]()
+    var feedModel:[FeedModel] = [FeedModel]()
+    var userSubscriptions:[UserSubscription] = [UserSubscription]()
+    var getSubscription:[GetSubscription] = [GetSubscription]()
     var businessCategoryResponseModel1:[BusinessCategoryResponseModel1] = [BusinessCategoryResponseModel1]()
     var businessModel:[BusinessModel] = [BusinessModel]()
     var businessName:String = ""
@@ -211,6 +214,102 @@ class HomeViewModel: NSObject {
         }
     }
     
+    
+    func getSubscriptions(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            showLoader(status: true)
+           
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/subscription-plans"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(GetSubscriptionMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.getSubscription = response.subscriptions ?? []
+                            onSuccess()
+                            break
+                        default:
+                            onFailure()
+                            break
+                        }
+                    }
+                
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    func getUserSubscriptions(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            showLoader(status: true)
+           
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/user-subscription-get"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(UserSubscriptionMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.userSubscriptions = response.userSubscriptions ?? []
+                            onSuccess()
+                            break
+                        default:
+                            onFailure()
+                            break
+                        }
+                    }
+                
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    func getFeeds(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            showLoader(status: true)
+           
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/brand-feed"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(FeedResponseMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.feedModel = response.feedModel ?? []
+                            onSuccess()
+                            break
+                        default:
+                            onFailure()
+                            break
+                        }
+                    }
+                
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
     
     func getImageWithFrames(id:Int = 0,imageURl:String,waterMark:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender) {

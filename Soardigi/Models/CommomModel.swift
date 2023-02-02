@@ -202,6 +202,56 @@ struct HomeDetailFrameResponseMainModel:Mappable {
     }
 }
 
+
+struct FeedResponseMainModel:Mappable {
+    let status : Bool?
+    var feedModel:[FeedModel]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case feedModel = "feeds"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let feedModel =  try values.decodeIfPresent([FeedModel].self, forKey: .feedModel) else{ return }
+        self.feedModel = feedModel
+    }
+}
+
+struct UserSubscriptionMainModel:Mappable {
+    let status : Bool?
+    var userSubscriptions:[UserSubscription]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case userSubscriptions = "userSubscriptions"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let userSubscriptions =  try values.decodeIfPresent([UserSubscription].self, forKey: .userSubscriptions) else{ return }
+        self.userSubscriptions = userSubscriptions
+    }
+}
+
+
+struct GetSubscriptionMainModel:Mappable {
+    let status : Bool?
+    var subscriptions:[GetSubscription]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case subscriptions = "subscriptions"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let subscriptions =  try values.decodeIfPresent([GetSubscription].self, forKey: .subscriptions) else{ return }
+        self.subscriptions = subscriptions
+    }
+}
+
 struct HomeDetailVideoResponseMainModel:Mappable {
     let status : Bool?
     var frames:[CategoryImagesResponseModel]?
@@ -330,6 +380,66 @@ struct FrameImagesResponseModel:Mappable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         image =   try values.decodeIfPresent(String.self, forKey: .image)
         id =   try values.decodeIfPresent(Int.self, forKey: .id)
+    }
+}
+
+struct UserSubscription:Mappable {
+   
+    let business_name,name,start_date,end_date,p_message,status_message,price: String?
+    let no_of_months:Int?
+    enum CodingKeys: String, CodingKey {
+        case business_name,name,no_of_months,start_date,end_date,p_message,status_message,price
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        business_name =   try values.decodeIfPresent(String.self, forKey: .business_name)
+        name =   try values.decodeIfPresent(String.self, forKey: .name)
+        no_of_months =   try values.decodeIfPresent(Int.self, forKey: .no_of_months)
+        start_date =   try values.decodeIfPresent(String.self, forKey: .start_date)
+        end_date =   try values.decodeIfPresent(String.self, forKey: .end_date)
+        p_message =   try values.decodeIfPresent(String.self, forKey: .p_message)
+        status_message =   try values.decodeIfPresent(String.self, forKey: .status_message)
+        price =   try values.decodeIfPresent(String.self, forKey: .price)
+        
+    }
+}
+
+struct GetSubscription:Mappable {
+   
+    let message,name,price: String?
+    let no_of_months,points:Int?
+    enum CodingKeys: String, CodingKey {
+        case message,name,price,no_of_months,points
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name =   try values.decodeIfPresent(String.self, forKey: .name)
+        message =   try values.decodeIfPresent(String.self, forKey: .message)
+        no_of_months =   try values.decodeIfPresent(Int.self, forKey: .no_of_months)
+        points =   try values.decodeIfPresent(Int.self, forKey: .points)
+        price =   try values.decodeIfPresent(String.self, forKey: .price)
+        
+    }
+}
+
+struct FeedModel:Mappable {
+   
+    let thumbnail,title,youtube_video_link,url: String?
+    let id,likes,type:Int?
+    let hasLiked:Bool?
+    enum CodingKeys: String, CodingKey {
+        case thumbnail,title,likes,id,hasLiked,type,youtube_video_link,url
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        thumbnail =   try values.decodeIfPresent(String.self, forKey: .thumbnail)
+        url =   try values.decodeIfPresent(String.self, forKey: .url)
+        youtube_video_link =   try values.decodeIfPresent(String.self, forKey: .youtube_video_link)
+        title =   try values.decodeIfPresent(String.self, forKey: .title)
+        likes =   try values.decodeIfPresent(Int.self, forKey: .likes)
+        type =   try values.decodeIfPresent(Int.self, forKey: .type)
+        id =   try values.decodeIfPresent(Int.self, forKey: .id)
+        hasLiked =   try values.decodeIfPresent(Bool.self, forKey: .hasLiked)
     }
 }
 

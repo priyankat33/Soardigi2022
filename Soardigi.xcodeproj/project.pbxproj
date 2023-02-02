@@ -31,9 +31,11 @@
 		8B38060E29742A9500C78BC9 /* StaticContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38060D29742A9500C78BC9 /* StaticContentVC.swift */; };
 		8B3806112974565100C78BC9 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3806102974565000C78BC9 /* EditProfileVC.swift */; };
 		8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */; };
+		8B405CCA297C075F0092FB10 /* AccountBussinessListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B405CC9297C075F0092FB10 /* AccountBussinessListVC.swift */; };
 		8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B41DA2029214C0E00CB0F94 /* HomeVC.swift */; };
 		8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */; };
 		8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */; };
+		8B5BE10B2989791400920FB3 /* SubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */; };
 		8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D28942972EB41008D36DA /* SearchHomeVC.swift */; };
 		8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */; };
 		8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */; };
@@ -54,11 +56,15 @@
 		8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */; };
 		8B86671E290044A100AB4C0E /* SoardigiExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86671D290044A100AB4C0E /* SoardigiExtension.swift */; };
 		8B8C6520291F89C00053C36A /* BusinessImageFrameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */; };
+		8B904D17298A6A9700C200D9 /* AppInvokeSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */; };
+		8B904D1A298AB7FF00C200D9 /* BrandFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904D19298AB7FF00C200D9 /* BrandFeedVC.swift */; };
+		8B904D1C298ABD0100C200D9 /* FeedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904D1B298ABD0100C200D9 /* FeedTVC.swift */; };
 		8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E160F296F352A0096D344 /* SettingsVC.swift */; };
 		8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */; };
 		8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */; };
 		8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */; };
 		8BAD1A0C2913EA1F00CD8B60 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A0B2913EA1F00CD8B60 /* HomeViewModel.swift */; };
+		8BB84E57298C3FDF00F3D4AF /* AddSubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB84E56298C3FDF00F3D4AF /* AddSubscriptionVC.swift */; };
 		8BCBD23729000AF100CED2C8 /* SwiftCountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BCBD23629000AF100CED2C8 /* SwiftCountryPicker.bundle */; };
 		8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */; };
 		8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */; };
@@ -114,9 +120,11 @@
 		8B38060D29742A9500C78BC9 /* StaticContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticContentVC.swift; sourceTree = "<group>"; };
 		8B3806102974565000C78BC9 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguageVC.swift; sourceTree = "<group>"; };
+		8B405CC9297C075F0092FB10 /* AccountBussinessListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBussinessListVC.swift; sourceTree = "<group>"; };
 		8B41DA2029214C0E00CB0F94 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessVC.swift; sourceTree = "<group>"; };
 		8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessCategoryVC.swift; sourceTree = "<group>"; };
+		8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionVC.swift; sourceTree = "<group>"; };
 		8B5D28942972EB41008D36DA /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
 		8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
@@ -137,12 +145,16 @@
 		8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiStruct.swift; sourceTree = "<group>"; };
 		8B86671D290044A100AB4C0E /* SoardigiExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiExtension.swift; sourceTree = "<group>"; };
 		8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessImageFrameVC.swift; sourceTree = "<group>"; };
+		8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppInvokeSDK.xcframework; sourceTree = "<group>"; };
+		8B904D19298AB7FF00C200D9 /* BrandFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandFeedVC.swift; sourceTree = "<group>"; };
+		8B904D1B298ABD0100C200D9 /* FeedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTVC.swift; sourceTree = "<group>"; };
 		8B964BDF2940FC9200426078 /* Soardigi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soardigi.entitlements; sourceTree = "<group>"; };
 		8B9E160F296F352A0096D344 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBusinessVC.swift; sourceTree = "<group>"; };
 		8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCategoryCVC.swift; sourceTree = "<group>"; };
 		8BAD1A0B2913EA1F00CD8B60 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8BB84E56298C3FDF00F3D4AF /* AddSubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionVC.swift; sourceTree = "<group>"; };
 		8BCBD23629000AF100CED2C8 /* SwiftCountryPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SwiftCountryPicker.bundle; sourceTree = "<group>"; };
 		8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
 		8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B904D17298A6A9700C200D9 /* AppInvokeSDK.xcframework in Frameworks */,
 				118899D2DE5DDA496EF7399F /* Pods_Soardigi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +228,7 @@
 		8B36DB0528FD7C7E0035BA59 /* Soardigi */ = {
 			isa = PBXGroup;
 			children = (
+				8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */,
 				8B964BDF2940FC9200426078 /* Soardigi.entitlements */,
 				8B7D3E6129005A4F00F4577B /* SoardigiStruct */,
 				8B7D3E5E2900599600F4577B /* Constant */,
@@ -257,6 +271,9 @@
 		8B36DB3628FD9EDC0035BA59 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8B904D18298AB7D400C200D9 /* BrandFeedVC */,
+				8B5BE109298978FC00920FB3 /* SubscriptionVC */,
+				8B405CC8297C07090092FB10 /* AccountBussinessListVC */,
 				8B38061229745E1A00C78BC9 /* PreferredLanguageVC */,
 				8B38060F2974563900C78BC9 /* EditProfileVC */,
 				8B38060C29742A7100C78BC9 /* StaticContentVC */,
@@ -279,6 +296,7 @@
 				8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */,
 				8B9E160F296F352A0096D344 /* SettingsVC.swift */,
 				8B5D28942972EB41008D36DA /* SearchHomeVC.swift */,
+				8BB84E56298C3FDF00F3D4AF /* AddSubscriptionVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -329,6 +347,14 @@
 			path = PreferredLanguageVC;
 			sourceTree = "<group>";
 		};
+		8B405CC8297C07090092FB10 /* AccountBussinessListVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B405CC9297C075F0092FB10 /* AccountBussinessListVC.swift */,
+			);
+			path = AccountBussinessListVC;
+			sourceTree = "<group>";
+		};
 		8B41DA1F29214BF400CB0F94 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +377,14 @@
 				8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */,
 			);
 			path = RequestBusinessCategoryVC;
+			sourceTree = "<group>";
+		};
+		8B5BE109298978FC00920FB3 /* SubscriptionVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */,
+			);
+			path = SubscriptionVC;
 			sourceTree = "<group>";
 		};
 		8B65E48B2901BA6D00E92F98 /* OTPVerificationVC */ = {
@@ -453,6 +487,14 @@
 			path = BusinessImageFrameVC;
 			sourceTree = "<group>";
 		};
+		8B904D18298AB7D400C200D9 /* BrandFeedVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B904D19298AB7FF00C200D9 /* BrandFeedVC.swift */,
+			);
+			path = BrandFeedVC;
+			sourceTree = "<group>";
+		};
 		8BAA823B2922BB9300F9EDA8 /* TabViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */,
+				8B904D1B298ABD0100C200D9 /* FeedTVC.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -626,6 +669,8 @@
 				Base,
 			);
 			mainGroup = 8B36DAFA28FD7C7E0035BA59;
+			packageReferences = (
+			);
 			productRefGroup = 8B36DB0428FD7C7E0035BA59 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -774,6 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B36DB0B28FD7C7E0035BA59 /* ViewController.swift in Sources */,
+				8B904D1C298ABD0100C200D9 /* FeedTVC.swift in Sources */,
 				8B7D3E5D2900591200F4577B /* UserViewModel.swift in Sources */,
 				8B86671E290044A100AB4C0E /* SoardigiExtension.swift in Sources */,
 				8B36DB4528FDA3590035BA59 /* CustomView.swift in Sources */,
@@ -786,8 +832,10 @@
 				8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */,
 				8B7D3E54290058A300F4577B /* ServiceManager.swift in Sources */,
 				8B6B166E296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift in Sources */,
+				8B405CCA297C075F0092FB10 /* AccountBussinessListVC.swift in Sources */,
 				8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */,
 				8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */,
+				8B904D1A298AB7FF00C200D9 /* BrandFeedVC.swift in Sources */,
 				8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */,
 				8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */,
 				8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */,
@@ -800,6 +848,7 @@
 				8BAD1A0C2913EA1F00CD8B60 /* HomeViewModel.swift in Sources */,
 				8B36DB4428FDA3590035BA59 /* CustomLabel.swift in Sources */,
 				8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */,
+				8BB84E57298C3FDF00F3D4AF /* AddSubscriptionVC.swift in Sources */,
 				8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */,
 				8B36DB3928FDA23E0035BA59 /* LoginVC.swift in Sources */,
 				8B36DB4728FDA3590035BA59 /* CustomTextView.swift in Sources */,
@@ -817,6 +866,7 @@
 				8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */,
 				8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */,
 				8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */,
+				8B5BE10B2989791400920FB3 /* SubscriptionVC.swift in Sources */,
 				8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */,
 				8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */,
 			);

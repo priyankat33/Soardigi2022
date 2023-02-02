@@ -13,6 +13,7 @@ target 'Soardigi' do
  pod 'Kingfisher'
  pod 'Alamofire', '~> 4.0'
  pod 'MRCountryPicker'
+ pod 'youtube-ios-player-helper'
   target 'SoardigiTests' do
     inherit! :search_paths
     # Pods for testing

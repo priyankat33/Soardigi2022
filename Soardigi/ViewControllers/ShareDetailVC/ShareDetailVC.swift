@@ -54,7 +54,7 @@ extension ShareDetailVC {
                         }
                         let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
                         vc.fbPageData = self.fbPageData
-                        vc.dataUrl = selectedImageURL
+                        vc.createdImage = imageView.image
                         vc.typeSelected = typeSelected
                         self.present(vc, animated: true, completion: nil)
                     } else {
@@ -93,7 +93,7 @@ extension ShareDetailVC {
                             }
                             let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
                             vc.fbPageData = self.fbPageData
-                            vc.dataUrl = selectedImageURL
+                            vc.createdImage = imageView.image
                             vc.typeSelected = typeSelected
                             self.present(vc, animated: true, completion: nil)
                         } else {

@@ -14,6 +14,7 @@ PODS:
   - KRProgressHUD (3.4.7):
     - KRActivityIndicatorView (= 3.0.7)
   - MRCountryPicker (0.0.8)
+  - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - Kingfisher
   - KRProgressHUD
   - MRCountryPicker
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
@@ -36,6 +38,7 @@ SPEC REPOS:
     - KRActivityIndicatorView
     - KRProgressHUD
     - MRCountryPicker
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -48,7 +51,8 @@ SPEC CHECKSUMS:
   KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
   MRCountryPicker: 1aeea66de25cdef79dce3b91d8ad9db643c1cc01
+  youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 1c31dea72509091b105f9825220a49654f564082
+PODFILE CHECKSUM: 8dc37dc09bef6d5675a2be544ee3d128d00c9267
 
 COCOAPODS: 1.11.3
