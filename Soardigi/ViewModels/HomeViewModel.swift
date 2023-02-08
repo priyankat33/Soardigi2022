@@ -9,9 +9,12 @@ import UIKit
 
 class HomeViewModel: NSObject {
     var userResponseModel:UserResponseModel?
+    var initializePaymentModel:InitializePaymentModel?
     var businessCategoryResponseModel:[BusinessCategoryResponseModel] = [BusinessCategoryResponseModel]()
+    var subscriptionTYpeResponseModel:[SubscriptionTYpeResponseModel] = [SubscriptionTYpeResponseModel]()
     var feedModel:[FeedModel] = [FeedModel]()
     var userSubscriptions:[UserSubscription] = [UserSubscription]()
+    var pointHistory:[PointHistory] = [PointHistory]()
     var getSubscription:[GetSubscription] = [GetSubscription]()
     var businessCategoryResponseModel1:[BusinessCategoryResponseModel1] = [BusinessCategoryResponseModel1]()
     var businessModel:[BusinessModel] = [BusinessModel]()
@@ -28,7 +31,7 @@ class HomeViewModel: NSObject {
     func getLanguageList(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
@@ -60,7 +63,7 @@ class HomeViewModel: NSObject {
     func getPreferLanguage(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL  + "api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     
                     guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
@@ -92,7 +95,7 @@ class HomeViewModel: NSObject {
     func userLogout(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/auth/v1/logout", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL +  "api/auth/v1/logout", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader(status: false)
                     guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
@@ -123,7 +126,7 @@ class HomeViewModel: NSObject {
     func getUserProfile(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/auth/v1/user", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/auth/v1/user", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(GetUserResponseMainModel.self) else{return}
@@ -152,7 +155,7 @@ class HomeViewModel: NSObject {
     func getMainHomeData(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kHomePage, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kHomePage, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(HomeResponseMainModel.self) else{return}
@@ -186,7 +189,7 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
            
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/business-frame-get"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/business-frame-get"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 
                     DispatchQueue.main.async {
                         showLoader()
@@ -219,7 +222,7 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
            
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/subscription-plans"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/subscription-plans"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 
                     DispatchQueue.main.async {
                         showLoader()
@@ -251,7 +254,7 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
            
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/user-subscription-get"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/user-subscription-get"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 
                     DispatchQueue.main.async {
                         showLoader()
@@ -279,11 +282,45 @@ class HomeViewModel: NSObject {
         }
     }
     
+    
+    func getPointHistory(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            showLoader(status: true)
+           
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/user-point-histories"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(PointHistoryMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.pointHistory = response.pointHistory ?? []
+                            onSuccess()
+                            break
+                        default:
+                            onFailure()
+                            break
+                        }
+                    }
+                
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    
     func getFeeds(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
            
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/brand-feed"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/brand-feed"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 
                     DispatchQueue.main.async {
                         showLoader()
@@ -315,7 +352,7 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
            
-            ServerManager.shared.httpGet(request:  "http://stgapi.soardigi.in/api/business-frame-first/64697505ab8add3aa07f761321d06014?frame=\(String(id))&watermark=\(0)&index=\(imageURl)"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpGet(request:  baseURL + "api/business-frame-first/64697505ab8add3aa07f761321d06014?frame=\(String(id))&watermark=\(0)&index=\(imageURl)"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 
                     DispatchQueue.main.async {
                         showLoader()
@@ -348,7 +385,7 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
             let params:[String:Any] = ["category":id]
-            ServerManager.shared.httpPost(request: type == 0 ? "http://stgapi.soardigi.in/api/v1/category-images" : "http://stgapi.soardigi.in/api/v1/category-videos" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: type == 0 ?  baseURL +  "api/v1/category-images" :  baseURL + "api/v1/category-videos" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 if type == 0 {
                     DispatchQueue.main.async {
                         showLoader()
@@ -399,7 +436,7 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
         
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/image-frame-get?template=\(id)" , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/image-frame-get?template=\(id)" , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(BusinessFrameResponseMainModel.self) else{return}
@@ -434,7 +471,7 @@ class HomeViewModel: NSObject {
            
             let params:[String:Any] = ["business":businessId, "frames" :convertToJSONString(value: array) ?? ""]
             
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/save-business-frame" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/save-business-frame" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(SaveBusinessFrameResponseMainModel.self) else{return}
@@ -468,7 +505,7 @@ class HomeViewModel: NSObject {
             
             let params:[String:Any] = ["search":search]
             
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/business-category" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/business-category" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(BusinessCategoryResponseMainModel.self) else{return}
@@ -505,7 +542,7 @@ class HomeViewModel: NSObject {
             
             let params:[String:Any] = ["watermark":isWaterMark]
             
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/auth/v1/setting" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request: baseURL + "api/auth/v1/setting" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     
                     guard let response = responseData.decoder(BusinessCategoryResponseMainModel1.self) else{return}
@@ -541,7 +578,7 @@ class HomeViewModel: NSObject {
             
             let params:[String:Any] = ["search":search]
             
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/category-search" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/category-search" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     
                     guard let response = responseData.decoder(BusinessCategoryResponseMainModel1.self) else{return}
@@ -575,7 +612,7 @@ class HomeViewModel: NSObject {
             showLoader(status: true)
             
            
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/business-get" , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/business-get" , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(CategoryPickerMainModel.self) else{return}
@@ -611,8 +648,8 @@ class HomeViewModel: NSObject {
             
             let params:[String:Any] = ["languages":convertToJSONString(value: value) ?? ""]
             
-            // http://stgapi.soardigi.in/api/v1/language-save
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kLanguageSave, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kLanguageSave, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
@@ -640,15 +677,147 @@ class HomeViewModel: NSObject {
     }
     
     
+    func applyPackage(business:Int = 0,code:String = "",plan_id:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            let params:[String:Any] = ["business":business,"code":code,"subscription_id":plan_id]
+            
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/use-code", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(SubscriptionTypeResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        
+                        print(response)
+                        onSuccess()
+                        break
+                    default:
+                        
+                        
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
+    func applySubscriptionType(business:Int = 0,payMethod:Int = 0,plan_id:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            let params:[String:Any] = ["business":business,"payMethod":payMethod,"plan_id":plan_id]
+            
+           
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/user-subscription", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(SubscriptionTypeResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        self.subscriptionTYpeResponseModel = response.userSubscriptions ?? []
+                        print(response)
+                        onSuccess()
+                        break
+                    default:
+                        
+                        
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
+    func likeDislike(business:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            let params:[String:Any] = ["brand_id":business]
+            
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/brand-feed/likes", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(SubscriptionTypeResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        onSuccess()
+                        break
+                    default:
+                        
+                        
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
+    func initializePayment(business:Int = 0,amount:String = "0",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            let params:[String:Any] = ["business":business,"amount":amount]
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/initiate-payment", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(InitializePaymentModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        self.initializePaymentModel = response
+                        print(response)
+                        onSuccess()
+                        break
+                    default:
+                        
+                        
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
     func saveCategory(categoryName:String,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
            
             let params:[String:Any] = ["name":categoryName]
             
-            // http://stgapi.soardigi.in/api/v1/language-save
-            //http://stgapi.soardigi.in/api/v1/change-business
-            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kChangeBusiness, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+            
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/" + API.kChangeBusiness, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
@@ -716,7 +885,7 @@ class HomeViewModel: NSObject {
                }
                 let params:[String:Any] = ["category_id":category_id,"name":name,"email":email,"code":code,"mobile_no":mobile_no,"alt_mobile_no":alt_mobile_no,"website":website,"address":address,"city":city]
                 
-                ServerManager.shared.httpUpload(request:  "http://stgapi.soardigi.in/api/v1/business-save" , params: params,headers: ServerManager.shared.apiHeaders,multipartObject: array, successHandler: { (responseData:Data,status)  in
+                ServerManager.shared.httpUpload(request:  baseURL + "api/v1/business-save" , params: params,headers: ServerManager.shared.apiHeaders,multipartObject: array, successHandler: { (responseData:Data,status)  in
                     DispatchQueue.main.async {
                         showLoader()
                         guard let response = responseData.decoder(BusinessSaveResponseMainModel.self) else{return}

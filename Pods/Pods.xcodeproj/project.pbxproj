@@ -17,6 +17,7 @@
 				A70BE93A8795B8773D386E650E8F5550 /* PBXTargetDependency */,
 			);
 			name = FBSDKLoginKit;
+			productName = FBSDKLoginKit;
 		};
 		28907903AF6DD0AD321D92CD660E7E23 /* FBSDKCoreKit */ = {
 			isa = PBXAggregateTarget;
@@ -29,6 +30,7 @@
 				BC5728CD1A2D01870847906B31F91543 /* PBXTargetDependency */,
 			);
 			name = FBSDKCoreKit;
+			productName = FBSDKCoreKit;
 		};
 		479BDBD165CD08E2159181E58CD2078F /* FBAEMKit */ = {
 			isa = PBXAggregateTarget;
@@ -40,6 +42,7 @@
 				AB0B239AFCEFD446217E6F8092499B98 /* PBXTargetDependency */,
 			);
 			name = FBAEMKit;
+			productName = FBAEMKit;
 		};
 		8EA62FEAB23070050EFD4D4508D659E5 /* FBSDKCoreKit_Basics */ = {
 			isa = PBXAggregateTarget;
@@ -50,6 +53,7 @@
 			dependencies = (
 			);
 			name = FBSDKCoreKit_Basics;
+			productName = FBSDKCoreKit_Basics;
 		};
 /* End PBXAggregateTarget section */
 
@@ -65,7 +69,7 @@
 		06525E171E3E04CCC58ADFE9BAB77CC3 /* Pods-SoardigiTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 224CD0A0DEB99C909C3B93BFF431D833 /* Pods-SoardigiTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082EDC820D76DF95C71A5018112DE512 /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE854C21C49402EC7533275DA6C6328 /* UIButton+Kingfisher.swift */; };
 		08B185E08278AE7EC55F8BBB19693AC5 /* IQKeyboardManager+OrientationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875768293F1B6C58050E5A82EC0FB5D /* IQKeyboardManager+OrientationNotification.swift */; };
-		08E06C696103054C4B32302B72F87F9B /* youtube-ios-player-helper-Assets in Resources */ = {isa = PBXBuildFile; fileRef = D674200BB0575198145B5455CF13275F /* youtube-ios-player-helper-Assets */; };
+		08E06C696103054C4B32302B72F87F9B /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D674200BB0575198145B5455CF13275F /* Assets.bundle */; };
 		0ED8FBFD9A86D21BF69137EC9350E575 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E75BEDCCC21863F0179431E044E635A /* SessionDelegate.swift */; };
 		0F94B2449CA1ADA76AE79C0BF6A08549 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9B432F24F59B85AEEB063FF42A1D0 /* IQKeyboardManagerConstantsInternal.swift */; };
 		1185A2B40E14F2FCBC761FC99777CAD8 /* ExtensionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CB398F0C2E87741D31536AA9AE0C07 /* ExtensionHelpers.swift */; };
@@ -90,7 +94,7 @@
 		243D7CFE1D56ED80ACB2B3E71B4CB603 /* AuthenticationChallengeResponsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7BF7CF52BDA89692A9D0DE7DE467F /* AuthenticationChallengeResponsable.swift */; };
 		24EC44FF102C2635A476CEF7567F89DA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236D5B2E7F86846A8200986FDAB98E70 /* IQPreviousNextView.swift */; };
 		25FC036BEA33CAB5D80F5A41644535D3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A11A203901D96C76D52B3916C644D8 /* Storage.swift */; };
-		271F3CC95DC9A09D67740084C62F9CA6 /* MRCountryPicker-SwiftCountryPicker in Resources */ = {isa = PBXBuildFile; fileRef = D08DEF9823C7443950C32F5D050A59B7 /* MRCountryPicker-SwiftCountryPicker */; };
+		271F3CC95DC9A09D67740084C62F9CA6 /* SwiftCountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D08DEF9823C7443950C32F5D050A59B7 /* SwiftCountryPicker.bundle */; };
 		29FF13E23FD52E46D30530549410AD7C /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65000743E564F48D5C5C9617A7D2ED /* ImageTransition.swift */; };
 		2BE89C24BFD3FB663E37C607C289B3B6 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5823E9BB217914B22F659956A001E /* RedirectHandler.swift */; };
 		2CA0B3B43A972DF3AD79F58092E3403E /* IQKeyboardManager+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2720ED5862BE28EC459579F6837C88 /* IQKeyboardManager+Internal.swift */; };
@@ -443,7 +447,7 @@
 		18B8BB7654181B9046C07A109E153AA9 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image/Image.swift; sourceTree = "<group>"; };
 		18BC0BCC5AEEBE56A4EE2FA0BCE08B4A /* IQKeyboardManager+Debug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQKeyboardManager+Debug.swift"; path = "IQKeyboardManagerSwift/IQKeyboardManager+Debug.swift"; sourceTree = "<group>"; };
 		1C33CB84138510317C9CFF8E19C47C23 /* KRProgressHUD */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KRProgressHUD; path = KRProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CCBFDFB348140BEC6928BBD438E8CD8 /* FBAEMKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = FBAEMKit.xcframework; path = XCFrameworks/FBAEMKit.xcframework; sourceTree = "<group>"; };
+		1CCBFDFB348140BEC6928BBD438E8CD8 /* FBAEMKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = FBAEMKit.xcframework; path = XCFrameworks/FBAEMKit.xcframework; sourceTree = "<group>"; };
 		2110B83BF0AF70BD20B061ECEC97D7D9 /* Delegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = Sources/Utility/Delegate.swift; sourceTree = "<group>"; };
 		218468D9A89C4DD32FD5029465C3F3A5 /* Pods-Soardigi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Soardigi.modulemap"; sourceTree = "<group>"; };
 		21D447C8ACD39FE0888AD0538E42F36A /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kingfisher.modulemap; sourceTree = "<group>"; };
@@ -465,7 +469,7 @@
 		315D743F959F6214A8CECA9B87A1B4F3 /* MRCountryPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MRCountryPicker.debug.xcconfig; sourceTree = "<group>"; };
 		31E8B3D115DF4CF16AEEFAB12361AB8F /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		33D51FA6FCEF794A46F0DA44FF8A1B78 /* Pods-Soardigi-SoardigiUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Soardigi-SoardigiUITests-umbrella.h"; sourceTree = "<group>"; };
-		34015B970E2BC2CCD54F2DF372EA2B1C /* FBSDKCoreKit_Basics.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = FBSDKCoreKit_Basics.xcframework; path = XCFrameworks/FBSDKCoreKit_Basics.xcframework; sourceTree = "<group>"; };
+		34015B970E2BC2CCD54F2DF372EA2B1C /* FBSDKCoreKit_Basics.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = FBSDKCoreKit_Basics.xcframework; path = XCFrameworks/FBSDKCoreKit_Basics.xcframework; sourceTree = "<group>"; };
 		35229D48408F5CD6B97E136C4C0C37E4 /* IQKeyboardManagerSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManagerSwift.debug.xcconfig; sourceTree = "<group>"; };
 		3591C41A92A850E536D93C8D6333441D /* ImageProgressive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProgressive.swift; path = Sources/Image/ImageProgressive.swift; sourceTree = "<group>"; };
 		36DD8278444D179F5921D98D76F8944A /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/General/ImageSource/Resource.swift; sourceTree = "<group>"; };
@@ -511,7 +515,7 @@
 		61F3955FE817D6E1A6C32E0983198C92 /* Pods-SoardigiTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SoardigiTests.modulemap"; sourceTree = "<group>"; };
 		62CB398F0C2E87741D31536AA9AE0C07 /* ExtensionHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionHelpers.swift; path = Sources/Utility/ExtensionHelpers.swift; sourceTree = "<group>"; };
 		6617CC6B5837A185BCBBE514E6EC0D5A /* SwiftCountryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftCountryView.swift; path = MRCountryPicker/Classes/SwiftCountryView.swift; sourceTree = "<group>"; };
-		66E05200B51F42299DACB8182DA008EF /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "YTPlayerView-iframe-player.html"; path = "Sources/Assets/YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
+		66E05200B51F42299DACB8182DA008EF /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "YTPlayerView-iframe-player.html"; path = "Sources/Assets/YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
 		6718B74A10C5F6284087474257CED959 /* InnerKRProgressHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InnerKRProgressHUD.swift; path = KRProgressHUD/Classes/InnerKRProgressHUD.swift; sourceTree = "<group>"; };
 		67C15F24D330EC0A8F5B7CB77AFE8A4B /* KFAnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFAnimatedImage.swift; path = Sources/SwiftUI/KFAnimatedImage.swift; sourceTree = "<group>"; };
 		68066CBD12059C91E0D7E7077C39B6C7 /* RetryStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryStrategy.swift; path = Sources/Networking/RetryStrategy.swift; sourceTree = "<group>"; };
@@ -520,7 +524,7 @@
 		6E75BEDCCC21863F0179431E044E635A /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Sources/Networking/SessionDelegate.swift; sourceTree = "<group>"; };
 		6ECEACC325B79DD9DE24455B16DF2CA0 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		6F4FEEEE5913E85ABDB8A881C4708516 /* KFImageOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFImageOptions.swift; path = Sources/SwiftUI/KFImageOptions.swift; sourceTree = "<group>"; };
-		6FA092B0F6874123F8D0DFC5751D186A /* Images */ = {isa = PBXFileReference; includeInIndex = 1; name = Images; path = MRCountryPicker/Assets/SwiftCountryPicker.bundle/Images; sourceTree = "<group>"; };
+		6FA092B0F6874123F8D0DFC5751D186A /* Images */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Images; path = MRCountryPicker/Assets/SwiftCountryPicker.bundle/Images; sourceTree = "<group>"; };
 		708105F16804D594F9FC6A254B922931 /* Pods-SoardigiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SoardigiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		70FC16E3E14B3C980B15F32C9690773F /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		71CDA454EDD8C2F5302111305DF2BF35 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/General/KingfisherManager.swift; sourceTree = "<group>"; };
@@ -557,7 +561,7 @@
 		884FAAD445F3EF1EB92625933BB71367 /* KRActivityIndicatorView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KRActivityIndicatorView-Info.plist"; sourceTree = "<group>"; };
 		8959A2573DD6EA8215F803CD53EE593D /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		8E7D0EA1239EC0C2CD516892F968F9E0 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUITextFieldView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
-		8E898803A54F04FF6FEEC731CBBFC6FF /* FBSDKLoginKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = FBSDKLoginKit.xcframework; path = XCFrameworks/FBSDKLoginKit.xcframework; sourceTree = "<group>"; };
+		8E898803A54F04FF6FEEC731CBBFC6FF /* FBSDKLoginKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = FBSDKLoginKit.xcframework; path = XCFrameworks/FBSDKLoginKit.xcframework; sourceTree = "<group>"; };
 		8F0ADE0A3CEB49C6F4128B4841A14C34 /* GraphicsContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GraphicsContext.swift; path = Sources/Image/GraphicsContext.swift; sourceTree = "<group>"; };
 		8F5D7CEB6ACEE5525C96F307A0D2ABDE /* MRCountryPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MRCountryPicker.release.xcconfig; sourceTree = "<group>"; };
 		9258ECC23A4C8B0274C7A6DF69DDFE95 /* KRActivityIndicatorView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KRActivityIndicatorView; path = KRActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -569,10 +573,10 @@
 		9A807DB97D4E7D0EB5C4FA1990F11853 /* MRCountryPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MRCountryPicker-dummy.m"; sourceTree = "<group>"; };
 		9B408C6972C7FF672771242D1DB170D5 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		9D269582E704CAE1B80D4CA8FDE10902 /* Kingfisher-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kingfisher-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DEE733EF92478F41831801D3D13C998 /* TVMonogramView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TVMonogramView+Kingfisher.swift"; path = "Sources/Extensions/TVMonogramView+Kingfisher.swift"; sourceTree = "<group>"; };
 		9E904816AECE595567555CF586D41963 /* Pods-Soardigi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Soardigi-umbrella.h"; sourceTree = "<group>"; };
-		9F0021A95F7460A0DD6D500A1E82828F /* FBSDKCoreKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = FBSDKCoreKit.xcframework; path = XCFrameworks/FBSDKCoreKit.xcframework; sourceTree = "<group>"; };
+		9F0021A95F7460A0DD6D500A1E82828F /* FBSDKCoreKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = FBSDKCoreKit.xcframework; path = XCFrameworks/FBSDKCoreKit.xcframework; sourceTree = "<group>"; };
 		A227187862FA773B6EDAE6CA9308CC95 /* Pods-Soardigi-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Soardigi-acknowledgements.plist"; sourceTree = "<group>"; };
 		A3139C7C780C8E5DC48273D4A82DF11F /* SwiftCountryPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftCountryPicker.swift; path = MRCountryPicker/Classes/SwiftCountryPicker.swift; sourceTree = "<group>"; };
 		A6E30BB3480364CFCFBB9730C4C190B2 /* SessionDataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDataTask.swift; path = Sources/Networking/SessionDataTask.swift; sourceTree = "<group>"; };
@@ -591,7 +595,7 @@
 		B569C788F488D08426D5469FBC319651 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		B5E154A43A586E14AE9F83DC5EE1EBBF /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
 		B69784669C38CDDF1EAA01BF74AB7730 /* ResourceBundle-Assets-youtube-ios-player-helper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Assets-youtube-ios-player-helper-Info.plist"; sourceTree = "<group>"; };
-		B6C5235F4995777B19971C8C75060371 /* Data */ = {isa = PBXFileReference; includeInIndex = 1; name = Data; path = MRCountryPicker/Assets/SwiftCountryPicker.bundle/Data; sourceTree = "<group>"; };
+		B6C5235F4995777B19971C8C75060371 /* Data */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Data; path = MRCountryPicker/Assets/SwiftCountryPicker.bundle/Data; sourceTree = "<group>"; };
 		B74775A18DBB00447FC04668B7E6AA23 /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
 		BA26CA590D586360B91AC943D1CC5153 /* Pods-SoardigiTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SoardigiTests"; path = Pods_SoardigiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB578E383FCDE2643A4609873BAE3CB0 /* KFImageProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFImageProtocol.swift; path = Sources/SwiftUI/KFImageProtocol.swift; sourceTree = "<group>"; };
@@ -615,14 +619,14 @@
 		CEAC475F77B332E9CAF1BA96D13AE64A /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
 		CEFF7692BB00C2EE3DCF0CFC73D97B86 /* Pods-Soardigi-SoardigiUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Soardigi-SoardigiUITests-dummy.m"; sourceTree = "<group>"; };
 		D08216D0D0AC3CD697DE3FACAF15EC36 /* Pods-Soardigi-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Soardigi-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D08DEF9823C7443950C32F5D050A59B7 /* MRCountryPicker-SwiftCountryPicker */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "MRCountryPicker-SwiftCountryPicker"; path = SwiftCountryPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08DEF9823C7443950C32F5D050A59B7 /* SwiftCountryPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCountryPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21CD5ADE8CDC355526FFB6305D7B09E /* Pods-Soardigi-SoardigiUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Soardigi-SoardigiUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D299774BDEF15C4F95B4B78D22CEE7CB /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		D4422AB5ED9BACB828E070B7A2CF72B4 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		D475D94CDC3CE367748708964DADAD1F /* MRCountryPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MRCountryPicker.modulemap; sourceTree = "<group>"; };
 		D4F7527F5A62F3AE8ED3C29E6DBBF237 /* MemoryStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryStorage.swift; path = Sources/Cache/MemoryStorage.swift; sourceTree = "<group>"; };
 		D5800C19CFA4B405B28F662126D0E039 /* Pods-SoardigiTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SoardigiTests-dummy.m"; sourceTree = "<group>"; };
-		D674200BB0575198145B5455CF13275F /* youtube-ios-player-helper-Assets */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "youtube-ios-player-helper-Assets"; path = Assets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		D674200BB0575198145B5455CF13275F /* Assets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Assets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73AC6819FB7EE7AC404CBF12B3B0833 /* NSButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSButton+Kingfisher.swift"; path = "Sources/Extensions/NSButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		DC020E8DC1E157221572A8B4F7FB9F70 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		DD853BD7507F38CD2596218F95902F87 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
@@ -832,7 +836,6 @@
 				137B344355B3479094D667EEC362142A /* KRActivityIndicatorViewStyle.swift */,
 				212405334197607BAD80B9F935B2C56B /* Support Files */,
 			);
-			name = KRActivityIndicatorView;
 			path = KRActivityIndicatorView;
 			sourceTree = "<group>";
 		};
@@ -864,7 +867,6 @@
 				7C1C0FF304015FF733EC6AA662E57FF2 /* IQUIViewController+Additions.swift */,
 				BEAAEA5E7FA56B9784752821FFB15064 /* Support Files */,
 			);
-			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
@@ -969,7 +971,6 @@
 				2D014AF63BF05687F004258F5D1884F7 /* Validation.swift */,
 				7D8C0AE11E56B7CCF3BCFDF498F8AE4A /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -989,7 +990,6 @@
 				3D49AFA4BD140B1F2624669E0262DD2F /* Resources */,
 				4CBB0C0C4124AC9B636C10DCB7A36BC0 /* Support Files */,
 			);
-			name = "youtube-ios-player-helper";
 			path = "youtube-ios-player-helper";
 			sourceTree = "<group>";
 		};
@@ -1003,7 +1003,6 @@
 				EAEB63739D5E4C4A68C667CAB1F45601 /* KRProgressHUDViewController.swift */,
 				22B5C506C82E5F8817879817345C0432 /* Support Files */,
 			);
-			name = KRProgressHUD;
 			path = KRProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -1045,7 +1044,6 @@
 				F094149FE19066C3EA5F3EA9E969F5E2 /* Frameworks */,
 				B006FE4EF58A3F14C7508DEAF4CE267F /* Support Files */,
 			);
-			name = FBSDKCoreKit;
 			path = FBSDKCoreKit;
 			sourceTree = "<group>";
 		};
@@ -1058,7 +1056,6 @@
 				8B5644D31AA58D3AE0413342861280D0 /* Resources */,
 				FCB5EDA0FC680D906F3881A4FA727C58 /* Support Files */,
 			);
-			name = MRCountryPicker;
 			path = MRCountryPicker;
 			sourceTree = "<group>";
 		};
@@ -1205,7 +1202,6 @@
 				2DCAF95FAD8BE9D829200175CCF43ABC /* WKInterfaceImage+Kingfisher.swift */,
 				C2FD5C38C31D59829E73474B4EDCEBF7 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1242,12 +1238,12 @@
 				9258ECC23A4C8B0274C7A6DF69DDFE95 /* KRActivityIndicatorView */,
 				1C33CB84138510317C9CFF8E19C47C23 /* KRProgressHUD */,
 				0AC2F21FAE2650D92687DC044CBAC096 /* MRCountryPicker */,
-				D08DEF9823C7443950C32F5D050A59B7 /* MRCountryPicker-SwiftCountryPicker */,
+				D08DEF9823C7443950C32F5D050A59B7 /* SwiftCountryPicker.bundle */,
 				3C1FD246498CBB002DD21030E9405677 /* Pods-Soardigi */,
 				8028AA86F519A191C826FC2C828999B3 /* Pods-Soardigi-SoardigiUITests */,
 				BA26CA590D586360B91AC943D1CC5153 /* Pods-SoardigiTests */,
 				8498A1B2C60117E181CA67921DDAE0B6 /* youtube-ios-player-helper */,
-				D674200BB0575198145B5455CF13275F /* youtube-ios-player-helper-Assets */,
+				D674200BB0575198145B5455CF13275F /* Assets.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1258,7 +1254,6 @@
 				B618CE3266C33C88BEAA35472EF9947D /* Frameworks */,
 				205B4ACF2DC0E52D6EB189DE23579AE1 /* Support Files */,
 			);
-			name = FBSDKLoginKit;
 			path = FBSDKLoginKit;
 			sourceTree = "<group>";
 		};
@@ -1268,7 +1263,6 @@
 				95B740EF8EAA384604D9D409C166DBED /* Frameworks */,
 				4EDA0D317B1499EC29111C6A6A7786A6 /* Support Files */,
 			);
-			name = FBAEMKit;
 			path = FBAEMKit;
 			sourceTree = "<group>";
 		};
@@ -1278,7 +1272,6 @@
 				631793689C77C5CD7E1D9AEF8EDD7A11 /* Frameworks */,
 				534AB9521F81F64985AE9FCF2162534E /* Support Files */,
 			);
-			name = FBSDKCoreKit_Basics;
 			path = FBSDKCoreKit_Basics;
 			sourceTree = "<group>";
 		};
@@ -1455,7 +1448,7 @@
 			);
 			name = "youtube-ios-player-helper-Assets";
 			productName = Assets;
-			productReference = D674200BB0575198145B5455CF13275F /* youtube-ios-player-helper-Assets */;
+			productReference = D674200BB0575198145B5455CF13275F /* Assets.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		4F7A1E5A05AF87570E2873C5F725E2CB /* KRActivityIndicatorView */ = {
@@ -1575,7 +1568,7 @@
 			);
 			name = "MRCountryPicker-SwiftCountryPicker";
 			productName = SwiftCountryPicker;
-			productReference = D08DEF9823C7443950C32F5D050A59B7 /* MRCountryPicker-SwiftCountryPicker */;
+			productReference = D08DEF9823C7443950C32F5D050A59B7 /* SwiftCountryPicker.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		E0F4ACD576E0DF18FB85A847C8796A2A /* Pods-SoardigiTests */ = {
@@ -1697,7 +1690,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				271F3CC95DC9A09D67740084C62F9CA6 /* MRCountryPicker-SwiftCountryPicker in Resources */,
+				271F3CC95DC9A09D67740084C62F9CA6 /* SwiftCountryPicker.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1719,7 +1712,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08E06C696103054C4B32302B72F87F9B /* youtube-ios-player-helper-Assets in Resources */,
+				08E06C696103054C4B32302B72F87F9B /* Assets.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2237,6 +2230,7 @@
 			baseConfigurationReference = 315D743F959F6214A8CECA9B87A1B4F3 /* MRCountryPicker.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MRCountryPicker";
+				DEVELOPMENT_TEAM = SV79D9BQY9;
 				IBSC_MODULE = MRCountryPicker;
 				INFOPLIST_FILE = "Target Support Files/MRCountryPicker/ResourceBundle-SwiftCountryPicker-MRCountryPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2929,6 +2923,7 @@
 			baseConfigurationReference = 8F5D7CEB6ACEE5525C96F307A0D2ABDE /* MRCountryPicker.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MRCountryPicker";
+				DEVELOPMENT_TEAM = SV79D9BQY9;
 				IBSC_MODULE = MRCountryPicker;
 				INFOPLIST_FILE = "Target Support Files/MRCountryPicker/ResourceBundle-SwiftCountryPicker-MRCountryPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3179,6 +3174,7 @@
 			baseConfigurationReference = CA66617566E7DD120BD715A08F46F24E /* youtube-ios-player-helper.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/youtube-ios-player-helper";
+				DEVELOPMENT_TEAM = SV79D9BQY9;
 				IBSC_MODULE = youtube_ios_player_helper;
 				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/ResourceBundle-Assets-youtube-ios-player-helper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3195,6 +3191,7 @@
 			baseConfigurationReference = AB680F901D310ACF57E76F805AC02F3F /* youtube-ios-player-helper.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/youtube-ios-player-helper";
+				DEVELOPMENT_TEAM = SV79D9BQY9;
 				IBSC_MODULE = youtube_ios_player_helper;
 				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/ResourceBundle-Assets-youtube-ios-player-helper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

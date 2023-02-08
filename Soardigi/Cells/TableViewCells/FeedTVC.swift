@@ -12,6 +12,7 @@ class FeedTVC: UITableViewCell {
     @IBOutlet weak var dateLBl:UILabel!
     @IBOutlet weak var likeLBl:UILabel!
     @IBOutlet weak var imageViewFeed:UIImageView!
+    @IBOutlet weak var likeImg:UIImageView!
     @IBOutlet weak var likeBtn:UIButton!
     @IBOutlet weak var palyerView:YTPlayerView!
     @IBOutlet weak var readBtn:UIButton!
@@ -35,6 +36,26 @@ class SubscriptionTVC: UITableViewCell {
     @IBOutlet weak var priceLbl:UILabel!
     @IBOutlet weak var dateLbl:UILabel!
     @IBOutlet weak var statusLbl:UILabel!
+    @IBOutlet weak var view:CustomView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
+
+
+class PointHistoryTVC: UITableViewCell {
+    @IBOutlet weak var subscriptionLbl:UILabel!
+    @IBOutlet weak var pointsLbl:UILabel!
+    @IBOutlet weak var dateLbl:UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

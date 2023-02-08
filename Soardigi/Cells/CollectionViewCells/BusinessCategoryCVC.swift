@@ -15,6 +15,8 @@ class BusinessCategoryCVC: UICollectionViewCell {
 
 class BusinessFrameCVC: UICollectionViewCell {
     @IBOutlet weak var imageView:UIImageView!
+    @IBOutlet weak var playImageView:UIImageView!
     @IBOutlet weak var imageViewCheck:UIImageView!
+    @IBOutlet weak var lbl:UILabel!
 }
 

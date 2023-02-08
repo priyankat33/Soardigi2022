@@ -23,7 +23,7 @@ class CreateBusinessVC: UIViewController {
     fileprivate var countryCode : String = "91"
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var imgView:CustomImageView!
-    var imagePicker = UIImagePickerController()
+    fileprivate var imagePicker = UIImagePickerController()
     fileprivate var selectedImageValue:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -49,11 +49,9 @@ enum Server {
     var serverType:String {
         switch self {
         case .live:
-            return "https://trackneptune.com/api/v1/json/i/"
+            return "http://adminpanel.soardigi.in/"
         case .local:
-            return "http://stgapi.soardigi.in/api/auth/v1/"
-            
-        
+            return "http://stgapi.soardigi.in/"
         }
     }
 }
@@ -71,7 +69,7 @@ struct Platform {
     }
 }
 //Base URl for the Application
-public let baseURL  = Server.local.serverType
+public let baseURL  = Server.live.serverType
 
 
 func showAlertWithSingleAction1(sender:UIViewController,message:String = "",onSuccess:@escaping()->Void)  {

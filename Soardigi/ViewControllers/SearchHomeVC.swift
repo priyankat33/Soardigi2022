@@ -68,6 +68,13 @@ extension SearchHomeVC:UICollectionViewDelegate,UICollectionViewDataSource,UICol
 
 extension SearchHomeVC:UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-          loadData(search: searchText)
+        
+        if searchText.count > 2 {
+            loadData(search: searchText)
+            collectionView.isHidden = false
+        } else {
+            collectionView.isHidden = true
+        }
+        
        }
 }

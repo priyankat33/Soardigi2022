@@ -9,7 +9,9 @@ import UIKit
 
 class AddSubscriptionVC: UIViewController {
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
+    @IBOutlet weak var imageView:CustomImageView!
     @IBOutlet weak fileprivate var tableView:UITableView!
+    fileprivate var index:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,21 +42,34 @@ extension AddSubscriptionVC:UITableViewDelegate, UITableViewDataSource {
         cell.priceLbl.text = "₹ \(data.price ?? "") Or \(data.points ?? 0) Points"
         cell.dateLbl.text = "\(data.no_of_months ?? 0) Month"
         cell.statusLbl.text = "\(data.message ?? "")"
-        
+        if indexPath.row == index {
+            cell.view.borderColor = .red
+        } else {
+            cell.view.borderColor = UIColor(named: "White_Dark")!
+        }
+         
         return cell
     }
     
-    @IBAction func onClickLike(_ sender:UIButton) {
-        let value = sender.tag
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        index = indexPath.row
+        tableView.reloadData()
     }
     
-    @IBAction func onClickReadMore(_ sender:UIButton) {
-        let value = sender.tag
-        
-        let data = homeViewModel.feedModel[value]
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "StaticContentVC") as! StaticContentVC
-        vc.urlString = data.url ?? ""
-        vc.heading = data.title ?? ""
-        self.navigationController?.pushViewController(vc, animated: true)
+    @IBAction func onClickSelectPlan(_ sender:UIButton) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "SubscriptionTypeVC") as! SubscriptionTypeVC
+        let data = homeViewModel.getSubscription[index]
+        vc.selectedId = data.id ?? 0
+        vc.amount = data.price ?? "0"
+        vc.points = data.points ?? 0
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func onClickActivatePackage(_ sender:UIButton) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "AddPackageVC") as! AddPackageVC
+        let data = homeViewModel.getSubscription[index]
+        vc.selectedId = data.id ?? 0
+//        vc.amount = data.price ?? "0"
+        self.present(vc, animated: true, completion: nil)
     }
 }

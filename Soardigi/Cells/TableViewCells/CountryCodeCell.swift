@@ -62,6 +62,7 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"CategoryCVC" , for: indexPath) as! CategoryCVC
         let data = categoryImagesResponseModel[indexPath.item]
+        cell.lbl.isHidden = data.is_paid == 1 ? false : true
         cell.imageView.kf.indicatorType = .activity
         cell.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
             switch result {

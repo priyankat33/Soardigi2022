@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		05538BB96D2D9555E4E458EA /* Pods_SoardigiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */; };
-		118899D2DE5DDA496EF7399F /* Pods_Soardigi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */; };
 		339E1939DE780A764178E924 /* Pods_Soardigi_SoardigiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */; };
 		8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */; };
 		8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */; };
@@ -54,11 +53,16 @@
 		8B7D3E5D2900591200F4577B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E5C2900591200F4577B /* UserViewModel.swift */; };
 		8B7D3E60290059A500F4577B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E5F290059A500F4577B /* Constant.swift */; };
 		8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */; };
+		8B80D413298D76C500961092 /* SubscriptionTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80D412298D76C500961092 /* SubscriptionTypeVC.swift */; };
 		8B86671E290044A100AB4C0E /* SoardigiExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86671D290044A100AB4C0E /* SoardigiExtension.swift */; };
+		8B86A5DE2991694000675CFD /* AppInvokeSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */; };
+		8B86A5DF2991694000675CFD /* AppInvokeSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B86A5E12991694800675CFD /* Pods_Soardigi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */; };
+		8B86A5E52991744700675CFD /* AddPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86A5E42991744700675CFD /* AddPackageVC.swift */; };
 		8B8C6520291F89C00053C36A /* BusinessImageFrameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */; };
-		8B904D17298A6A9700C200D9 /* AppInvokeSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */; };
 		8B904D1A298AB7FF00C200D9 /* BrandFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904D19298AB7FF00C200D9 /* BrandFeedVC.swift */; };
 		8B904D1C298ABD0100C200D9 /* FeedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904D1B298ABD0100C200D9 /* FeedTVC.swift */; };
+		8B95BFA1298EC34D004E2CFA /* PointHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95BFA0298EC34D004E2CFA /* PointHistoryVC.swift */; };
 		8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E160F296F352A0096D344 /* SettingsVC.swift */; };
 		8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */; };
 		8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */; };
@@ -69,6 +73,7 @@
 		8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */; };
 		8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */; };
 		8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */; };
+		8BCD6F64298FC7CF008D942D /* NoSubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,20 @@
 			remoteInfo = Soardigi;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8B86A5E02991694000675CFD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B86A5DF2991694000675CFD /* AppInvokeSDK.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C78B7E9BDEB2532C9B60C44 /* Pods-Soardigi-SoardigiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi-SoardigiUITests.release.xcconfig"; path = "Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,11 +162,14 @@
 		8B7D3E5C2900591200F4577B /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		8B7D3E5F290059A500F4577B /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8B7D3E6229005A8700F4577B /* SoardigiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiStruct.swift; sourceTree = "<group>"; };
+		8B80D412298D76C500961092 /* SubscriptionTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTypeVC.swift; sourceTree = "<group>"; };
 		8B86671D290044A100AB4C0E /* SoardigiExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoardigiExtension.swift; sourceTree = "<group>"; };
+		8B86A5E42991744700675CFD /* AddPackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPackageVC.swift; sourceTree = "<group>"; };
 		8B8C651F291F89C00053C36A /* BusinessImageFrameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessImageFrameVC.swift; sourceTree = "<group>"; };
 		8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppInvokeSDK.xcframework; sourceTree = "<group>"; };
 		8B904D19298AB7FF00C200D9 /* BrandFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandFeedVC.swift; sourceTree = "<group>"; };
 		8B904D1B298ABD0100C200D9 /* FeedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTVC.swift; sourceTree = "<group>"; };
+		8B95BFA0298EC34D004E2CFA /* PointHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointHistoryVC.swift; sourceTree = "<group>"; };
 		8B964BDF2940FC9200426078 /* Soardigi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soardigi.entitlements; sourceTree = "<group>"; };
 		8B9E160F296F352A0096D344 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +181,7 @@
 		8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
 		8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 		8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSubscriptionVC.swift; sourceTree = "<group>"; };
 		9A79C2DBEA13D03035BEF33A /* Pods-Soardigi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.debug.xcconfig"; sourceTree = "<group>"; };
 		BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoardigiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E63A4BA819A94A49852CC4E3 /* Pods-Soardigi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.release.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,8 +192,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B904D17298A6A9700C200D9 /* AppInvokeSDK.xcframework in Frameworks */,
-				118899D2DE5DDA496EF7399F /* Pods_Soardigi.framework in Frameworks */,
+				8B86A5E12991694800675CFD /* Pods_Soardigi.framework in Frameworks */,
+				8B86A5DE2991694000675CFD /* AppInvokeSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +294,7 @@
 		8B36DB3628FD9EDC0035BA59 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8B86A5E32991743200675CFD /* AddPackageVC */,
 				8B904D18298AB7D400C200D9 /* BrandFeedVC */,
 				8B5BE109298978FC00920FB3 /* SubscriptionVC */,
 				8B405CC8297C07090092FB10 /* AccountBussinessListVC */,
@@ -297,6 +321,9 @@
 				8B9E160F296F352A0096D344 /* SettingsVC.swift */,
 				8B5D28942972EB41008D36DA /* SearchHomeVC.swift */,
 				8BB84E56298C3FDF00F3D4AF /* AddSubscriptionVC.swift */,
+				8B80D412298D76C500961092 /* SubscriptionTypeVC.swift */,
+				8B95BFA0298EC34D004E2CFA /* PointHistoryVC.swift */,
+				8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -479,6 +506,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		8B86A5E32991743200675CFD /* AddPackageVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B86A5E42991744700675CFD /* AddPackageVC.swift */,
+			);
+			path = AddPackageVC;
+			sourceTree = "<group>";
+		};
 		8B8C651E291F89A80053C36A /* BusinessImageFrameVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +623,7 @@
 				8B36DB0028FD7C7E0035BA59 /* Frameworks */,
 				8B36DB0128FD7C7E0035BA59 /* Resources */,
 				7A702BB37DE1185761E906A0 /* [CP] Embed Pods Frameworks */,
+				8B86A5E02991694000675CFD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -825,6 +861,7 @@
 				8B36DB4528FDA3590035BA59 /* CustomView.swift in Sources */,
 				8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */,
 				8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */,
+				8B80D413298D76C500961092 /* SubscriptionTypeVC.swift in Sources */,
 				8B36DB4328FDA3590035BA59 /* CustomImageView.swift in Sources */,
 				8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */,
 				8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */,
@@ -841,12 +878,14 @@
 				8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */,
 				8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */,
 				8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */,
+				8B86A5E52991744700675CFD /* AddPackageVC.swift in Sources */,
 				8B7D3E60290059A500F4577B /* Constant.swift in Sources */,
 				8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */,
 				8B7D3E53290058A300F4577B /* Mappable.swift in Sources */,
 				8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */,
 				8BAD1A0C2913EA1F00CD8B60 /* HomeViewModel.swift in Sources */,
 				8B36DB4428FDA3590035BA59 /* CustomLabel.swift in Sources */,
+				8BCD6F64298FC7CF008D942D /* NoSubscriptionVC.swift in Sources */,
 				8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */,
 				8BB84E57298C3FDF00F3D4AF /* AddSubscriptionVC.swift in Sources */,
 				8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */,
@@ -867,6 +906,7 @@
 				8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */,
 				8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */,
 				8B5BE10B2989791400920FB3 /* SubscriptionVC.swift in Sources */,
+				8B95BFA1298EC34D004E2CFA /* PointHistoryVC.swift in Sources */,
 				8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */,
 				8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */,
 			);
@@ -1046,11 +1086,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Soardigi/Soardigi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = SV79D9BQY9;
+				DEVELOPMENT_TEAM = SV79D9BQY9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
@@ -1060,6 +1098,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1069,7 +1108,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Soardigi;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1087,11 +1125,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Soardigi/Soardigi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = SV79D9BQY9;
+				DEVELOPMENT_TEAM = SV79D9BQY9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
@@ -1101,6 +1137,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1110,7 +1147,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Soardigi;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

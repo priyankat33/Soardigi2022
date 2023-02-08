@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import AppInvokeSDK
+
 class SubscriptionVC: UIViewController {
-    private let appInvoke = AIHandler()
+    
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var tableView:UITableView!
     override func viewDidLoad() {
@@ -25,17 +25,7 @@ class SubscriptionVC: UIViewController {
         })
     }
     
-    @IBAction func openPaytm(_ sender: UIButton) {
-           
-            let alert = UIAlertController(title: "Environment", message: "Select the server environment in which you want to open paytm.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Staging", style: .default, handler: {[weak self] (action) in
-                self?.hitInitiateTransaction(.staging)
-            }))
-            alert.addAction(UIAlertAction(title: "Production", style: .default, handler: {[weak self] (action) in
-                self?.hitInitiateTransaction(.production)
-            }))
-            self.present(alert, animated: true, completion: nil)
-        }
+
     /*
     // MARK: - Navigation
 
@@ -45,30 +35,10 @@ class SubscriptionVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func hitInitiateTransaction(_ env: AIEnvironment) {
-        self.appInvoke.openPaytmSubscription(merchantId: "", orderId: "", txnToken: "", amount: "", callbackUrl: "", delegate: self, environment: env, urlScheme: "")
-    }
+    
 
 }
-extension SubscriptionVC: AIDelegate {
-    func didFinish(with status: AIPaymentStatus, response: [String : Any]) {
-        print("🔶 Paytm Callback Response: ", response)
-        let alert = UIAlertController(title: "\(status)", message: String(describing: response), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func openPaymentWebVC(_ controller: UIViewController?) {
-        if let vc = controller {
-            DispatchQueue.main.async {[weak self] in
-                self?.present(vc, animated: true, completion: nil)
-            }
-        }
-        self.dismiss(animated: true)
-    }
-}
+
 
 
 extension SubscriptionVC:UITableViewDelegate, UITableViewDataSource {

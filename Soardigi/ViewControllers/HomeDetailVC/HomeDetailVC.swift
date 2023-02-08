@@ -13,6 +13,7 @@ class HomeDetailVC: UIViewController {
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
     var id:String = ""
+    var isPaid:Int = 0
     var horizontalIndex:Int = 0
     fileprivate var  type:Int = 0
     fileprivate var selectedImageURL:String = ""
@@ -46,6 +47,7 @@ class HomeDetailVC: UIViewController {
         homeViewModel.getBusineesHomeImages(type:type,id:id,sender: self, onSuccess: {
             let data = self.homeViewModel.categoryImagesResponseModel[0]
             self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
+            self.isPaid = data.is_paid ?? 0
             self.imageView.kf.indicatorType = .activity
             self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
                 switch result {
@@ -80,96 +82,102 @@ class HomeDetailVC: UIViewController {
     
     @IBAction func onClickDownload(_ sender:UIButton) {
         
-        let frameid = self.homeViewModel.categoryImagesResponseModel1[horizontalIndex].id ?? 0
-        showLoader(status: true)
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        if let url = NSURL(string: "http://stgapi.soardigi.in/api/business-frame-first/\(selectedId)?frame=\(String(frameid))&watermark=\(0)"){
+        if isPaid == 2 {
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "NoSubscriptionVC") as! NoSubscriptionVC
+            
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            let frameid = self.homeViewModel.categoryImagesResponseModel1[horizontalIndex].id ?? 0
+            showLoader(status: true)
+            let config = URLSessionConfiguration.default
+            let session = URLSession(configuration: config)
+            if let url = NSURL(string: baseURL + "api/business-frame-first/\(selectedId)?frame=\(String(frameid))&watermark=\(0)"){
 
-            let task = session.dataTask(with: url as URL, completionHandler: {data, response, error in
+                let task = session.dataTask(with: url as URL, completionHandler: {data, response, error in
 
-                if let err = error {
-                    print("Error: \(err)")
-                    return
-                }
-                showLoader()
-                if let http = response as? HTTPURLResponse {
-                    if http.statusCode == 200 {
-                        if self.type == 1 {
-                            let tempFile = TemporaryMediaFile(withData: data!)
-                                if let asset = tempFile.avAsset {
-                                    print("THE ASSET IS------>\(asset)")
-//                                    self.player = AVPlayer(playerItem:
-//                                    AVPlayerItem(asset: asset)
-                                    
-                                    let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-                                    DispatchQueue.main.async {
-                                        let player = AVPlayer(playerItem:AVPlayerItem(asset: asset))
-                                        let playerViewController = AVPlayerViewController()
-                                        playerViewController.player = player
-                                        self.present(playerViewController, animated: true) {
-                                            playerViewController.player!.play()
-                                        }
-                                    }
-                                }
-                        }
-                        let downloadedImage = UIImage(data: data!)
-                        if  !pageName.isEmpty  && !pageId.isEmpty {
-                            if AccessToken.current?.tokenString != nil {
-                                showLoader(status: true)
-                                let graphRequest
-                                = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":AccessToken.current?.tokenString])
-                                graphRequest.start( completion: { [self] (connection, result, error)-> Void in
-                                    if ((error) != nil)
-                                    {
-                                        print("Error: \(error)")
-                                    }
-                                    else
-                                    {
-                
-                                        let array = ((result as! NSDictionary).value(forKey: "data") as! NSArray)
-                                        if array.count > 0 {
-                                            showLoader()
-                                            for tokens in array {
-                                                let tkn = ((tokens as! NSDictionary).value(forKey: "access_token")) as! String
-                                                let id = ((tokens as! NSDictionary).value(forKey: "id")) as! String
-                                                let name = ((tokens as! NSDictionary).value(forKey: "name")) as! String
-                                                fbPageData.append(FBPageData(name: name, id: id, accessToken: tkn))
-                                            }
-                                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
-                                            vc.fbPageData = self.fbPageData
-                                            vc.createdImage = downloadedImage
-                                            vc.typeSelected = type
-                                            self.present(vc, animated: false, completion: nil)
-                                        } else {
-                                            showLoader()
-                                            showAlertWithSingleAction(sender: self, message: "No page found")
-                                        }
-                
-                                    }
-                
-                                })
-                            }
-                        } else {
-                            DispatchQueue.main.async {
-                                let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
-                                vc.image = downloadedImage
-                                //vc.dataUrl = selectedImageURL
-                            vc.typeSelected = self.type
-                                self.navigationController?.pushViewController(vc, animated: true)
-                            }
-                               
-                        }
-//                        dispatch_async(dispatch_get_main_queue(), {
-//                            //self.testImageView.image = downloadedImage
-//                        })
+                    if let err = error {
+                        print("Error: \(err)")
+                        return
                     }
-                }
-           })
-           task.resume()
+                    showLoader()
+                    if let http = response as? HTTPURLResponse {
+                        if http.statusCode == 200 {
+                            if self.type == 1 {
+    //                            let tempFile = TemporaryMediaFile(withData: data!)
+    //                                if let asset = tempFile.avAsset {
+    //                                    print("THE ASSET IS------>\(asset)")
+    ////                                    self.player = AVPlayer(playerItem:
+    ////                                    AVPlayerItem(asset: asset)
+    //
+    //                                    let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+    //                                    DispatchQueue.main.async {
+    //                                        let player = AVPlayer(playerItem:AVPlayerItem(asset: asset))
+    //                                        let playerViewController = AVPlayerViewController()
+    //                                        playerViewController.player = player
+    //                                        self.present(playerViewController, animated: true) {
+    //                                            playerViewController.player!.play()
+    //                                        }
+    //                                    }
+    //                                }
+                            }
+                            let downloadedImage = UIImage(data: data!)
+                            if  !pageName.isEmpty  && !pageId.isEmpty {
+                                if AccessToken.current?.tokenString != nil {
+                                    showLoader(status: true)
+                                    let graphRequest
+                                    = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":AccessToken.current?.tokenString])
+                                    graphRequest.start( completion: { [self] (connection, result, error)-> Void in
+                                        if ((error) != nil)
+                                        {
+                                            print("Error: \(error)")
+                                        }
+                                        else
+                                        {
+                    
+                                            let array = ((result as! NSDictionary).value(forKey: "data") as! NSArray)
+                                            if array.count > 0 {
+                                                showLoader()
+                                                for tokens in array {
+                                                    let tkn = ((tokens as! NSDictionary).value(forKey: "access_token")) as! String
+                                                    let id = ((tokens as! NSDictionary).value(forKey: "id")) as! String
+                                                    let name = ((tokens as! NSDictionary).value(forKey: "name")) as! String
+                                                    fbPageData.append(FBPageData(name: name, id: id, accessToken: tkn))
+                                                }
+                                                let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
+                                                vc.fbPageData = self.fbPageData
+                                                vc.createdImage = downloadedImage
+                                                vc.typeSelected = type
+                                                self.present(vc, animated: false, completion: nil)
+                                            } else {
+                                                showLoader()
+                                                showAlertWithSingleAction(sender: self, message: "No page found")
+                                            }
+                    
+                                        }
+                    
+                                    })
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
+                                    vc.image = downloadedImage
+                                    //vc.dataUrl = selectedImageURL
+                                vc.typeSelected = self.type
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                   
+                            }
+    //                        dispatch_async(dispatch_get_main_queue(), {
+    //                            //self.testImageView.image = downloadedImage
+    //                        })
+                        }
+                    }
+               })
+               task.resume()
+            }
         }
         
-        //http://stgapi.soardigi.in/api/business-frame-first/64697505ab8add3aa07f761321d06014?frame=\(String(id))&watermark=\(0)&index=\(imageURl)
+        
         
 //        homeViewModel.getImageWithFrames(id: frameid, imageURl: selectedImageURL, waterMark: 0, sender: self, onSuccess: {
 //
@@ -278,7 +286,8 @@ extension HomeDetailVC:UICollectionViewDelegate,UICollectionViewDataSource,UICol
          else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessFrameCVC", for: indexPath) as! BusinessFrameCVC
             let data = homeViewModel.categoryImagesResponseModel[indexPath.row]
-
+             cell.lbl.isHidden = data.is_paid == 1 ? false : true
+             cell.playImageView.isHidden = type == 0 ? true : false
             cell.imageView.kf.indicatorType = .activity
             cell.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
                 switch result {
@@ -311,6 +320,7 @@ extension HomeDetailVC:UICollectionViewDelegate,UICollectionViewDataSource,UICol
     
         let data = homeViewModel.categoryImagesResponseModel[indexPath.row]
         selectedId = data.id ?? ""
+        isPaid = data.is_paid ?? 0
         selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
             imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
                 switch result {

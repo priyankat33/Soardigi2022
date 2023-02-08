@@ -17,6 +17,10 @@ class BrandFeedVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadData()
+    }
+    
+    fileprivate func loadData() {
         homeViewModel.getFeeds(sender: self, onSuccess: {
             self.tableView.reloadData()
         }, onFailure: {
@@ -48,8 +52,13 @@ extension BrandFeedVC:UITableViewDelegate, UITableViewDataSource {
         cell.likeLBl.text = "\(data.likes ?? 0) Likes"
         cell.likeBtn.tag = indexPath.row
         cell.readBtn.tag = indexPath.row
+        cell.likeImg.image = data.hasLiked ?? false ? UIImage(named: "select") : UIImage(named: "unselect")
+        
         if data.type == 1 {
-            cell.palyerView.load(withVideoId: data.youtube_video_link ?? "" )
+            DispatchQueue.main.async {
+                cell.palyerView.load(withVideoId: data.youtube_video_link ?? "" )
+            }
+            
             cell.palyerView.isHidden = false
             cell.imageViewFeed.isHidden = true
         } else {
@@ -71,6 +80,12 @@ extension BrandFeedVC:UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func onClickLike(_ sender:UIButton) {
         let value = sender.tag
+        let data = homeViewModel.feedModel[value]
+        homeViewModel.likeDislike(business: data.id ?? 0, sender: self, onSuccess: {
+            self.loadData()
+        }, onFailure: {
+            
+        })
     }
     
     @IBAction func onClickReadMore(_ sender:UIButton) {

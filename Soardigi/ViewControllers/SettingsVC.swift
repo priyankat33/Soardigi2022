@@ -19,7 +19,7 @@ class SettingsVC: UIViewController {
     
     @IBAction func onClickTerms(_ sender:UIButton) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "StaticContentVC") as! StaticContentVC
-        vc.urlString = "http://stgapi.soardigi.in/api/content/terms-and-conditions"
+        vc.urlString = baseURL + "api/content/terms-and-conditions"
         vc.heading = "Terms & Conitions"
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -34,14 +34,14 @@ class SettingsVC: UIViewController {
     @IBAction func onClickRefund(_ sender:UIButton) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "StaticContentVC") as! StaticContentVC
         vc.heading = "Refund Policy"
-        vc.urlString = "http://stgapi.soardigi.in/api/content/refund-policy"
+        vc.urlString = baseURL + "api/content/refund-policy"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func onClickContactUs(_ sender:UIButton) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "StaticContentVC") as! StaticContentVC
         vc.heading = "Contact Us"
-        vc.urlString = "http://stgapi.soardigi.in/api/content/contact-us"
+        vc.urlString = baseURL + "api/content/contact-us"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

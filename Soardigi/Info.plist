@@ -12,6 +12,14 @@
 				<string>fb622043945913818</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>paytmSoardi71594589016084</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>622043945913818</string>
@@ -19,12 +27,11 @@
 	<string>6acbb7ea3db81118e85524d6dcc7861b</string>
 	<key>FacebookDisplayName</key>
 	<string>Soardigi</string>
-    <key>UIUserInterfaceStyle</key>
-    <string>Dark</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
+		<string>paytm</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
