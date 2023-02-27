@@ -12,7 +12,10 @@ class HomeDetailVC: UIViewController {
     fileprivate var fbPageData:[FBPageData] = [FBPageData]()
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
+    @IBOutlet weak fileprivate var headLbl:UILabel!
     var id:String = ""
+    var subCatId:String = ""
+    var headingName:String = ""
     var isPaid:Int = 0
     var horizontalIndex:Int = 0
     fileprivate var  type:Int = 0
@@ -27,6 +30,7 @@ class HomeDetailVC: UIViewController {
     @IBOutlet weak fileprivate var imgBottomLBl:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        headLbl.text = headingName
         let w1 = self.imageView.bounds.width
         let h1  = CGFloat(1600)/CGFloat(1600) * w1
         DispatchQueue.main.async {
@@ -45,18 +49,38 @@ class HomeDetailVC: UIViewController {
     
     func loadData(type:Int = 0) {
         homeViewModel.getBusineesHomeImages(type:type,id:id,sender: self, onSuccess: {
-            let data = self.homeViewModel.categoryImagesResponseModel[0]
-            self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
-            self.isPaid = data.is_paid ?? 0
-            self.imageView.kf.indicatorType = .activity
-            self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
-                switch result {
-                case .success(let value):
-                    print("Image: \(value.image). Got from: \(value.cacheType)")
-                case .failure(let error):
-                    print("Error: \(error)")
+            if !self.subCatId.isEmpty {
+                let index =  self.homeViewModel.categoryImagesResponseModel.firstIndex{$0.id == self.subCatId}
+                let data =  self.homeViewModel.categoryImagesResponseModel[index ?? 0]
+                self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
+                self.isPaid = data.is_paid ?? 0
+                self.imageView.kf.indicatorType = .activity
+                self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
+                    switch result {
+                    case .success(let value):
+                        print("Image: \(value.image). Got from: \(value.cacheType)")
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
                 }
+            } else {
+                if self.homeViewModel.categoryImagesResponseModel.count > 0 {
+                    let data =  self.homeViewModel.categoryImagesResponseModel[0]
+                    self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
+                    self.isPaid = data.is_paid ?? 0
+                    self.imageView.kf.indicatorType = .activity
+                    self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
+                        switch result {
+                        case .success(let value):
+                            print("Image: \(value.image). Got from: \(value.cacheType)")
+                        case .failure(let error):
+                            print("Error: \(error)")
+                        }
+                    }
+                }
+                
             }
+            
             self.collectionView.reloadData()
         }, onFailure: {
       })

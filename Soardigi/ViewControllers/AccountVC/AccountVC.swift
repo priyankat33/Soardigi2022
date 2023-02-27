@@ -86,7 +86,7 @@ class AccountVC: UIViewController {
     @IBAction func onClickLogout(_ sender:UIButton) {
        showAlertWithTwoActions(sender: self, message: "Are you sure want to logout?", title: "Yes", secondTitle: "No", onSuccess: {
            self.homeViewModel.userLogout(sender: self, onSuccess: {
-               
+               SceneDelegate().logout(self.view)
            }, onFailure: {
                
            })

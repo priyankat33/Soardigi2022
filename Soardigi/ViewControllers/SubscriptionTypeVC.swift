@@ -106,7 +106,7 @@ class SubscriptionTypeVC: UIViewController {
         
         
         if selectedType == 2 {
-            if totalPoints > points {
+            if totalPoints >= points {
                 homeViewModel.applySubscriptionType(business: bussinessId, payMethod: selectedType, plan_id: selectedId, sender: self, onSuccess: {
                     showAlertWithSingleAction1(sender: self, message: "Thanks for Subscription", onSuccess: {
                         self.dismiss(animated: true)
@@ -117,7 +117,9 @@ class SubscriptionTypeVC: UIViewController {
                     })
                 })
             } else {
-                
+                showAlertWithSingleAction1(sender: self, message: "You don't have enough points to subscribe the subscription", onSuccess: {
+                    self.dismiss(animated: true)
+                })
             }
             
         } else {
@@ -171,9 +173,23 @@ class SubscriptionTypeVC: UIViewController {
 }
 
 extension SubscriptionTypeVC:CategoryControllerDelegate {
-    func selectedCategory(businessName: String, categoryName: String, id: Int) {
+    func selectedCategory(businessName: String, categoryName: String, id: Int, thumbnail: String) {
         
+        self.bussinessLBL.text = businessName
+        self.bussinessId = id
+        self.categoryLBL.text = categoryName
+        self.imageView.kf.indicatorType = .activity
+        self.imageView.kf.setImage(with: URL(string: thumbnail), placeholder: nil, options: nil) { result in
+            switch result {
+            case .success(let value):
+                print("Image: \(value.image). Got from: \(value.cacheType)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
+    
+   
 }
 extension SubscriptionTypeVC:UIPopoverPresentationControllerDelegate{
     

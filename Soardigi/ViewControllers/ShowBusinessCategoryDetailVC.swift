@@ -8,12 +8,23 @@
 import UIKit
 
 class ShowBusinessCategoryDetailVC: UIViewController, CategoryControllerDelegate {
-    func selectedCategory(businessName: String, categoryName: String, id: Int) {
-        
+    fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
+    func selectedCategory(businessName: String, categoryName: String, id: Int, thumbnail: String) {
+        self.id = id
+        bussinessLBL.text = businessName
+        categoryLBL.text = categoryName
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: thumbnail), placeholder: nil, options: nil) { result in
+            switch result {
+            case .success(let value):
+                print("Image: \(value.image). Got from: \(value.cacheType)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
-    
-    
-    var businessName:String = ""
+    var id:Int = 0
+     var businessName:String = ""
     var categoryName:String = ""
     var businessImage:String = ""
     @IBOutlet weak var bussinessLBL:UILabel!
@@ -36,6 +47,17 @@ class ShowBusinessCategoryDetailVC: UIViewController, CategoryControllerDelegate
     }
     
 
+    @IBAction func onClickUpdate(_ sender: UIButton) {
+        
+        homeViewModel.updateHomeBusinessData(id:id,sender: self, onSuccess: {
+            showAlertWithSingleAction1(sender: self, message: "Bussiness updated successfully", onSuccess: {
+                self.dismiss(animated: true)
+            })
+        }, onFailure: {
+            
+        })
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -54,6 +76,8 @@ class ShowBusinessCategoryDetailVC: UIViewController, CategoryControllerDelegate
             self.showCategories(controller: controller, sourceView:souceView )
         }
     }
+    
+    
     fileprivate func showCategories(controller:BusinessCategoryPickerVC, sourceView:UIButton) {
         if let popoverController = controller.popoverPresentationController {
             popoverController.sourceView = sourceView
@@ -64,6 +88,8 @@ class ShowBusinessCategoryDetailVC: UIViewController, CategoryControllerDelegate
             controller.preferredContentSize = CGSize(width: width, height: height)
         }
     }
+    
+    
 }
 
 extension ShowBusinessCategoryDetailVC:UIPopoverPresentationControllerDelegate{

@@ -8,7 +8,20 @@
 import UIKit
 import Alamofire
 class CreateBusinessVC: UIViewController {
+    @IBOutlet weak var viewheight: NSLayoutConstraint!
+    var catName:String = ""
+    var catThumb:String = ""
+    var isImageSelected:Bool = false
+    var bussineeName:String = ""
+    var emailId:String = ""
+    var phoneNumber:String = ""
+    var altPhoneNumber:String = ""
+    var website:String = ""
+    var address:String = ""
+    var city:String = ""
+    var thumbnail:String = ""
     @IBOutlet weak fileprivate var businessNameTF:CustomTextField!
+    @IBOutlet weak fileprivate var cateView:UIView!
     @IBOutlet weak fileprivate var emailTF:CustomTextField!
     @IBOutlet weak fileprivate var mobileTF:CustomTextField!
     @IBOutlet weak fileprivate var phoneTF:CustomTextField!
@@ -17,18 +30,59 @@ class CreateBusinessVC: UIViewController {
     @IBOutlet weak fileprivate var addressTF:CustomTextField!
     @IBOutlet weak fileprivate var cityTF:CustomTextField!
     @IBOutlet weak fileprivate var headingLBL:UILabel!
+    @IBOutlet weak fileprivate var catLBL:UILabel!
     @IBOutlet weak fileprivate var countryFlag:UIImageView!
     var heading:String = ""
     var id:Int = 0
+    var businessId:Int = 0
     fileprivate var countryCode : String = "91"
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var imgView:CustomImageView!
+    @IBOutlet weak fileprivate var catimgView:UIImageView!
     fileprivate var imagePicker = UIImagePickerController()
     fileprivate var selectedImageValue:Bool = false
+    var isFromEdit:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        headingLBL.text = "Create Business - \(heading)"
         imagePicker.delegate = self
+        if isFromEdit {
+            cateView.isHidden = false
+            viewheight.constant = 160.0
+            catLBL.text = catName
+            catimgView.kf.indicatorType = .activity
+            catimgView.kf.setImage(with: URL(string: catThumb), placeholder: nil, options: nil) { result in
+                switch result {
+                case .success(let value):
+                    print("Image: \(value.image). Got from: \(value.cacheType)")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+            imgView.kf.indicatorType = .activity
+            imgView.kf.setImage(with: URL(string: thumbnail), placeholder: nil, options: nil) { result in
+                switch result {
+                case .success(let value):
+                    print("Image: \(value.image). Got from: \(value.cacheType)")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+            businessNameTF.text = heading
+            emailTF.text = emailId
+            phoneTF.text = phoneNumber
+            altMobileTF.text = altPhoneNumber
+            websiteTF.text = website
+            addressTF.text = address
+            cityTF.text = city
+            headingLBL.text = "Edit Business - \(heading)"
+            
+            } else {
+                cateView.isHidden = true
+                viewheight.constant = 0.0
+            headingLBL.text = "Create Business - \(heading)"
+            
+        }
+       
         // Do any additional setup after loading the view.
     }
     /*
@@ -41,19 +95,57 @@ class CreateBusinessVC: UIViewController {
     }
     */
     
+    @IBAction func onClickCategory(_ sender:UIButton) {
+        
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "SelectBusinessVC") as! SelectBusinessVC
+        vc.isFromEdit = true
+        vc.callback = { name, id, catThumb in
+            self.catLBL.text = name
+            self.id = id
+            self.catimgView.kf.indicatorType = .activity
+            self.catimgView.kf.setImage(with: URL(string: catThumb), placeholder: nil, options: nil) { result in
+                switch result {
+                case .success(let value):
+                    print("Image: \(value.image). Got from: \(value.cacheType)")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func onClickSave(_ sender:UIButton) {
         
-        if let image = self.imgView.image {
-            homeViewModel.saveBusineesCategory(image: image, category_id: "\(id)", name: businessNameTF.text ?? "", email: emailTF.text ?? "", code: "91", mobile_no: altMobileTF.text ?? "", alt_mobile_no: phoneTF.text ?? "", website: websiteTF.text ?? "", address: addressTF.text ?? "", city: cityTF.text ?? "", sender: self, onSuccess: {
+        if isFromEdit {
+            
+            homeViewModel.updateBusineesCategory(business_id:businessId,image: self.imgView.image, category_id: "\(id)", name: businessNameTF.text ?? "", email: emailTF.text ?? "", code: "91", mobile_no: altMobileTF.text ?? "", alt_mobile_no: phoneTF.text ?? "", website: websiteTF.text ?? "", address: addressTF.text ?? "", city: cityTF.text ?? "", sender: self, onSuccess: {
+                        
+                        let vc = mainStoryboard.instantiateViewController(withIdentifier: "BusinessImageFrameVC") as! BusinessImageFrameVC
+                        vc.id = self.homeViewModel.tokenId
+                vc.isFromEdit = true
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }, onFailure: {
+                        
+                    })
                 
-                let vc = mainStoryboard.instantiateViewController(withIdentifier: "BusinessImageFrameVC") as! BusinessImageFrameVC
-                vc.id = self.homeViewModel.tokenId
-                self.navigationController?.pushViewController(vc, animated: true)
-            }, onFailure: {
-                
-            })
         } else {
-            showAlertWithSingleAction(sender: self, message: "Please add a image")
+            if let image = self.imgView.image {
+                if isImageSelected {
+                    homeViewModel.saveBusineesCategory(image: image, category_id: "\(id)", name: businessNameTF.text ?? "", email: emailTF.text ?? "", code: "91", mobile_no: altMobileTF.text ?? "", alt_mobile_no: phoneTF.text ?? "", website: websiteTF.text ?? "", address: addressTF.text ?? "", city: cityTF.text ?? "", sender: self, onSuccess: {
+                        
+                        let vc = mainStoryboard.instantiateViewController(withIdentifier: "BusinessImageFrameVC") as! BusinessImageFrameVC
+                        vc.id = self.homeViewModel.tokenId
+                        vc.isFromEdit = false
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }, onFailure: {
+                        
+                    })
+                } else {
+                    showAlertWithSingleAction(sender: self, message: "Please add a image")
+                }
+                
+            }
         }
       }
     
@@ -91,21 +183,7 @@ extension CreateBusinessVC:UIImagePickerControllerDelegate,UINavigationControlle
          self.present(alert, animated: true, completion: nil)
      }
     
-    func openCamera()
-    {
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-            imagePicker.allowsEditing = true
-            self .present(imagePicker, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Warning", message: "You don't have camera" , preferredStyle: .actionSheet)
-            let secondAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction?) -> Void in
-                
-            })
-            alert.addAction(secondAction)
-            self.present(alert, animated: true)
-        }
-    }
+    
     
     func makeTransparent(image: UIImage) -> UIImage? {
         guard let rawImage = image.cgImage else { return nil}
@@ -135,9 +213,10 @@ extension CreateBusinessVC:UIImagePickerControllerDelegate,UINavigationControlle
         var selectedImage: UIImage?
         if let editedImage = info[.editedImage] as? UIImage {
             selectedImage = editedImage
-            
+            isImageSelected = true
           } else if let originalImage = info[.originalImage] as? UIImage {
             selectedImage = originalImage
+              isImageSelected = true
           }
   
            picker.dismiss(animated: true, completion: {

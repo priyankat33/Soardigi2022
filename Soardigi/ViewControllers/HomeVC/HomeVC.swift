@@ -8,14 +8,23 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-class HomeVC: UIViewController {
+import Alamofire
+class HomeVC: UIViewController, SliderCollectionCell {
+    func didPressedSlide(value: String) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
+                vc.id = value
+        vc.subCatId = ""
+                self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var tableView:UITableView!
     @IBOutlet weak fileprivate var lblBusinessName:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        
+            
 
         // Do any additional setup after loading the view.
     }
@@ -32,11 +41,24 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func onClickBusinessName(_ sender:UIButton) {
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShowBusinessCategoryDetailVC") as! ShowBusinessCategoryDetailVC
-        vc.businessName = lblBusinessName.text ?? ""
-        vc.categoryName = homeViewModel.categoryName
-        vc.businessImage = homeViewModel.businessImage
-        self.present(vc, animated: true, completion: nil)
+//        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShowBusinessCategoryDetailVC") as! ShowBusinessCategoryDetailVC
+//        vc.businessName = lblBusinessName.text ?? ""
+//        vc.categoryName = homeViewModel.categoryName
+//        vc.businessImage = homeViewModel.businessImage
+//        vc.id = homeViewModel.bussinessId
+//        self.present(vc, animated: true, completion: nil)
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            let fileURL = documentsURL?.appendingPathComponent("duck.png")
+            return (fileURL!, [.removePreviousFile, .createIntermediateDirectories])
+        }
+
+        
+        Alamofire.download("https://httpbin.org/image/png", to: destination).responseData { response in
+            if let destinationUrl = response.destinationURL {
+                print(destinationUrl)
+            }
+        }
     }
     /*
     // MARK: - Navigation
@@ -51,14 +73,23 @@ class HomeVC: UIViewController {
         let value = sender.tag
        
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
-        vc.id = homeViewModel.homeCategoryResponseModel[value].id ?? ""
-        self.navigationController?.pushViewController(vc, animated: true)
+                vc.id = homeViewModel.homeCategoryResponseModel[value].id ?? ""
+        vc.subCatId = ""
+                self.navigationController?.pushViewController(vc, animated: true)
     }
     
-
+    
+    @IBAction func onClickImage(_ sender:UIButton) {
+        let value = sender.tag
+       
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
+        vc.id = homeViewModel.homeCategoryResponseModel[value].id ?? ""
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
-extension HomeVC: UITableViewDataSource, UITableViewDelegate {
+extension HomeVC: UITableViewDataSource, UITableViewDelegate, collectionCell_delegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return homeViewModel.homeCategoryResponseModel.count + 1
         
@@ -71,11 +102,14 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SliderTVC", for: indexPath) as! SliderTVC
+            cell.sliderCollectionCell = self
             cell.homeSliderResponseModel = homeViewModel.homeSliderResponseModel
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTVC", for: indexPath) as! CategoryTVC
             cell.imageResponseModel = homeViewModel.homeCategoryResponseModel[indexPath.section - 1].categoryImagesResponseModel
+            cell.sectionValue = indexPath.section - 1
+            cell.deleg = self
             cell.parent = self
             return cell
         }
@@ -105,6 +139,14 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section != 0 ? 35.0 : 0.0
     }
+    
+    func didPressed(value: String,sectionValue:Int) {
+            
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
+                vc.id = homeViewModel.homeCategoryResponseModel[sectionValue].id ?? ""
+        vc.subCatId = value
+                self.navigationController?.pushViewController(vc, animated: true)
+        }
 }
 
 
@@ -190,3 +232,4 @@ struct FacebookUserData {
     var profilePic:String! = ""
     var fbAccessToken:String! =  ""
 }
+

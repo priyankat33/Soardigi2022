@@ -69,7 +69,7 @@ extension AddSubscriptionVC:UITableViewDelegate, UITableViewDataSource {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "AddPackageVC") as! AddPackageVC
         let data = homeViewModel.getSubscription[index]
         vc.selectedId = data.id ?? 0
-//        vc.amount = data.price ?? "0"
+
         self.present(vc, animated: true, completion: nil)
     }
 }

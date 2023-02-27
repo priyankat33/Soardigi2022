@@ -161,3 +161,23 @@ extension SceneDelegate {
         return urlString
     }
 }
+
+extension SceneDelegate {
+    func logout(_ view: UIView){
+        DispatchQueue.main.async {
+        self.setUpLogin(view)
+        }
+    }
+    
+    private func setUpLogin(_ view: UIView)
+     {
+         if  ((self.window?.rootViewController) != nil)  {
+             self.window?.rootViewController = nil
+         }
+      if  let loginNavigationController : UINavigationController = self.getController(name:"LoginNavigation",storyBoard: mainStoryboard) as? UINavigationController{
+      
+          view.window?.rootViewController = loginNavigationController
+          view.window?.makeKeyAndVisible()
+      }
+}
+}

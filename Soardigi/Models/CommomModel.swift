@@ -26,9 +26,10 @@ struct LanguageResponseMainModel:Mappable {
 
 struct InitializePaymentModel:Mappable {
     let callback,mid,orderID,token : String?
+    let success:Bool?
     
     enum CodingKeys: String, CodingKey {
-        case callback,mid,orderID,token
+        case callback,mid,orderID,token,success
     }
     
     init(from decoder: Decoder) throws {
@@ -37,6 +38,7 @@ struct InitializePaymentModel:Mappable {
         mid = try values.decodeIfPresent(String.self, forKey: .mid)
         orderID = try values.decodeIfPresent(String.self, forKey: .orderID)
         token = try values.decodeIfPresent(String.self, forKey: .token)
+        success = try values.decodeIfPresent(Bool.self, forKey: .success)
         
     }
 }
@@ -76,15 +78,18 @@ struct GetUserResponseMainModel:Mappable {
 
 
 struct BusinessCategoryModel:Mappable {
-    let name: String?
-    
+    let name,thumbnail: String?
+    let id:Int?
     enum CodingKeys: String, CodingKey {
         case name  = "name"
+        case thumbnail,id
      }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         name = try values.decodeIfPresent(String.self, forKey: .name)
+        thumbnail = try values.decodeIfPresent(String.self, forKey: .thumbnail)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
     }
 }
 
@@ -106,21 +111,30 @@ struct CategoryPickerMainModel:Mappable {
 }
 
 struct BusinessModel:Mappable {
-    let name, thumbnail : String?
-    let business_category_id:Int?
+    let name, thumbnail,address,alt_mobile_no, city, email, website, mobile_no : String?
+    let business_category_id,id:Int?
     var businessCategoryModel:BusinessCategoryModel?
     enum CodingKeys: String, CodingKey {
         case name  = "name"
+        case id
         case thumbnail = "thumbnail"
         case businessCategoryModel = "category"
         case business_category_id = "business_category_id"
+        case address, alt_mobile_no, city, email, website, mobile_no
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         name = try values.decodeIfPresent(String.self, forKey: .name)
+        address = try values.decodeIfPresent(String.self, forKey: .address)
+        alt_mobile_no = try values.decodeIfPresent(String.self, forKey: .alt_mobile_no)
+        mobile_no = try values.decodeIfPresent(String.self, forKey: .mobile_no)
+        website = try values.decodeIfPresent(String.self, forKey: .website)
+        email = try values.decodeIfPresent(String.self, forKey: .email)
+        city = try values.decodeIfPresent(String.self, forKey: .city)
         thumbnail = try values.decodeIfPresent(String.self, forKey: .thumbnail)
         business_category_id = try values.decodeIfPresent(Int.self, forKey: .business_category_id)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
         guard let businessCategoryModel =  try values.decodeIfPresent(BusinessCategoryModel.self, forKey: .businessCategoryModel) else{ return }
         self.businessCategoryModel = businessCategoryModel
     }
@@ -376,13 +390,36 @@ struct UserResponseModel1:Mappable {
 struct HomeSliderResponseModel:Mappable {
    
     let image: String?
-   
+    var sliderCategoryResponseModel:SliderCategoryResponseModel?
+    
     enum CodingKeys: String, CodingKey {
         case image = "image"
+        case sliderCategoryResponseModel = "category"
       }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         image =   try values.decodeIfPresent(String.self, forKey: .image)
+        
+        guard let sliderCategoryResponseModel =  try values.decodeIfPresent(SliderCategoryResponseModel.self, forKey: .sliderCategoryResponseModel) else{ return }
+        self.sliderCategoryResponseModel = sliderCategoryResponseModel
+    }
+}
+
+
+struct SliderCategoryResponseModel:Mappable {
+   
+   let id: String?
+    
+    enum CodingKeys: String, CodingKey {
+       
+        case id = "id"
+        
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       
+        id =   try values.decodeIfPresent(String.self, forKey: .id)
+        
     }
 }
 
@@ -536,7 +573,7 @@ struct SubscriptionTYpeResponseModel:Mappable {
 struct LanguageResponseModel:Mappable {
    
     let name: String?
-    let id,selected:Int?
+    var id,selected:Int?
     
     enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -93,6 +93,7 @@ extension BrandFeedVC:UITableViewDelegate, UITableViewDataSource {
         
         let data = homeViewModel.feedModel[value]
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "StaticContentVC") as! StaticContentVC
+        vc.isFromFeed = true
         vc.urlString = data.url ?? ""
         vc.heading = data.title ?? ""
         self.navigationController?.pushViewController(vc, animated: true)

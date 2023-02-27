@@ -62,7 +62,12 @@ extension SearchHomeVC:UICollectionViewDelegate,UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+        let data = homeViewModel.cellForRowAtSearcg(indexPath: indexPath)
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
+        vc.id = data.id ?? ""
+        vc.headingName = data.name ?? ""
+        vc.subCatId = ""
+                self.navigationController?.pushViewController(vc, animated: true)
      }
 }
 

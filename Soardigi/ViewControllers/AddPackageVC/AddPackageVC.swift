@@ -92,9 +92,21 @@ extension AddPackageVC{
 }
 
 extension AddPackageVC:CategoryControllerDelegate {
-    func selectedCategory(businessName: String, categoryName: String, id: Int) {
-        
+    func selectedCategory(businessName: String, categoryName: String, id: Int, thumbnail: String) {
+        self.bussinessLBL.text = businessName
+        self.bussinessId = id 
+        self.categoryLBL.text = categoryName
+        self.imageView.kf.indicatorType = .activity
+        self.imageView.kf.setImage(with: URL(string: thumbnail ?? ""), placeholder: nil, options: nil) { result in
+            switch result {
+            case .success(let value):
+                print("Image: \(value.image). Got from: \(value.cacheType)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
+    
 }
 extension AddPackageVC:UIPopoverPresentationControllerDelegate{
     

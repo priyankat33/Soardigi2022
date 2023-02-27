@@ -20,6 +20,7 @@ class HomeViewModel: NSObject {
     var businessModel:[BusinessModel] = [BusinessModel]()
     var businessName:String = ""
     var categoryName:String = ""
+    var bussinessId:Int = 0
     var businessImage:String = ""
     var imageFrameResponseModel:[ImageFrameResponseModel] = [ImageFrameResponseModel]()
     var categoryImagesResponseModel:[CategoryImagesResponseModel] = [CategoryImagesResponseModel]()
@@ -32,6 +33,38 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
             ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        self.languages = response.languages ?? []
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    func getReadMoreFeed(url:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            ServerManager.shared.httpGet(request: url, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
                     guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
@@ -151,6 +184,34 @@ class HomeViewModel: NSObject {
         }
     }
     
+    func updateHomeBusinessData(id:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/change-business", params: ["business" : id],headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(HomeResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        
+                        onSuccess()
+                        break
+                    default:
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
     
     func getMainHomeData(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
@@ -164,6 +225,7 @@ class HomeViewModel: NSObject {
                     case 200:
                         self.businessName = response.business?.name ?? ""
                         self.categoryName = response.business?.businessCategoryModel?.name ?? ""
+                        self.bussinessId = response.business?.id ?? 0
                         self.businessImage = response.business?.thumbnail ?? ""
                         self.homeSliderResponseModel =  response.homeSliderResponseModel ?? []
                         self.homeCategoryResponseModel = response.homeCategoryResponseModel ?? []
@@ -689,13 +751,17 @@ class HomeViewModel: NSObject {
                     
                     switch status{
                     case 200:
+                        if response.status ?? false {
+                            showAlertWithSingleAction(sender: sender, message: "Package Active Successfully")
+                             onSuccess()
+                        } else {
+                            showAlertWithSingleAction(sender: sender, message: "Wrong Promo Code used.")
+                            onFailure()
+                        }
                         
-                        print(response)
-                        onSuccess()
+                       
                         break
                     default:
-                        
-                        
                         onFailure()
                         break
                     }
@@ -785,13 +851,19 @@ class HomeViewModel: NSObject {
             ServerManager.shared.httpPost(request:  baseURL + "api/v1/initiate-payment", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
+                    
                     guard let response = responseData.decoder(InitializePaymentModel.self) else{return}
                     
                     switch status{
                     case 200:
-                        self.initializePaymentModel = response
-                        print(response)
-                        onSuccess()
+                        if response.success ?? false {
+                            self.initializePaymentModel = response
+                            onSuccess()
+                        } else {
+                            showAlertWithSingleAction(sender: sender, message: "Only allowed to renew if less than 7 days is remaining.")
+                            onFailure()
+                        }
+                        
                         break
                     default:
                         
@@ -857,7 +929,59 @@ class HomeViewModel: NSObject {
             return nil
         }
     
-    
+    func updateBusineesCategory(business_id:Int = 0,image:Any,category_id:String = "",name:String = "",email:String = "",code:String = "",mobile_no:String = "",alt_mobile_no:String = "",website:String = "",address:String = "",city:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            
+            if name.isEmpty{
+                showAlertWithSingleAction(sender:sender, message: "Please enter Business Name")
+            } else if email.isEmpty{
+                showAlertWithSingleAction(sender:sender, message: "Please enter Business Email")
+            } else if !email.isEmail{
+                showAlertWithSingleAction(sender:sender, message: "Please enter valid email")
+            }else if mobile_no.isEmpty {
+                showAlertWithSingleAction(sender:sender, message: "Please enter Mobile Number")
+            } else if mobile_no.count < 10{
+                showAlertWithSingleAction(sender:sender, message: "Mobile number must be of 10 digits")
+            }else if !alt_mobile_no.isEmpty && alt_mobile_no.count < 10{
+                showAlertWithSingleAction(sender:sender, message:"Alternate Mobile number must be of 10 digits")
+            }else if !website.isEmpty && !website.isValidUrl(){
+                showAlertWithSingleAction(sender:sender, message:"Please enter valid website URL")
+            }else {
+                showLoader(status: true)
+                let array = self.set1(data: image)
+                if array.isEmpty{
+                     showLoader()
+                    return
+               }
+                let params:[String:Any] = ["business_id":business_id,"category_id":category_id,"name":name,"email":email,"code":code,"mobile_no":mobile_no,"alt_mobile_no":alt_mobile_no,"website":website,"address":address,"city":city]
+                
+                ServerManager.shared.httpUpload(request:  baseURL + "api/v1/business-update" , params: params,headers: ServerManager.shared.apiHeaders,multipartObject: array, successHandler: { (responseData:Data,status)  in
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(BusinessSaveResponseMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.tokenId = response.token ?? ""
+                            onSuccess()
+                            break
+                        default:
+                            
+                            
+                            onFailure()
+                            break
+                        }
+                    }
+                }, failureHandler: { (error) in
+                    DispatchQueue.main.async {
+                        showLoader()
+                        showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                        onFailure()
+                    }
+                })
+            }
+           }
+    }
     
     func saveBusineesCategory(image:Any,category_id:String = "",name:String = "",email:String = "",code:String = "",mobile_no:String = "",alt_mobile_no:String = "",website:String = "",address:String = "",city:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender) {

@@ -8,6 +8,7 @@
 import UIKit
 
 class BusinessImageFrameVC: UIViewController {
+    var isFromEdit:Bool = false
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     fileprivate var ids:[FrameId] = [FrameId]()
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
@@ -28,9 +29,7 @@ class BusinessImageFrameVC: UIViewController {
             showAlertWithSingleAction(sender: self, message: "Please select a frame")
         } else {
             let value =  homeViewModel.imageFrameResponseModel.filter{$0.selected == true}.map{$0.id ?? 0}
-            //ids = value
-            
-            
+           
             var values:[[String:String]] = [[String:String]]()
             
             for i in 0..<value.count {
@@ -38,9 +37,14 @@ class BusinessImageFrameVC: UIViewController {
             }
             
             homeViewModel.saveBusineesFrame(array: values, businessId: id, sender: self, onSuccess: {
-                if let tabViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TabViewController {
-                    self.present(tabViewController, animated: true, completion: nil)
+                if self.isFromEdit {
+                    self.navigationController?.popToRootViewController(animated: true)
+                } else {
+                    if let tabViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TabViewController {
+                        self.present(tabViewController, animated: true, completion: nil)
+                    }
                 }
+                
             }, onFailure: {
                 
             })

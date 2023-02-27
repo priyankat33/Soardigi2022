@@ -8,7 +8,7 @@
 import UIKit
 protocol CategoryControllerDelegate:NSObjectProtocol {
    
-    func selectedCategory(businessName:String,categoryName:String,id:Int)
+    func selectedCategory(businessName:String,categoryName:String,id:Int,thumbnail:String)
     
     
 }
@@ -71,7 +71,7 @@ extension BusinessCategoryPickerVC:UITableViewDelegate,UITableViewDataSource{
         
         guard let delegate = self.categoryControllerDelegate else { return  }
         let data = homeViewModel.businessModel[indexPath.row]
-        delegate.selectedCategory(businessName: data.name ?? "", categoryName: data.businessCategoryModel?.name ?? "", id: 0)
+        delegate.selectedCategory(businessName: data.name ?? "", categoryName: data.businessCategoryModel?.name ?? "", id: data.id ?? 0, thumbnail:data.thumbnail ?? "")
           dismiss(animated: true, completion: nil)
         
     }

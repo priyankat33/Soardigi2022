@@ -8,6 +8,14 @@
 
 import UIKit
 
+protocol collectionCell_delegate {
+    func didPressed(value:String,sectionValue:Int)
+}
+
+protocol SliderCollectionCell {
+    func didPressedSlide(value:String)
+}
+
 protocol CategoriasTableViewCellDelegate : AnyObject {
     func categoryTapped(_ cell: CategoryTVC, categoriasID:String)
 }
@@ -39,6 +47,7 @@ class PageCodeCell: UITableViewCell {
 
 class BusinessCategoryCell: UITableViewCell {
     @IBOutlet weak var bussinessLBL:UILabel!
+    @IBOutlet weak var editBtn:UIButton!
     @IBOutlet weak var categoryLBL:UILabel!
     @IBOutlet weak var imageViewCat:CustomImageView!
 }
@@ -47,6 +56,8 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
    @IBOutlet weak var collectionView: UICollectionView!
     weak var parent:HomeVC?
     weak var delegate : CategoriasTableViewCellDelegate?
+    var deleg:collectionCell_delegate?
+    var sectionValue:Int = 1
    fileprivate var categoryImagesResponseModel:[CategoryImagesResponseModel] = [CategoryImagesResponseModel]()
     var imageResponseModel:[CategoryImagesResponseModel]? {
         didSet {
@@ -58,6 +69,16 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryImagesResponseModel.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let data = categoryImagesResponseModel[indexPath.item]
+        if let del = deleg{
+            del.didPressed(value: data.id ?? "0",sectionValue:sectionValue)
+        }
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"CategoryCVC" , for: indexPath) as! CategoryCVC
@@ -75,9 +96,6 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 128, height: 128)
@@ -90,6 +108,7 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
 
 class SliderTVC: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
    @IBOutlet weak var collectionView: UICollectionView!
+    var sliderCollectionCell:SliderCollectionCell?
    fileprivate var sliderResponseModel:[HomeSliderResponseModel] = [HomeSliderResponseModel]()
     var homeSliderResponseModel:[HomeSliderResponseModel]? {
         didSet {
@@ -105,6 +124,7 @@ class SliderTVC: UITableViewCell, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"SliderImageCVC" , for: indexPath) as! SliderImageCVC
         let data = sliderResponseModel[indexPath.item]
+        cell.imageView.kf.indicatorType = .activity
         cell.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
             switch result {
             case .success(let value):
@@ -118,6 +138,14 @@ class SliderTVC: UITableViewCell, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.bounds.size.width, height: self.bounds.size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let data = sliderResponseModel[indexPath.item]
+        if let del = sliderCollectionCell{
+            del.didPressedSlide(value: data.sliderCategoryResponseModel?.id ?? "0")
+        }
     }
     
 }

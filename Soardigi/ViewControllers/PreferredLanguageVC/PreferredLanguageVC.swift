@@ -18,11 +18,14 @@ class PreferredLanguageVC: UIViewController {
             homeViewModel.getLanguageList(sender: self, onSuccess: {
                if self.homeViewModel.languages[0].selected == 1 {
                    self.engBTN.backgroundColor = CustomColor.customYellowColor
+                   self.selectedLanguage.append(SelectedLanguage(id: "\(self.homeViewModel.languages[0].id ?? 0)",language: 1))
+                   
                } else {
                    self.engBTN.backgroundColor = UIColor.init(named: "Black_Dark")
                }
                
                 if self.homeViewModel.languages[1].selected == 1 {
+                    self.selectedLanguage.append(SelectedLanguage(id: "\(self.homeViewModel.languages[1].id ?? 0)",language: 2))
                     self.hindiBTN.backgroundColor = CustomColor.customYellowColor
                 } else {
                     self.hindiBTN.backgroundColor = UIColor.init(named: "Black_Dark")
@@ -38,9 +41,10 @@ class PreferredLanguageVC: UIViewController {
     @IBAction func onClickEnglish(_ sender: CustomButton) {
         
         sender.backgroundColor = self.homeViewModel.languages[0].selected == 1 ? UIColor.init(named: "Black_Dark") : CustomColor.customYellowColor
-        if !sender.isSelected {
+        if self.homeViewModel.languages[0].selected != 1 {
             selectedLanguage.append(SelectedLanguage(id: "\(homeViewModel.languages[0].id ?? 0)",language: 1))
         } else {
+            self.homeViewModel.languages[0].selected = 0
             if selectedLanguage.count > 0 {
                 for (index,i) in selectedLanguage.enumerated() {
                     if i.language == 1 {
@@ -53,9 +57,10 @@ class PreferredLanguageVC: UIViewController {
     
     @IBAction func onClickHindi(_ sender: CustomButton) {
         sender.backgroundColor = self.homeViewModel.languages[1].selected == 1 ? UIColor.init(named: "Black_Dark") : CustomColor.customYellowColor
-        if !sender.isSelected {
+        if self.homeViewModel.languages[1].selected != 1 {
             selectedLanguage.append(SelectedLanguage(id: "\(homeViewModel.languages[1].id ?? 0)",language: 2))
         } else {
+            self.homeViewModel.languages[1].selected = 0
             if selectedLanguage.count > 0 {
                 for (index,i) in selectedLanguage.enumerated() {
                     if i.language == 2 {
@@ -66,21 +71,10 @@ class PreferredLanguageVC: UIViewController {
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func onClickApply(_ sender: UIButton) {
         if selectedLanguage.count > 0 {
             homeViewModel.saveLanguage(selectedLanguage:selectedLanguage,sender: self, onSuccess: {
-                let vc = mainStoryboard.instantiateViewController(withIdentifier: "SelectBusinessVC") as! SelectBusinessVC
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.dismiss(animated: true)
             }, onFailure: {
                 
             })

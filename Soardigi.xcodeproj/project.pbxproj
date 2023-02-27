@@ -1091,6 +1091,7 @@
 				DEVELOPMENT_TEAM = SV79D9BQY9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Soardigi wants to access the library to add the business photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1130,6 +1131,7 @@
 				DEVELOPMENT_TEAM = SV79D9BQY9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Soardigi wants to access the library to add the business photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
