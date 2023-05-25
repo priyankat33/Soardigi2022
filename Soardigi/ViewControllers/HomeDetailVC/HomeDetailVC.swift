@@ -9,10 +9,12 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 class HomeDetailVC: UIViewController {
+    var isFromEvent:Bool = false
     fileprivate var fbPageData:[FBPageData] = [FBPageData]()
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
     @IBOutlet weak fileprivate var headLbl:UILabel!
+    
     var id:String = ""
     var subCatId:String = ""
     var headingName:String = ""
@@ -20,7 +22,7 @@ class HomeDetailVC: UIViewController {
     var horizontalIndex:Int = 0
     fileprivate var  type:Int = 0
     fileprivate var selectedImageURL:String = ""
-    fileprivate var selectedId:String = ""
+     var selectedId:String = ""
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak fileprivate var imageView:UIImageView!
     @IBOutlet weak var collectionViewUpper: UICollectionView!
@@ -51,16 +53,19 @@ class HomeDetailVC: UIViewController {
         homeViewModel.getBusineesHomeImages(type:type,id:id,sender: self, onSuccess: {
             if !self.subCatId.isEmpty {
                 let index =  self.homeViewModel.categoryImagesResponseModel.firstIndex{$0.id == self.subCatId}
-                let data =  self.homeViewModel.categoryImagesResponseModel[index ?? 0]
-                self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
-                self.isPaid = data.is_paid ?? 0
-                self.imageView.kf.indicatorType = .activity
-                self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
-                    switch result {
-                    case .success(let value):
-                        print("Image: \(value.image). Got from: \(value.cacheType)")
-                    case .failure(let error):
-                        print("Error: \(error)")
+                if let value = index {
+                    let data =  self.homeViewModel.categoryImagesResponseModel[value]
+                    self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
+                    self.isPaid = data.is_paid ?? 0
+                    self.selectedId = data.id ?? ""
+                    self.imageView.kf.indicatorType = .activity
+                    self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
+                        switch result {
+                        case .success(let value):
+                            print("Image: \(value.image). Got from: \(value.cacheType)")
+                        case .failure(let error):
+                            print("Error: \(error)")
+                        }
                     }
                 }
             } else {
@@ -68,6 +73,7 @@ class HomeDetailVC: UIViewController {
                     let data =  self.homeViewModel.categoryImagesResponseModel[0]
                     self.selectedImageURL = type == 0 ? data.image ?? "" : data.videoUrl ?? ""
                     self.isPaid = data.is_paid ?? 0
+                    self.selectedId = data.id ?? ""
                     self.imageView.kf.indicatorType = .activity
                     self.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
                         switch result {
@@ -106,16 +112,12 @@ class HomeDetailVC: UIViewController {
     
     @IBAction func onClickDownload(_ sender:UIButton) {
         
-        if isPaid == 2 {
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "NoSubscriptionVC") as! NoSubscriptionVC
-            
-            self.present(vc, animated: true, completion: nil)
-        } else {
+        if isPaid == 1 {
             let frameid = self.homeViewModel.categoryImagesResponseModel1[horizontalIndex].id ?? 0
             showLoader(status: true)
             let config = URLSessionConfiguration.default
             let session = URLSession(configuration: config)
-            if let url = NSURL(string: baseURL + "api/business-frame-first/\(selectedId)?frame=\(String(frameid))&watermark=\(0)"){
+            if let url = NSURL(string: baseURL + "api/business-frame-first/\(selectedId)?frame=\(String(frameid))&watermark=\(waterMarker)"){
 
                 let task = session.dataTask(with: url as URL, completionHandler: {data, response, error in
 
@@ -127,33 +129,26 @@ class HomeDetailVC: UIViewController {
                     if let http = response as? HTTPURLResponse {
                         if http.statusCode == 200 {
                             if self.type == 1 {
-    //                            let tempFile = TemporaryMediaFile(withData: data!)
-    //                                if let asset = tempFile.avAsset {
-    //                                    print("THE ASSET IS------>\(asset)")
-    ////                                    self.player = AVPlayer(playerItem:
-    ////                                    AVPlayerItem(asset: asset)
-    //
-    //                                    let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-    //                                    DispatchQueue.main.async {
-    //                                        let player = AVPlayer(playerItem:AVPlayerItem(asset: asset))
-    //                                        let playerViewController = AVPlayerViewController()
-    //                                        playerViewController.player = player
-    //                                        self.present(playerViewController, animated: true) {
-    //                                            playerViewController.player!.play()
-    //                                        }
-    //                                    }
-    //                                }
+    
                             }
+                            
+                            
+                            let saveImageModel = SaveImageModel(imageSave: data, frameId: frameid, imageId: self.id)
+                            
+                            UserDefaults.standard.saveImageModel?.append(saveImageModel)
                             let downloadedImage = UIImage(data: data!)
+                            if let imageDownload = downloadedImage{
+                                UIImageWriteToSavedPhotosAlbum(imageDownload, nil, nil, nil)
+                            }
                             if  !pageName.isEmpty  && !pageId.isEmpty {
-                                if AccessToken.current?.tokenString != nil {
+                                if let accessToken = AccessToken.current?.tokenString  {
                                     showLoader(status: true)
                                     let graphRequest
-                                    = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":AccessToken.current?.tokenString])
+                                    = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":accessToken])
                                     graphRequest.start( completion: { [self] (connection, result, error)-> Void in
                                         if ((error) != nil)
                                         {
-                                            print("Error: \(error)")
+                                            print("Error: \(String(describing: error))")
                                         }
                                         else
                                         {
@@ -174,6 +169,7 @@ class HomeDetailVC: UIViewController {
                                                 self.present(vc, animated: false, completion: nil)
                                             } else {
                                                 showLoader()
+                                      
                                                 showAlertWithSingleAction(sender: self, message: "No page found")
                                             }
                     
@@ -199,6 +195,10 @@ class HomeDetailVC: UIViewController {
                })
                task.resume()
             }
+        } else {
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "NoSubscriptionVC") as! NoSubscriptionVC
+            
+            self.present(vc, animated: true, completion: nil)
         }
         
         

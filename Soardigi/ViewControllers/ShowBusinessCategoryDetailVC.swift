@@ -23,6 +23,7 @@ class ShowBusinessCategoryDetailVC: UIViewController, CategoryControllerDelegate
             }
         }
     }
+    var callBackHome: (() -> Void)?
     var id:Int = 0
      var businessName:String = ""
     var categoryName:String = ""
@@ -51,6 +52,7 @@ class ShowBusinessCategoryDetailVC: UIViewController, CategoryControllerDelegate
         
         homeViewModel.updateHomeBusinessData(id:id,sender: self, onSuccess: {
             showAlertWithSingleAction1(sender: self, message: "Bussiness updated successfully", onSuccess: {
+                self.callBackHome?()
                 self.dismiss(animated: true)
             })
         }, onFailure: {

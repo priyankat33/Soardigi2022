@@ -17,12 +17,9 @@ class ChooseLanguageVC: UIViewController {
         super.viewDidLoad()
         homeViewModel.getBusineesList(sender: self, onSuccess: {
             if self.homeViewModel.businessModel.count > 0 {
-                isLogin = true
-                if let tabViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TabViewController {
-                    self.present(tabViewController, animated: true, completion: nil)
-                }
+                
             } else {
-                isLogin = false
+                
                 self.homeViewModel.getLanguageList(sender: self, onSuccess: {
                     self.engBTN.isHidden = false
                     self.hindiBTN.isHidden = false

@@ -68,6 +68,7 @@ extension BusinessImageFrameVC:UICollectionViewDelegate,UICollectionViewDataSour
         let data = homeViewModel.cellForRowFrameAt(indexPath: indexPath)
        
         cell.imageViewCheck.image = data.selected ? UIImage(named: "check") : UIImage(named: "uncheck")
+        cell.imageView.kf.indicatorType = .activity
         cell.imageView.kf.setImage(with: URL(string: data.img_url ?? ""), placeholder: nil, options: nil) { result in
             switch result {
             case .success(let value):
@@ -92,6 +93,7 @@ extension BusinessImageFrameVC:UICollectionViewDelegate,UICollectionViewDataSour
         } else {
             
             homeViewModel.imageFrameResponseModel[indexPath.item].selected = !homeViewModel.imageFrameResponseModel[indexPath.item].selected
+            imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: URL(string: data.img_url ?? ""), placeholder: nil, options: nil) { result in
                 switch result {
                 case .success(let value):

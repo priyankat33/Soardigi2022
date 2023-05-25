@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A5E9CBCF-DEDB-4D20-BD7F-E834A642BF02"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ServerManager/ServiceManager.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "985019CA-8B7F-4F4A-AF62-9B5AB49B60E3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ServerManager/ServiceManager.swift"
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F06FF7EC-C962-4E44-A2EC-CF67797D946D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ServerManager/ServiceManager.swift"
@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E7F9CBB5-D2C1-438F-A769-B8D2AF872207"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ServerManager/ServiceManager.swift"
@@ -71,63 +71,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E9256C1-093B-47C9-A80C-A9B45EDDC19E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewModels/UserViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "login(selectedType:sender:email:phone:code:type:onSuccess:onFailure:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0E9256C1-093B-47C9-A80C-A9B45EDDC19E - 452b3b62a2c2d7de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Soardigi.UserViewModel.login(selectedType: Soardigi.SelectedType, sender: __C.UIViewController, email: Swift.String, phone: Swift.String, code: Swift.String, type: Swift.String, onSuccess: () -&gt; (), onFailure: () -&gt; ()) -&gt; ()"
-                  moduleName = "Soardigi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewModels/UserViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "2164">
-               </Location>
-               <Location
-                  uuid = "0E9256C1-093B-47C9-A80C-A9B45EDDC19E - 9080dbdcbdf5e2a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Foundation.Data, Swift.Int) -&gt; () in Soardigi.UserViewModel.login(selectedType: Soardigi.SelectedType, sender: __C.UIViewController, email: Swift.String, phone: Swift.String, code: Swift.String, type: Swift.String, onSuccess: () -&gt; (), onFailure: () -&gt; ()) -&gt; ()"
-                  moduleName = "Soardigi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewModels/UserViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "328">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "90A0BDC9-31DB-4191-8DF8-630793D12344"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ViewControllers/ShareDetailVC/ShareDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "onClickConnect(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A7A126B8-0FBB-4293-8ED9-4F214885DD30"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ViewControllers/FacebookShareVC.swift"
@@ -158,8 +110,8 @@
             filePath = "Soardigi/ViewControllers/SubscriptionTypeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "didFinish(with:response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,41 +126,9 @@
             filePath = "Soardigi/ViewModels/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1040"
-            endingLineNumber = "1040"
+            startingLineNumber = "1285"
+            endingLineNumber = "1285"
             landmarkName = "verifyUrl(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4D6A6248-1420-4232-88E8-82D73AE95A0A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "application(_:open:options:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E2E1EE5E-80B9-4450-AB8D-4115D5A4BBB1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "separateDeeplinkParamsIn(url:byRemovingParams:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -222,8 +142,8 @@
             filePath = "Soardigi/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "addStatusString(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -231,32 +151,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8831A097-372A-40A1-B7C6-D51D2FAB9379"
+            uuid = "6A5D9A5D-1383-4DC1-9C44-01DA3A95E92E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/AppDelegate.swift"
+            filePath = "Soardigi/ViewModels/UserViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "stringByRemovingDeeplinkSymbolsIn(url:)"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "otpVerification(type:isFromLogin:name:phone:code:sender:email:otp:onSuccess:onFailure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6A371FD-4E0A-4B36-B55E-0C59CD32817E"
+            uuid = "8480E748-9BB1-4495-B856-92F1C1E40310"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/AppDelegate.swift"
+            filePath = "Soardigi/ViewControllers/HomeVC/HomeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "separateDeeplinkParamsIn(url:byRemovingParams:)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "didPressedSlide(value:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

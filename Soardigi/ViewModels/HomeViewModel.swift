@@ -18,6 +18,8 @@ class HomeViewModel: NSObject {
     var getSubscription:[GetSubscription] = [GetSubscription]()
     var businessCategoryResponseModel1:[BusinessCategoryResponseModel1] = [BusinessCategoryResponseModel1]()
     var businessModel:[BusinessModel] = [BusinessModel]()
+    var events:[Event] = [Event]()
+    
     var businessName:String = ""
     var categoryName:String = ""
     var bussinessId:Int = 0
@@ -29,6 +31,179 @@ class HomeViewModel: NSObject {
     var homeCategoryResponseModel:[HomeCategoryResponseModel] = [HomeCategoryResponseModel]()
     var tokenId:String = ""
     var languages:[LanguageResponseModel] = [LanguageResponseModel]()
+    var eventResponseModel:[EventResponseModel] = [EventResponseModel]()
+    var requestResponseModel:[RequestResponseModel] = [RequestResponseModel]()
+    var chatResponseModel:[ChatResponseModel] = [ChatResponseModel]()
+    
+    func getChat(id:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+           // showLoader(status: true)
+       
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kMessageGet + "/\(id)", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                   // showLoader()
+                    guard let response = responseData.decoder(ChatResponseListMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        self.chatResponseModel = response.chatResponseModel?.reversed() ?? []
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    //showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
+    func storeSample(imageId:Int = 0,id:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+           // showLoader(status: true)
+       
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kRequestSelect + "/\(id)", params: ["id" : imageId],headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                   // showLoader()
+                    guard let response = responseData.decoder(ChatResponseListMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    //showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
+    func getCreateCustomListRequest(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+       
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kRequestGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(EventResponseListMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        self.requestResponseModel = response.requestResponseModel ?? []
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
+    func createCustomRequest(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+       
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kRequestCreate, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(EventResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    func getCreateCustomRequest(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+       
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/" + API.kUpcomingEvents, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(EventResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        self.eventResponseModel = response.eventResponseModel ?? []
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    
     func getLanguageList(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
@@ -184,6 +359,36 @@ class HomeViewModel: NSObject {
         }
     }
     
+    
+    func sendMessage(id:String = "", message:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            ServerManager.shared.httpPost(request: baseURL + "api/v1/request-create/\(id)", params: ["message" : message],headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(HomeResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        
+                        onSuccess()
+                        break
+                    default:
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
     func updateHomeBusinessData(id:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
@@ -229,6 +434,7 @@ class HomeViewModel: NSObject {
                         self.businessImage = response.business?.thumbnail ?? ""
                         self.homeSliderResponseModel =  response.homeSliderResponseModel ?? []
                         self.homeCategoryResponseModel = response.homeCategoryResponseModel ?? []
+                        
                         onSuccess()
                         break
                     default:
@@ -236,6 +442,38 @@ class HomeViewModel: NSObject {
                         break
                     }
                 }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    func getLandscapeFrames(type: Bool = false,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            showLoader(status: true)
+            let params:[String:Any] = ["orientation":type ? 3 : 4]
+            ServerManager.shared.httpPost(request:  baseURL + "api/v1/frame-get"  , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(BusinessFrameResponseMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.imageFrameResponseModel = response.frames ?? []
+                            onSuccess()
+                            break
+                        default:
+                            onFailure()
+                            break
+                        }
+                    }
+                
             }, failureHandler: { (error) in
                 DispatchQueue.main.async {
                     showLoader()
@@ -673,7 +911,6 @@ class HomeViewModel: NSObject {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)
             
-           
             ServerManager.shared.httpPost(request:  baseURL + "api/v1/business-get" , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
@@ -747,15 +984,17 @@ class HomeViewModel: NSObject {
             ServerManager.shared.httpPost(request:  baseURL + "api/v1/use-code", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
-                    guard let response = responseData.decoder(SubscriptionTypeResponseMainModel.self) else{return}
+                    guard let response = responseData.decoder(ActiveSubscriptionModel.self) else{return}
                     
                     switch status{
                     case 200:
                         if response.status ?? false {
-                            showAlertWithSingleAction(sender: sender, message: "Package Active Successfully")
-                             onSuccess()
+                             showAlertWithSingleAction1(sender: sender, message: response.message ?? "", onSuccess: {
+                                 onSuccess()
+                             })
+                            
                         } else {
-                            showAlertWithSingleAction(sender: sender, message: "Wrong Promo Code used.")
+                            showAlertWithSingleAction(sender: sender, message: response.message ?? "")
                             onFailure()
                         }
                         
@@ -786,13 +1025,19 @@ class HomeViewModel: NSObject {
             ServerManager.shared.httpPost(request:  baseURL + "api/v1/user-subscription", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                 DispatchQueue.main.async {
                     showLoader()
-                    guard let response = responseData.decoder(SubscriptionTypeResponseMainModel.self) else{return}
+                    guard let response = responseData.decoder(PointsSubscriptionModel.self) else{return}
                     
                     switch status{
                     case 200:
-                        self.subscriptionTYpeResponseModel = response.userSubscriptions ?? []
-                        print(response)
-                        onSuccess()
+                        if response.status ?? false{
+                            showAlertWithSingleAction1(sender: sender, message: response.message ?? "", onSuccess: {
+                                onSuccess()
+                            })
+                        } else {
+                            showAlertWithSingleAction1(sender: sender, message: response.message ?? "", onSuccess: {
+                                onFailure()
+                            })
+                        }
                         break
                     default:
                         

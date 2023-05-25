@@ -7,6 +7,55 @@
 
 import Foundation
 
+struct ChatResponseListMainModel:Mappable {
+    let status : Bool?
+    var chatResponseModel:[ChatResponseModel]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case chatResponseModel = "messages"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let chatResponseModel =  try values.decodeIfPresent([ChatResponseModel].self, forKey: .chatResponseModel) else{ return }
+        self.chatResponseModel = chatResponseModel
+    }
+}
+
+
+struct EventResponseListMainModel:Mappable {
+    let status : Bool?
+    var requestResponseModel:[RequestResponseModel]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case requestResponseModel = "requests"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let requestResponseModel =  try values.decodeIfPresent([RequestResponseModel].self, forKey: .requestResponseModel) else{ return }
+        self.requestResponseModel = requestResponseModel
+    }
+}
+
+struct EventResponseMainModel:Mappable {
+    let status : Bool?
+    var eventResponseModel:[EventResponseModel]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case eventResponseModel = "events"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let eventResponseModel =  try values.decodeIfPresent([EventResponseModel].self, forKey: .eventResponseModel) else{ return }
+        self.eventResponseModel = eventResponseModel
+    }
+}
+
 struct LanguageResponseMainModel:Mappable {
     let status : Bool?
     var languages:[LanguageResponseModel]?
@@ -40,6 +89,37 @@ struct InitializePaymentModel:Mappable {
         token = try values.decodeIfPresent(String.self, forKey: .token)
         success = try values.decodeIfPresent(Bool.self, forKey: .success)
         
+    }
+}
+
+
+struct PointsSubscriptionModel:Mappable {
+    let status : Bool?
+    var message:String?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case message = "message"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        message  = try values.decodeIfPresent(String.self, forKey: .message)
+    }
+}
+
+struct ActiveSubscriptionModel:Mappable {
+    let status : Bool?
+    var message:String?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case message = "message"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        message  = try values.decodeIfPresent(String.self, forKey: .message)
     }
 }
 
@@ -381,7 +461,14 @@ struct UserResponseModel1:Mappable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        message =   try values.decodeIfPresent(String.self, forKey: .message)
+        //message =   try values.decodeIfPresent(String.self, forKey: .message)
+        
+        do {
+            message = try String(values.decode(Int.self, forKey: .message))
+            
+                } catch DecodingError.typeMismatch {
+                    message = try values.decodeIfPresent(String.self, forKey: .message)
+                }
         token =   try values.decodeIfPresent(String.self, forKey: .token)
         success = try values.decodeIfPresent(Bool.self, forKey: .success) ?? false
     }
@@ -423,21 +510,66 @@ struct SliderCategoryResponseModel:Mappable {
     }
 }
 
+struct Event: Mappable {
+    let id: String?
+    let thumbnail,date: String?
+    let name: String?
+    var category: EventCategory?
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case thumbnail = "thumbnail"
+        case category = "category"
+        case name = "name"
+        case date = "date"
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        thumbnail =   try values.decodeIfPresent(String.self, forKey: .thumbnail)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
+        date = try values.decodeIfPresent(String.self, forKey: .date)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        guard let category = try values.decodeIfPresent(EventCategory.self, forKey: .category) else { return }
+            self.category =  category
+        
+    }
+}
+
+// MARK: - EventCategory
+struct EventCategory: Mappable {
+    let id: String
+    let thumbnail: String
+    let name: String
+    let cntType: Int
+}
+
 struct HomeCategoryResponseModel:Mappable {
    
     let title,id: String?
     var categoryImagesResponseModel:[CategoryImagesResponseModel]?
+    var categoryEvents:[Event]?
     enum CodingKeys: String, CodingKey {
         case title = "title"
         case categoryImagesResponseModel = "iTemplates"
+        case categoryEvents = "events"
         case id = "id"
       }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title =   try values.decodeIfPresent(String.self, forKey: .title)
         id = try values.decodeIfPresent(String.self, forKey: .id)
-        guard let categoryImagesResponseModel =  try values.decodeIfPresent([CategoryImagesResponseModel].self, forKey: .categoryImagesResponseModel) else{ return }
-        self.categoryImagesResponseModel = categoryImagesResponseModel
+        
+        if let event =  try values.decodeIfPresent([Event].self, forKey: .categoryEvents) {
+            self.categoryEvents = event
+        }
+        
+        
+        if let categoryImagesResponseModel =  try values.decodeIfPresent([CategoryImagesResponseModel].self, forKey: .categoryImagesResponseModel) {
+            self.categoryImagesResponseModel = categoryImagesResponseModel
+        }
+        
+        
+       
+        
     }
 }
 
@@ -570,6 +702,83 @@ struct SubscriptionTYpeResponseModel:Mappable {
     }
 }
 
+struct ImageResponseModel:Mappable {
+   
+    let url: String?
+    let id:Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "url"
+        case id = "id"
+    }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        url =   try values.decodeIfPresent(String.self, forKey: .url)
+        id =   try values.decodeIfPresent(Int.self, forKey: .id)
+    }
+}
+
+struct ChatResponseModel:Mappable {
+    let type, from: Int?
+    let date, message: String?
+    var images:[ImageResponseModel]?
+   
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case date = "date"
+        case type = "type"
+        case from = "from"
+        case images = "images"
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        if let message =   try values.decodeIfPresent(String.self, forKey: .message) {
+            self.message = message
+        } else {
+            self.message = ""
+        }
+        
+        
+        date =   try values.decodeIfPresent(String.self, forKey: .date)
+        type = try values.decodeIfPresent(Int.self, forKey: .type)
+        from = try values.decodeIfPresent(Int.self, forKey: .from)
+        guard let images =  try values.decodeIfPresent([ImageResponseModel].self, forKey: .images) else{ return }
+        self.images = images
+    }
+}
+struct RequestResponseModel:Mappable {
+    let id: Int?
+    let code, status: String?
+   
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case code = "code"
+        case id = "id"
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status =   try values.decodeIfPresent(String.self, forKey: .status)
+        code =   try values.decodeIfPresent(String.self, forKey: .code)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+    }
+}
+
+struct EventResponseModel:Mappable {
+   
+    let name, date: String?
+   
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case date = "date"
+        
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name =   try values.decodeIfPresent(String.self, forKey: .name)
+        date =   try values.decodeIfPresent(String.self, forKey: .date)
+    }
+}
+
 struct LanguageResponseModel:Mappable {
    
     let name: String?
@@ -592,15 +801,18 @@ struct UserResponseModel:Mappable {
    
     let email,name,profile,mobile_no,code,ref_code: String?
     let points:Int?
+    let watermark:Int?
     enum CodingKeys: String, CodingKey {
         case email,name,profile,mobile_no,code,ref_code
         case points
+        case watermark
       }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         email =   try values.decodeIfPresent(String.self, forKey: .email)
         name =   try values.decodeIfPresent(String.self, forKey: .name)
         profile =   try values.decodeIfPresent(String.self, forKey: .profile)
+        watermark =   try values.decodeIfPresent(Int.self, forKey: .watermark)
         mobile_no =   try values.decodeIfPresent(String.self, forKey: .mobile_no)
         code =   try values.decodeIfPresent(String.self, forKey: .code)
         ref_code =   try values.decodeIfPresent(String.self, forKey: .ref_code)

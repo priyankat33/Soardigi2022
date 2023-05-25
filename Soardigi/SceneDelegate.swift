@@ -164,6 +164,7 @@ extension SceneDelegate {
 
 extension SceneDelegate {
     func logout(_ view: UIView){
+        UserDefaults.NTDefault(removeObjectForKey: kIsLogin)
         DispatchQueue.main.async {
         self.setUpLogin(view)
         }

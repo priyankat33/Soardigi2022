@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05538BB96D2D9555E4E458EA /* Pods_SoardigiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */; };
 		339E1939DE780A764178E924 /* Pods_Soardigi_SoardigiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */; };
+		8B2E99272A13F2DE00AE98FF /* LandscapePortraitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E99262A13F2DD00AE98FF /* LandscapePortraitVC.swift */; };
 		8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */; };
 		8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */; };
 		8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0828FD7C7E0035BA59 /* SceneDelegate.swift */; };
@@ -34,15 +35,20 @@
 		8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B41DA2029214C0E00CB0F94 /* HomeVC.swift */; };
 		8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */; };
 		8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */; };
+		8B54F90A29E87936001A1260 /* DownloadSampleImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54F90929E87936001A1260 /* DownloadSampleImageVC.swift */; };
+		8B5605F629C0AED300E2ED37 /* CustomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5605F529C0AED200E2ED37 /* CustomVC.swift */; };
 		8B5BE10B2989791400920FB3 /* SubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */; };
 		8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D28942972EB41008D36DA /* SearchHomeVC.swift */; };
 		8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */; };
 		8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */; };
+		8B6928C829B374CC00569A21 /* DownloadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6928C729B374CC00569A21 /* DownloadVC.swift */; };
+		8B6A3E7B29D2EAA20008C043 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A3E7A29D2EAA10008C043 /* ChatVC.swift */; };
 		8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166B296BF8E600EA1F01 /* AccountVC.swift */; };
 		8B6B166E296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */; };
 		8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */; };
 		8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C3BD628FF15210017F62F /* SignUpVC.swift */; };
 		8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */; };
+		8B7A7FAD2A1CFA3C00B37548 /* DeleteDownloadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A7FAC2A1CFA3B00B37548 /* DeleteDownloadVC.swift */; };
 		8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B462B2966B600008CB57D /* ShareDetailVC.swift */; };
 		8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */; };
 		8B7D3E53290058A300F4577B /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E50290058A100F4577B /* Mappable.swift */; };
@@ -64,6 +70,7 @@
 		8B904D1C298ABD0100C200D9 /* FeedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904D1B298ABD0100C200D9 /* FeedTVC.swift */; };
 		8B95BFA1298EC34D004E2CFA /* PointHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95BFA0298EC34D004E2CFA /* PointHistoryVC.swift */; };
 		8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E160F296F352A0096D344 /* SettingsVC.swift */; };
+		8BA358F829D74CB200A89A38 /* SendMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA358F729D74CB200A89A38 /* SendMessageVC.swift */; };
 		8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */; };
 		8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */; };
 		8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */; };
@@ -73,7 +80,12 @@
 		8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */; };
 		8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */; };
 		8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */; };
+		8BCC518D29E5C73E00601D9B /* SampleImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC518C29E5C73E00601D9B /* SampleImageVC.swift */; };
 		8BCD6F64298FC7CF008D942D /* NoSubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */; };
+		8BED4E0029D0A54400EF7F31 /* CreateCustomRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED4DFF29D0A54400EF7F31 /* CreateCustomRequestVC.swift */; };
+		8BED4E0229D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED4E0129D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift */; };
+		8BF6E95F2A153AF800F9A1A8 /* LandscapeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6E95E2A153AF700F9A1A8 /* LandscapeVC.swift */; };
+		8BF6E9612A153B1A00F9A1A8 /* PortraitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6E9602A153B1A00F9A1A8 /* PortraitVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +126,7 @@
 		4DF13F8B4D2C9A28DA01C0AC /* Pods-Soardigi-SoardigiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi-SoardigiUITests.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi_SoardigiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2E99262A13F2DD00AE98FF /* LandscapePortraitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapePortraitVC.swift; sourceTree = "<group>"; };
 		8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPagePickerVC.swift; sourceTree = "<group>"; };
 		8B36DB0328FD7C7E0035BA59 /* Soardigi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soardigi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,15 +156,20 @@
 		8B41DA2029214C0E00CB0F94 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessVC.swift; sourceTree = "<group>"; };
 		8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessCategoryVC.swift; sourceTree = "<group>"; };
+		8B54F90929E87936001A1260 /* DownloadSampleImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSampleImageVC.swift; sourceTree = "<group>"; };
+		8B5605F529C0AED200E2ED37 /* CustomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVC.swift; sourceTree = "<group>"; };
 		8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionVC.swift; sourceTree = "<group>"; };
 		8B5D28942972EB41008D36DA /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
 		8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
+		8B6928C729B374CC00569A21 /* DownloadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVC.swift; sourceTree = "<group>"; };
+		8B6A3E7A29D2EAA10008C043 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		8B6B166B296BF8E600EA1F01 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBusinessCategoryDetailVC.swift; sourceTree = "<group>"; };
 		8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCategoryPickerVC.swift; sourceTree = "<group>"; };
 		8B6C3BD628FF15210017F62F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageVC.swift; sourceTree = "<group>"; };
+		8B7A7FAC2A1CFA3B00B37548 /* DeleteDownloadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDownloadVC.swift; sourceTree = "<group>"; };
 		8B7B462B2966B600008CB57D /* ShareDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDetailVC.swift; sourceTree = "<group>"; };
 		8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookShareVC.swift; sourceTree = "<group>"; };
 		8B7D3E50290058A100F4577B /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
@@ -172,6 +190,7 @@
 		8B95BFA0298EC34D004E2CFA /* PointHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointHistoryVC.swift; sourceTree = "<group>"; };
 		8B964BDF2940FC9200426078 /* Soardigi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soardigi.entitlements; sourceTree = "<group>"; };
 		8B9E160F296F352A0096D344 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		8BA358F729D74CB200A89A38 /* SendMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageVC.swift; sourceTree = "<group>"; };
 		8BAA823C2922BBD700F9EDA8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8BAD1A062913CA0E00CD8B60 /* SelectBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBusinessVC.swift; sourceTree = "<group>"; };
 		8BAD1A092913D78700CD8B60 /* BusinessCategoryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCategoryCVC.swift; sourceTree = "<group>"; };
@@ -181,7 +200,12 @@
 		8BCBD23929000EFB00CED2C8 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
 		8BCBD23C29000F8D00CED2C8 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 		8BCBD240290010D700CED2C8 /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		8BCC518C29E5C73E00601D9B /* SampleImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleImageVC.swift; sourceTree = "<group>"; };
 		8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSubscriptionVC.swift; sourceTree = "<group>"; };
+		8BED4DFF29D0A54400EF7F31 /* CreateCustomRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCustomRequestVC.swift; sourceTree = "<group>"; };
+		8BED4E0129D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCustomListRequestVC.swift; sourceTree = "<group>"; };
+		8BF6E95E2A153AF700F9A1A8 /* LandscapeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeVC.swift; sourceTree = "<group>"; };
+		8BF6E9602A153B1A00F9A1A8 /* PortraitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitVC.swift; sourceTree = "<group>"; };
 		9A79C2DBEA13D03035BEF33A /* Pods-Soardigi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.debug.xcconfig"; sourceTree = "<group>"; };
 		BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoardigiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E63A4BA819A94A49852CC4E3 /* Pods-Soardigi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.release.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +318,7 @@
 		8B36DB3628FD9EDC0035BA59 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8BCC518B29E5C71500601D9B /* SampleImageVC */,
 				8B86A5E32991743200675CFD /* AddPackageVC */,
 				8B904D18298AB7D400C200D9 /* BrandFeedVC */,
 				8B5BE109298978FC00920FB3 /* SubscriptionVC */,
@@ -324,6 +349,17 @@
 				8B80D412298D76C500961092 /* SubscriptionTypeVC.swift */,
 				8B95BFA0298EC34D004E2CFA /* PointHistoryVC.swift */,
 				8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */,
+				8B6928C729B374CC00569A21 /* DownloadVC.swift */,
+				8B5605F529C0AED200E2ED37 /* CustomVC.swift */,
+				8BED4DFF29D0A54400EF7F31 /* CreateCustomRequestVC.swift */,
+				8BED4E0129D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift */,
+				8B6A3E7A29D2EAA10008C043 /* ChatVC.swift */,
+				8BA358F729D74CB200A89A38 /* SendMessageVC.swift */,
+				8B54F90929E87936001A1260 /* DownloadSampleImageVC.swift */,
+				8B2E99262A13F2DD00AE98FF /* LandscapePortraitVC.swift */,
+				8BF6E95E2A153AF700F9A1A8 /* LandscapeVC.swift */,
+				8BF6E9602A153B1A00F9A1A8 /* PortraitVC.swift */,
+				8B7A7FAC2A1CFA3B00B37548 /* DeleteDownloadVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -598,6 +634,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		8BCC518B29E5C71500601D9B /* SampleImageVC */ = {
+			isa = PBXGroup;
+			children = (
+				8BCC518C29E5C73E00601D9B /* SampleImageVC.swift */,
+			);
+			path = SampleImageVC;
+			sourceTree = "<group>";
+		};
 		933F443408E860E397DA84A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +906,7 @@
 				8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */,
 				8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */,
 				8B80D413298D76C500961092 /* SubscriptionTypeVC.swift in Sources */,
+				8BCC518D29E5C73E00601D9B /* SampleImageVC.swift in Sources */,
 				8B36DB4328FDA3590035BA59 /* CustomImageView.swift in Sources */,
 				8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */,
 				8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */,
@@ -872,12 +917,14 @@
 				8B405CCA297C075F0092FB10 /* AccountBussinessListVC.swift in Sources */,
 				8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */,
 				8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */,
+				8BA358F829D74CB200A89A38 /* SendMessageVC.swift in Sources */,
 				8B904D1A298AB7FF00C200D9 /* BrandFeedVC.swift in Sources */,
 				8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */,
 				8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */,
 				8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */,
 				8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */,
 				8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */,
+				8B6A3E7B29D2EAA20008C043 /* ChatVC.swift in Sources */,
 				8B86A5E52991744700675CFD /* AddPackageVC.swift in Sources */,
 				8B7D3E60290059A500F4577B /* Constant.swift in Sources */,
 				8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */,
@@ -889,21 +936,30 @@
 				8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */,
 				8BB84E57298C3FDF00F3D4AF /* AddSubscriptionVC.swift in Sources */,
 				8BCBD23A29000EFB00CED2C8 /* CountryPickerVC.swift in Sources */,
+				8BED4E0029D0A54400EF7F31 /* CreateCustomRequestVC.swift in Sources */,
 				8B36DB3928FDA23E0035BA59 /* LoginVC.swift in Sources */,
+				8B6928C829B374CC00569A21 /* DownloadVC.swift in Sources */,
 				8B36DB4728FDA3590035BA59 /* CustomTextView.swift in Sources */,
 				8B36DB4828FDA3590035BA59 /* CustomButton.swift in Sources */,
+				8B5605F629C0AED300E2ED37 /* CustomVC.swift in Sources */,
 				8B7D3E5A290058C100F4577B /* CommomModel.swift in Sources */,
+				8B2E99272A13F2DE00AE98FF /* LandscapePortraitVC.swift in Sources */,
 				8B36DB4228FDA3590035BA59 /* CustomColor.swift in Sources */,
 				8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */,
 				8B7D3E59290058C100F4577B /* UserModel.swift in Sources */,
+				8BF6E95F2A153AF800F9A1A8 /* LandscapeVC.swift in Sources */,
+				8B7A7FAD2A1CFA3C00B37548 /* DeleteDownloadVC.swift in Sources */,
 				8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */,
+				8BF6E9612A153B1A00F9A1A8 /* PortraitVC.swift in Sources */,
 				8B38060E29742A9500C78BC9 /* StaticContentVC.swift in Sources */,
 				8B36DB4628FDA3590035BA59 /* CustomTextField.swift in Sources */,
 				8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */,
+				8BED4E0229D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift in Sources */,
 				8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */,
 				8B3806112974565100C78BC9 /* EditProfileVC.swift in Sources */,
 				8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */,
 				8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */,
+				8B54F90A29E87936001A1260 /* DownloadSampleImageVC.swift in Sources */,
 				8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */,
 				8B5BE10B2989791400920FB3 /* SubscriptionVC.swift in Sources */,
 				8B95BFA1298EC34D004E2CFA /* PointHistoryVC.swift in Sources */,
@@ -1105,7 +1161,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1145,7 +1201,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

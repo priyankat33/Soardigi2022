@@ -11,10 +11,13 @@ import CoreLocation
 import KRProgressHUD
 
 let kAuthTokenKey   =  "AuthToken"
+let kWaterMake   =  "waterMake"
 let kIsLogin   =  "isLogin"
 let kPageName   =  "PageName"
 let kPageId = "PageId"
 let kRoleCode = "RoleCode"
+let kDeviceToken = "device_token"
+let kFcmToken = "fcmToken"
 var userCoordinate:CLLocationCoordinate2D!
 var currentLocation:CLLocation!
 let kAppname:String =  "Soardigi"
@@ -127,6 +130,37 @@ var accessToken:String{
     }
 }
 
+var fcmToken:String {
+    get{
+        guard let userId = UserDefaults.NTDefault(objectForKey: kFcmToken) as? String else { return "" }
+        return userId
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kFcmToken )
+    }
+}
+
+var deviceTokenNew:String {
+    get{
+        guard let userId = UserDefaults.NTDefault(objectForKey: kDeviceToken) as? String else { return "" }
+        return userId
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kDeviceToken )
+    }
+}
+
+var waterMarker:Bool {
+    get{
+        guard let waterMarker = UserDefaults.NTDefault(objectForKey: kWaterMake) as? Bool else { return false }
+        return waterMarker
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kWaterMake )
+    }
+}
+
+
 var isLogin:Bool{
     get{
         guard let isLogin = UserDefaults.NTDefault(objectForKey: kIsLogin) as? Bool else { return false }
@@ -195,4 +229,18 @@ var passwordRemeber:String{
     set{
         UserDefaults.NTDefault(setObject: newValue, forKey: kPassword )
     }
+}
+
+
+
+struct SaveImageModel:Mappable {
+    var imageSave:Data?
+    var frameId:Int?
+    var imageId:String?
+}
+
+struct CustomImageModel:Mappable {
+    var imageSave:Data?
+    var frameId:Int?
+    var imageId:String?
 }

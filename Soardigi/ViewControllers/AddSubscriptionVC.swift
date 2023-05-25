@@ -62,6 +62,9 @@ extension AddSubscriptionVC:UITableViewDelegate, UITableViewDataSource {
         vc.selectedId = data.id ?? 0
         vc.amount = data.price ?? "0"
         vc.points = data.points ?? 0
+        vc.callBackSubscription = {
+            self.navigationController?.popViewController(animated: true)
+        }
         self.present(vc, animated: true, completion: nil)
     }
     

@@ -68,5 +68,13 @@ struct API {
     static let kLanguageSave    =   "language-save"
     static let kHomePage   =   "home-page"
     static let kChangeBusiness = "change-business"
+    static let kUpcomingEvents = "upcoming-events"
+    static let kRequestGet = "request-get"
+    static let kMessageGet = "request-message-get"
+    static let kRequestCreate = "request-create"
+    static let kRequestSelect = "request-select"
+    
+    
+    
     
 }

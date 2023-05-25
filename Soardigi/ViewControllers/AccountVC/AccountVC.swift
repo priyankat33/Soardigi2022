@@ -39,9 +39,28 @@ class AccountVC: UIViewController {
         })
     }
     
+    
+    @IBAction func onClickInstaLogout(_ sender:UIButton) {
+
+        showAlertWithTwoActions(sender: self, message: "Are you sure want to logout from Instagram?", title: "Yes", secondTitle: "No", onSuccess: {
+            let fbLoginManager = LoginManager()
+                fbLoginManager.logOut()
+                let cookies = HTTPCookieStorage.shared
+                let facebookCookies = cookies.cookies(for: URL(string: "https://facebook.com/")!)
+                for cookie in facebookCookies! {
+                    cookies.deleteCookie(cookie )
+                }
+            pageName = ""
+            pageId = ""
+        }, onCancel: {
+            
+        })
+    }
+    
     @IBAction func onClickProfile(_ sender:UIButton) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
         vc.userResponseModel = self.homeViewModel.userResponseModel
+        waterMarker = self.homeViewModel.userResponseModel?.watermark == 1 ? true : false 
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -64,7 +83,7 @@ class AccountVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         homeViewModel.getUserProfile(sender: self, onSuccess: {
-            
+            waterMarker = self.homeViewModel.userResponseModel?.watermark == 1 ? true : false 
             self.imgView.kf.indicatorType = .activity
             self.imgView.kf.setImage(with: URL(string: self.homeViewModel.userResponseModel?.profile ?? ""), placeholder: nil, options: nil) { result in
                 switch result {

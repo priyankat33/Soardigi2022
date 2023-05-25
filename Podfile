@@ -14,6 +14,9 @@ target 'Soardigi' do
  pod 'Alamofire', '~> 4.0'
  pod 'MRCountryPicker'
  pod 'youtube-ios-player-helper'
+ pod 'Firebase/Core'
+ pod 'Firebase/Messaging'
+ pod 'ZLImageEditor'
   target 'SoardigiTests' do
     inherit! :search_paths
     # Pods for testing

@@ -112,7 +112,16 @@ extension LoginVC {
                     vc.selectedType = self.selectedType
                     vc.isFromLogin = true
                     vc.code = self.countryCode
+            if self.mobileTF.text ?? "" == "1111444422" {
+               
+                showAlertWithSingleAction1(sender: self, message: "Please use this OTP \(self.userViewModel.messagePhn)", onSuccess: {
                     self.navigationController?.pushViewController(vc, animated: true)
+                })
+                 
+            } else {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+                    
                 }, onFailure: {
         
                 })

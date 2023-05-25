@@ -146,6 +146,28 @@ extension UserDefaults {
         UserDefaults.standard.removeObject(forKey: key)
         UserDefaults.standard.synchronize()
     }
+    
+    var saveImageModel: [SaveImageModel]? {
+            get {
+                guard let data = UserDefaults.standard.data(forKey: "SaveImageModel") else { return [] }
+                return (try? PropertyListDecoder().decode([SaveImageModel].self, from: data)) ?? []
+            }
+            set {
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(newValue), forKey: "SaveImageModel")
+            }
+        }
+    
+    
+    var customImageModel: [CustomImageModel]? {
+            get {
+                guard let data = UserDefaults.standard.data(forKey: "CustomImageModel") else { return [] }
+                return (try? PropertyListDecoder().decode([CustomImageModel].self, from: data)) ?? []
+            }
+            set {
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(newValue), forKey: "CustomImageModel")
+            }
+        }
+    
     //Save no-premitive data
 //    static func NTDefault( set codble:Mappable,forKey key:String){
 //

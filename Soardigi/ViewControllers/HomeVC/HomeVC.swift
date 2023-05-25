@@ -22,16 +22,17 @@ class HomeVC: UIViewController, SliderCollectionCell {
     @IBOutlet weak fileprivate var lblBusinessName:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-            
-
-        // Do any additional setup after loading the view.
+      // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        onUpdate()
+    }
+    
+    
+    fileprivate func onUpdate() {
         homeViewModel.getMainHomeData(sender: self, onSuccess: {
             self.lblBusinessName.text = self.homeViewModel.businessName
             self.tableView.reloadData()
@@ -40,25 +41,35 @@ class HomeVC: UIViewController, SliderCollectionCell {
         })
     }
     
-    @IBAction func onClickBusinessName(_ sender:UIButton) {
-//        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShowBusinessCategoryDetailVC") as! ShowBusinessCategoryDetailVC
-//        vc.businessName = lblBusinessName.text ?? ""
-//        vc.categoryName = homeViewModel.categoryName
-//        vc.businessImage = homeViewModel.businessImage
-//        vc.id = homeViewModel.bussinessId
-//        self.present(vc, animated: true, completion: nil)
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-            let fileURL = documentsURL?.appendingPathComponent("duck.png")
-            return (fileURL!, [.removePreviousFile, .createIntermediateDirectories])
-        }
-
+    
+    @IBAction func onClickNotification(_ sender:UIButton) {
+//        let window = UIApplication.shared.keyWindow
+//        window?.overrideUserInterfaceStyle = .light
         
-        Alamofire.download("https://httpbin.org/image/png", to: destination).responseData { response in
-            if let destinationUrl = response.destinationURL {
-                print(destinationUrl)
-            }
+        showAlertWithSingleAction(sender: self, message: "Coming Soon")
+    }
+    @IBAction func onClickBusinessName(_ sender:UIButton) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShowBusinessCategoryDetailVC") as! ShowBusinessCategoryDetailVC
+        vc.businessName = lblBusinessName.text ?? ""
+        vc.callBackHome = {
+            self.onUpdate()
         }
+        vc.categoryName = homeViewModel.categoryName
+        vc.businessImage = homeViewModel.businessImage
+        vc.id = homeViewModel.bussinessId
+        self.present(vc, animated: true, completion: nil)
+//        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+//            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+//            let fileURL = documentsURL?.appendingPathComponent("duck.png")
+//            return (fileURL!, [.removePreviousFile, .createIntermediateDirectories])
+//        }
+//
+//
+//        Alamofire.download("https://httpbin.org/image/png", to: destination).responseData { response in
+//            if let destinationUrl = response.destinationURL {
+//                print(destinationUrl)
+//            }
+//        }
     }
     /*
     // MARK: - Navigation
@@ -74,6 +85,7 @@ class HomeVC: UIViewController, SliderCollectionCell {
        
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
                 vc.id = homeViewModel.homeCategoryResponseModel[value].id ?? ""
+        vc.headingName = homeViewModel.homeCategoryResponseModel[value].title ?? ""
         vc.subCatId = ""
                 self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -84,7 +96,7 @@ class HomeVC: UIViewController, SliderCollectionCell {
        
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
         vc.id = homeViewModel.homeCategoryResponseModel[value].id ?? ""
-        
+        vc.headingName = homeViewModel.homeCategoryResponseModel[value].title ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -107,10 +119,23 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate, collectionCell_del
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTVC", for: indexPath) as! CategoryTVC
-            cell.imageResponseModel = homeViewModel.homeCategoryResponseModel[indexPath.section - 1].categoryImagesResponseModel
-            cell.sectionValue = indexPath.section - 1
-            cell.deleg = self
-            cell.parent = self
+            
+            if homeViewModel.homeCategoryResponseModel[indexPath.section - 1].categoryEvents?.count ?? 0 > 0 {
+                if indexPath.section == 1 {
+                    cell.eventsDetail = homeViewModel.homeCategoryResponseModel[indexPath.section - 1].categoryEvents
+                    cell.sectionValue = indexPath.section - 1
+                    cell.deleg = self
+                    cell.parent = self
+                }
+            } else {
+                
+                    cell.imageResponseModel = homeViewModel.homeCategoryResponseModel[indexPath.section - 1].categoryImagesResponseModel
+                    cell.sectionValue = indexPath.section - 1
+                    cell.deleg = self
+                    cell.parent = self
+                
+            }
+            
             return cell
         }
         
@@ -131,6 +156,14 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate, collectionCell_del
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "SectionHeadingCell") as! SectionHeadingCell
             headerCell.forwardBtn.tag = section - 1
             headerCell.headingLBL.text = homeViewModel.homeCategoryResponseModel[section-1].title ?? ""
+            
+            if homeViewModel.homeCategoryResponseModel[section-1].title ?? "" == "Upcoming Events"{
+                headerCell.forwardBtn.isHidden = true
+            } else {
+                headerCell.forwardBtn.isHidden = false
+            }
+            
+            
             return headerCell
         }
         return nil
@@ -140,11 +173,23 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate, collectionCell_del
         return section != 0 ? 35.0 : 0.0
     }
     
-    func didPressed(value: String,sectionValue:Int) {
+    func didPressed(value: String,sectionValue:Int, isFromUpcoming:Bool, eventName: String ) {
             
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
-                vc.id = homeViewModel.homeCategoryResponseModel[sectionValue].id ?? ""
-        vc.subCatId = value
+        if isFromUpcoming {
+            vc.id = value
+            vc.headingName = eventName
+            vc.isFromEvent = true
+            vc.subCatId = ""
+        } else {
+            vc.id = homeViewModel.homeCategoryResponseModel[sectionValue].id ?? ""
+            vc.headingName = homeViewModel.homeCategoryResponseModel[sectionValue].title ?? ""
+            vc.isFromEvent = false
+            vc.subCatId = value
+        }
+               
+        
+        
                 self.navigationController?.pushViewController(vc, animated: true)
         }
 }
@@ -166,7 +211,7 @@ class FacebookLogin: NSObject {
         let fbLoginManager : LoginManager = LoginManager()
         //fbLoginManager.loginBehavior = LoginBehavior.browser
         fbLoginManager.logOut()
-        fbLoginManager.logIn(permissions: [FacebookPermissions.publicProfile.rawValue,FacebookPermissions.email.rawValue,"pages_show_list","pages_read_engagement","publish_video","pages_manage_posts"], from: withController) { (result, error) in
+        fbLoginManager.logIn(permissions: [FacebookPermissions.publicProfile.rawValue,FacebookPermissions.email.rawValue,"instagram_basic", "pages_show_list","pages_read_engagement","publish_video","pages_manage_posts"], from: withController) { (result, error) in
             if error != nil{
                 print(error.debugDescription)
                 // Calling back to previous class if error occured
@@ -190,6 +235,8 @@ class FacebookLogin: NSObject {
         }
         //success(true)
     }
+    
+    
     
     private func getFBUserData(success: @escaping(_ finished: Bool,_ user:FacebookUserData)-> ()){
         if (AccessToken.current != nil) {

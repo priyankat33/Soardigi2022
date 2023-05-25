@@ -14,7 +14,9 @@ class OTPVerificationVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak fileprivate var tf4:CustomTextField!
     @IBOutlet weak fileprivate var tf5:CustomTextField!
     @IBOutlet weak fileprivate var tf6:CustomTextField!
+    fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     var email:String = ""
+    var defaultOTP:String = ""
     var name:String = ""
     var phone:String = ""
     var code:String = ""
@@ -109,9 +111,26 @@ class OTPVerificationVC: UIViewController, UITextFieldDelegate {
         let data = tf1.text!  + tf2.text!  +  tf3.text!  + tf4.text! + tf5.text! + tf6.text!
         if isFromLogin {
             userViewModel.otpVerification(type:selectedType.value ?? "",isFromLogin:isFromLogin, phone: phone, code: code, sender: self, email: email, otp: data, onSuccess: { [self] in
-                let vc = mainStoryboard.instantiateViewController(withIdentifier: "ChooseLanguageVC") as! ChooseLanguageVC
                 
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.homeViewModel.getBusineesList(sender: self, onSuccess: {
+                    if self.homeViewModel.businessModel.count > 0 {
+                        isLogin = true
+                        if let tabViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TabViewController {
+                            self.present(tabViewController, animated: false, completion: nil)
+                        }
+                    } else {
+                        isLogin = false
+                                        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ChooseLanguageVC") as! ChooseLanguageVC
+                    
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }, onFailure: {
+                    
+                })
+                
+//                let vc = mainStoryboard.instantiateViewController(withIdentifier: "ChooseLanguageVC") as! ChooseLanguageVC
+//
+//                self.navigationController?.pushViewController(vc, animated: true)
             }, onFailure: {
                 
             })

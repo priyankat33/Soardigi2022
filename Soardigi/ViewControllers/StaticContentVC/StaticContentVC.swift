@@ -68,10 +68,12 @@ class StaticContentVC: UIViewController {
  
         } else {
             headingLBL.text = heading
-            let url = URL(string: urlString)
-            let request = URLRequest(url: url!)
-            webView.navigationDelegate = self
-            webView.load(request)
+            if let url = URL(string: urlString) {
+                let request = URLRequest(url: url)
+                webView.navigationDelegate = self
+                webView.load(request)
+            }
+            
         }
         
         // Do any additional setup after loading the view.

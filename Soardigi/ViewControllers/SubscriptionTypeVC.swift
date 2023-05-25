@@ -8,6 +8,7 @@
 import UIKit
 import AppInvokeSDK
 class SubscriptionTypeVC: UIViewController {
+    var callBackSubscription: (() -> Void)?
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     private let appInvoke = AIHandler()
     @IBOutlet weak var bussinessLBL:UILabel!
@@ -51,7 +52,7 @@ class SubscriptionTypeVC: UIViewController {
                 let earnItems = self.homeViewModel.pointHistory.filter({ $0.type == 1 }).map({$0.points ?? 0}).reduce(0, +)
                 self.totalPoints = earnItems - spendItems
             }
-         }, onFailure: {
+        }, onFailure: {
             
         })
         // Do any additional setup after loading the view.
@@ -60,13 +61,14 @@ class SubscriptionTypeVC: UIViewController {
         let data = notification.object as? String ?? ""
         if data == "PYTM_103" {
             
-                    homeViewModel.applySubscriptionType(business: bussinessId, payMethod: selectedType, plan_id: selectedId, sender: self, onSuccess: {
-                        showAlertWithSingleAction1(sender: self, message: "Thanks for Subscription", onSuccess: {
-                            self.dismiss(animated: true)
-                        })
-                    }, onFailure: {
-            
-                    })
+            homeViewModel.applySubscriptionType(business: bussinessId, payMethod: selectedType, plan_id: selectedId, sender: self, onSuccess: {
+                showAlertWithSingleAction1(sender: self, message: "Thanks for Subscription", onSuccess: {
+                    self.callBackSubscription?()
+                    self.dismiss(animated: true)
+                })
+            }, onFailure: {
+                self.callBackSubscription?()
+            })
             
             
         } else {
@@ -75,7 +77,7 @@ class SubscriptionTypeVC: UIViewController {
                 self.dismiss(animated: true)
             })
         }
-        }
+    }
     
     @IBAction func onClickOnline(_ sender:UIButton) {
         pointBtn.setImage(UIImage(named: "unselectrd"), for: .normal)
@@ -109,15 +111,17 @@ class SubscriptionTypeVC: UIViewController {
             if totalPoints >= points {
                 homeViewModel.applySubscriptionType(business: bussinessId, payMethod: selectedType, plan_id: selectedId, sender: self, onSuccess: {
                     showAlertWithSingleAction1(sender: self, message: "Thanks for Subscription", onSuccess: {
+                        self.callBackSubscription?()
                         self.dismiss(animated: true)
                     })
                 }, onFailure: {
-                    showAlertWithSingleAction1(sender: self, message: "You don't have enough points to subscribe the subscription", onSuccess: {
-                        self.dismiss(animated: true)
-                    })
+                    self.callBackSubscription?()
+                    self.dismiss(animated: true)
+                    
                 })
             } else {
                 showAlertWithSingleAction1(sender: self, message: "You don't have enough points to subscribe the subscription", onSuccess: {
+                    self.callBackSubscription?()
                     self.dismiss(animated: true)
                 })
             }
@@ -129,9 +133,6 @@ class SubscriptionTypeVC: UIViewController {
                 
             })
         }
-        
-        
-        
     }
     
     @IBAction func onClickPoints(_ sender:UIButton) {

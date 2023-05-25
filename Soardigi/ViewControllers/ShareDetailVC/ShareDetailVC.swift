@@ -30,6 +30,22 @@ class ShareDetailVC: UIViewController {
 }
 
 extension ShareDetailVC {
+    
+    @IBAction func onClickShare(_ sender:UIButton) {
+       
+                
+                // set up activity view controller
+                let imageToShare = [ image! ]
+                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                
+                // exclude some activity types from the list (optional)
+       
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.postToTwitter ]
+                
+                // present the view controller
+                self.present(activityViewController, animated: true, completion: nil)
+    }
     @IBAction func onClickConnect(_ sender:UIButton) {
         if AccessToken.current?.tokenString != nil {
             showLoader(status: true)
@@ -38,7 +54,7 @@ extension ShareDetailVC {
             graphRequest.start( completion: { [self] (connection, result, error)-> Void in
                 if ((error) != nil)
                 {
-                    print("Error: \(error)")
+                    print("Error: \(String(describing: error))")
                 }
                 else
                 {

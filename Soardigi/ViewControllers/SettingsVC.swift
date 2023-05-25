@@ -13,6 +13,9 @@ class SettingsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+            self.waterMark.isOn = waterMarker ? true : false
+        
 
         // Do any additional setup after loading the view.
     }
@@ -27,6 +30,7 @@ class SettingsVC: UIViewController {
     @IBAction func onClickPrivacy(_ sender:UIButton) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "StaticContentVC") as! StaticContentVC
         vc.heading = "Privacy Policy"
+        vc.urlString = baseURL + "api/content/privacy-policy"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

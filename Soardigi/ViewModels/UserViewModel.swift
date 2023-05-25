@@ -11,6 +11,8 @@ class UserViewModel: NSObject {
     
     var message:String = ""
     var token:String = ""
+    var messagePhn:String = ""
+    
     func login(selectedType:SelectedType ,sender:UIViewController,email:String = "",phone:String = "",code:String = "", type:String = "0",onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             if selectedType == .mobile {
@@ -34,7 +36,10 @@ class UserViewModel: NSObject {
                                     
                                     onFailure()
                                 } else {
-                                    onSuccess()
+                                    if phone == "1111444422" {
+                                        self.messagePhn = response.message ?? ""
+                                    }
+                                        onSuccess()
                                 }
                                 
                                 break
@@ -243,7 +248,7 @@ class UserViewModel: NSObject {
             }
             else{
                 if isFromLogin {
-                    let params:[String:Any] = ["device":"12122","phone":phone,"code":code,"email":email,"otp":otp,"type":type]
+                    let params:[String:Any] = ["device":"12122","phone":phone.isEmpty ? email : phone,"code":code,"otp":otp,"type":type]
                     showLoader(status: true)
                     ServerManager.shared.httpPost(request:  baseURL  + "api/auth/v1/" + API.kLoginOTP, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                         DispatchQueue.main.async {
@@ -257,7 +262,7 @@ class UserViewModel: NSObject {
                                     onSuccess()
                                 } else {
                                     showAlertWithSingleAction(sender: sender, message: response.message ?? "")
-                                    onSuccess()
+                                    onFailure()
                                 }
                                 
                                 break
