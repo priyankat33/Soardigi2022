@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomVC: UIViewController {
-
+    fileprivate let facebookLogin = FacebookLogin()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +21,14 @@ class CustomVC: UIViewController {
     
     @IBAction func onClickLibrary(_ sender: UIButton) {
         showAlertWithSingleAction(sender: self, message: "Coming Soon")
+    }
+    
+    @IBAction func onClickFaceBookAnalytics(_ sender: UIButton) {
+         
+            facebookLogin.facebookLogin(withController:self) { (success,user) in
+                showLoader(status: false)
+            }
+        
     }
     
     @IBAction func onClickCustomImage(_ sender: UIButton) {

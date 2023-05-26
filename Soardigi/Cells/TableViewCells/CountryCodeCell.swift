@@ -22,25 +22,25 @@ protocol CategoriasTableViewCellDelegate : AnyObject {
 class SectionHeadingCell: UITableViewCell {
     @IBOutlet weak var headingLBL: UILabel!
     @IBOutlet weak var forwardBtn: UIButton!
- }
+}
 
 class CountryCodeCell: UITableViewCell {
-   
+    
     @IBOutlet weak fileprivate var countryNameLBL: UILabel!
     @IBOutlet weak fileprivate var countryFlagImgView: UIImageView!
     var objCountryModel:CountryModel?{
         didSet{
             guard let countryName = objCountryModel?.name,let countryShortNameCode = objCountryModel?.phoneCode else{return}
-           
+            
             countryNameLBL.text =  "(\(countryShortNameCode)) \(countryName)"
             countryFlagImgView.image = objCountryModel?.flag
-           
+            
         }
     }
 }
 
 class PageCodeCell: UITableViewCell {
-   
+    
     @IBOutlet weak var countryNameLBL: UILabel!
     
 }
@@ -70,24 +70,21 @@ class ChatCell: UITableViewCell {
 }
 
 class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-   @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     weak var parent:HomeVC?
     weak var delegate : CategoriasTableViewCellDelegate?
     var deleg:collectionCell_delegate?
     var sectionValue:Int = 1
-    
-    
     fileprivate var categoryImagesResponseModel:[CategoryImagesResponseModel] = [CategoryImagesResponseModel]()
     fileprivate var events:[Event] = [Event]()
-   
+    
     var imageResponseModel:[CategoryImagesResponseModel]? {
         didSet {
             self.categoryImagesResponseModel = imageResponseModel ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-            }
-        
+        }
     }
     
     var eventsDetail:[Event]? {
@@ -96,8 +93,7 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-            }
-        
+        }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sectionValue == 0 ? eventsDetail?.count ?? 0 : categoryImagesResponseModel.count
@@ -115,7 +111,6 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
                 del.didPressed(value: data.id ?? "0",sectionValue:sectionValue, isFromUpcoming : false, eventName:"")
             }
         }
-        
     }
     
     override func prepareForReuse() {
@@ -141,7 +136,7 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
         } else {
             let data = categoryImagesResponseModel[indexPath.item]
             cell.lbl.text = "False"
-           
+            
             cell.lbl.isHidden = data.is_paid == 1 ? false : true
             cell.imageView.kf.indicatorType = .activity
             cell.imageView.kf.setImage(with: URL(string: data.image ?? ""), placeholder: nil, options: nil) { result in
@@ -160,24 +155,20 @@ class CategoryTVC: UITableViewCell, UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 128, height: 128)
     }
-    
 }
-
-
-
 
 class SliderTVC: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var Scrollinftimer = Timer()
     var scrollImg: Int = 0
-   @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var sliderCollectionCell:SliderCollectionCell?
-   fileprivate var sliderResponseModel:[HomeSliderResponseModel] = [HomeSliderResponseModel]()
+    fileprivate var sliderResponseModel:[HomeSliderResponseModel] = [HomeSliderResponseModel]()
     var homeSliderResponseModel:[HomeSliderResponseModel]? {
         didSet {
             self.sliderResponseModel = homeSliderResponseModel ?? []
-                self.collectionView.reloadData()
-            }
-        
+            self.collectionView.reloadData()
+            let timer =  Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+        }
     }
     
     
@@ -197,52 +188,38 @@ class SliderTVC: UITableViewCell, UICollectionViewDataSource, UICollectionViewDe
                 print("Error: \(error)")
             }
         }
-//        var rowIndex = indexPath.item
-//           let Numberofrecords : Int = sliderResponseModel.count - 1
-//           if (rowIndex < Numberofrecords)
-//           {
-//               rowIndex = (rowIndex + 0) // 1
-//           }
-//           else
-//           {
-//               rowIndex = 0
-//           }
-        Scrollinftimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
-
+        
+        
+        
         return cell
     }
     
-    @objc func autoScroll()
-    {
+    @objc func scrollAutomatically(_ timer1: Timer) {
         
-        let totalCount = sliderResponseModel.count-1
-        
-        if scrollImg == totalCount {
-            scrollImg = 0
-        }else {
-            scrollImg += 1
-        }
-        
-      
-        DispatchQueue.main.async {
-            let rect = self.collectionView.layoutAttributesForItem(at: IndexPath(row: self.scrollImg, section: 0))?.frame
-            if self.scrollImg == 0{
-                self.collectionView.scrollRectToVisible(rect!, animated: false)
-            }else {
-                self.collectionView.scrollRectToVisible(rect!, animated: true)
+        if let coll  = collectionView {
+            for cell in coll.visibleCells {
+                let indexPath: IndexPath? = coll.indexPath(for: cell)
+                if ((indexPath?.row)! < sliderResponseModel.count - 1){
+                    let indexPath1: IndexPath?
+                    indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+                    
+                    coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+                }
+                else{
+                    let indexPath1: IndexPath?
+                    indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
+                    coll.scrollToItem(at: indexPath1!, at: .left, animated: false)
+                }
+                
             }
-        
         }
-        
-            
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.bounds.size.width, height: self.bounds.size.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let data = sliderResponseModel[indexPath.item]
         if let del = sliderCollectionCell{
             del.didPressedSlide(value: data.sliderCategoryResponseModel?.id ?? "0")
