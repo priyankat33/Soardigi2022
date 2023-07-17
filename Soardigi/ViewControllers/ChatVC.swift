@@ -23,16 +23,16 @@ class ChatVC: UIViewController {
         } else {
             btn.isHidden = true
         }
-        getChat()
-//        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { _ in
-//            self.updateCounting()
-//        })
+        // getChat()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { _ in
+            self.updateCounting()
+        })
         
         // Do any additional setup after loading the view.
     }
     
     
-     func updateCounting(){
+    func updateCounting(){
         getChat()
     }
     
@@ -63,18 +63,18 @@ class ChatVC: UIViewController {
             self.dismiss(animated: true)
             self.getChat()
         }
-            self.present(vc, animated: true, completion: nil)
-        }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        self.present(vc, animated: true, completion: nil)
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension ChatVC:UITableViewDelegate,UITableViewDataSource{
@@ -84,13 +84,13 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-           
+        
         let data = homeViewModel.chatResponseModel[indexPath.row]
         if data.from == 2 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
             if data.type == 2 {
-//                cell.messageLBL.isHidden = true
+                //                cell.messageLBL.isHidden = true
                 if data.images?.count ?? 0 > 0 {
                     cell.imgView.isHidden = false
                     cell.downloadBtn.isHidden = false
@@ -104,7 +104,7 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                             print("Error: \(error)")
                         }
                     }
-
+                    
                 } else {
                     cell.imgView.isHidden = true
                     cell.downloadBtn.isHidden = true
@@ -113,7 +113,7 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                 if emptyMessage.isEmpty {
                     cell.messageLBL.isHidden = true
                     cell.msgView.isHidden = true
-                   
+                    
                     
                 } else {
                     cell.messageLBL.isHidden = false
@@ -129,7 +129,7 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                 } else {
                     cell.dateView.isHidden = true
                     cell.dateLBL.isHidden = true
-                   }
+                }
             } else {
                 
                 let emptyMessage = data.message ?? ""
@@ -141,8 +141,8 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                     cell.messageLBL.text = data.message ?? ""
                     cell.msgView.isHidden = false
                 }
-              //  cell.messageLBL.isHidden = false
-               
+                //  cell.messageLBL.isHidden = false
+                
                 if data.images?.count ?? 0 > 0 {
                     
                     cell.imgView.isHidden = false
@@ -169,11 +169,11 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                 } else {
                     cell.dateView.isHidden = true
                     cell.dateLBL.isHidden = true
-                   }
-               
-
+                }
+                
+                
             }
-           return cell
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell1", for: indexPath) as! ChatCell
             cell.sampleBtn.tag = indexPath.row
@@ -186,7 +186,7 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                 if data.images?.count ?? 0 > 0 {
                     cell.imgViewCustom.isHidden = false
                     cell.sampleBtn.isHidden = false
-
+                    
                 } else {
                     cell.imgViewCustom.isHidden = true
                     cell.sampleBtn.isHidden = true
@@ -196,16 +196,14 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                 if emptyMessage.isEmpty {
                     cell.messageLBL.isHidden = true
                     cell.msgView.isHidden = true
-                    
-                    
                 } else {
                     cell.messageLBL.isHidden = false
                     cell.msgView.isHidden = false
                     cell.messageLBL.text = data.message ?? ""
-                   
+                    
                 }
-               
-               
+                
+                
                 cell.dateLBL.text = data.date ?? ""
                 cell.dateLBL.isHidden = false
                 cell.dateView.isHidden = false
@@ -222,11 +220,11 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
                     cell.dateLBL.text = data.date ?? ""
                     cell.messageLBL.text = data.message ?? ""
                 }
-//                cell.messageLBL.isHidden = false
+                //                cell.messageLBL.isHidden = false
                 
                 cell.imgViewCustom.isHidden = true
                 cell.sampleBtn.isHidden = true
-//                cell.messageLBL.text = data.message ?? ""
+                //                cell.messageLBL.text = data.message ?? ""
                 
             }
             return cell
@@ -255,18 +253,23 @@ extension ChatVC:UITableViewDelegate,UITableViewDataSource{
         let value = sender.tag
         let data = homeViewModel.chatResponseModel[value]
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "DownloadSampleImageVC") as! DownloadSampleImageVC
-       if data.images?.count ?? 0 > 0 {
-           vc.imgUrl = data.images?[0].url ?? ""
-           vc.sampleId = id
-           vc.callback = { (downloadImage) -> Void in
-               let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
-               vc.image = downloadImage
-               
-           vc.typeSelected = 0
-               self.navigationController?.pushViewController(vc, animated: true)
-           }
-           vc.selectedId = data.images?[0].id ?? 0
-           self.present(vc, animated: true, completion: nil)
-       }
-      }
+        if data.images?.count ?? 0 > 0 {
+            vc.imgUrl = data.images?[0].url ?? ""
+            vc.sampleId = id
+            vc.selectedId = data.images?[0].id ?? 0
+            
+            let saveDownloadImageModel = SaveDownloadImageModel(imageURL: data.images?[0].url ?? "", id: id, selectedId: data.images?[0].id ?? 0)
+            
+            UserDefaults.standard.saveDownloadImageModel?.append(saveDownloadImageModel)
+            vc.callback = { (downloadImage) -> Void in
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
+                vc.image = downloadImage
+                
+                vc.typeSelected = 0
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 }

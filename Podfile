@@ -6,6 +6,7 @@ target 'Soardigi' do
   use_frameworks!
 
   # Pods for Soardigi
+ pod 'mobile-ffmpeg-full-gpl', '~> 4.2'
  pod 'FBSDKCoreKit'
  pod 'FBSDKLoginKit'
  pod 'IQKeyboardManagerSwift'
@@ -17,6 +18,7 @@ target 'Soardigi' do
  pod 'Firebase/Core'
  pod 'Firebase/Messaging'
  pod 'ZLImageEditor'
+ 
   target 'SoardigiTests' do
     inherit! :search_paths
     # Pods for testing

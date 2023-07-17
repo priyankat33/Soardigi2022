@@ -16,7 +16,7 @@ class FacebookShareVC: UIViewController, PagePickerControllerDelegate {
     @IBOutlet weak fileprivate var lbl:UILabel!
     var fbPageData:[FBPageData] = [FBPageData]()
     var selectedIndex:String = ""
-    var dataUrl:String = ""
+    var dataUrl:URL!
     var typeSelected:Int = 0
     fileprivate var isSchedule:Bool = true
     fileprivate var scheduleTime:UInt64 = 0
@@ -113,7 +113,7 @@ class FacebookShareVC: UIViewController, PagePickerControllerDelegate {
     @IBAction func onClickPost(_ sender:UIButton) {
          getPageAccessToken(pageID: selectedIndex, url: dataUrl)
     }
-    func getPageAccessToken(pageID:String = "", url:String = "") {
+    func getPageAccessToken(pageID:String = "", url:URL!) {
 showLoader(status: true)
         let connection = GraphRequestConnection()
         connection.add(GraphRequest(graphPath: "\(pageID)", parameters: ["fields": "access_token"])) { httpResponse, result,error  in
@@ -131,30 +131,56 @@ showLoader(status: true)
         connection.start()
     }
     
-    
-    
-    func postMessage(pageID:String = "",pageAccessToken:String = "",url:String = "") {
+    func postMessage(pageID:String = "",pageAccessToken:String = "",url:URL!) {
         var message:String = ""
         if textFieldTag.text!.isEmpty {
             message = textField.text ?? ""
         } else {
             message = "\(textField.text ?? "")\n\(textFieldTag.text ?? "")"
         }
-        guard let imageData = createdImage?.pngData() else {return}
-        let requestPage : GraphRequest = typeSelected == 0 ? (isSchedule ? GraphRequest(graphPath: "\(pageID)/photos", parameters: ["source" : imageData, "message":message], tokenString: pageAccessToken, version: nil , httpMethod: .post ) : GraphRequest(graphPath: "\(pageID)/photos", parameters: ["source" : imageData, "message":message,"scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post )) : (isSchedule ? GraphRequest(graphPath: "\(pageID)/videos", parameters: ["file_url" : url,"description":message], tokenString: pageAccessToken, version: nil , httpMethod: .post ):GraphRequest(graphPath: "\(pageID)/videos", parameters: ["file_url" : url,"description":message,"scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post ))
-        requestPage.start(completion: { (connection, result, error) -> Void in
-            showLoader()
-            if let error = error {
-                print(error.localizedDescription)
-              } else {
-                  
-                showAlertWithSingleAction1(sender: self, message: "Post Added successfully", onSuccess: {
-                    pageName = self.lbl.text ?? ""
-                    pageId = self.selectedIndex
-                    self.dismiss(animated: true)
-                })
-              }
-        })
+        
+        
+        if typeSelected == 0 {
+            guard let imageData = createdImage?.pngData() else {
+                return
+            }
+            let requestPage : GraphRequest = (isSchedule ? GraphRequest(graphPath: "\(pageID)/photos", parameters: ["source" : imageData, "message":message], tokenString: pageAccessToken, version: nil , httpMethod: .post ) : GraphRequest(graphPath: "\(pageID)/photos", parameters: ["source" : imageData, "message":message,"scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post ))
+            requestPage.start(completion: { (connection, result, error) -> Void in
+                showLoader()
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    showAlertWithSingleAction1(sender: self, message: "Post Added successfully", onSuccess: {
+                        pageName = self.lbl.text ?? ""
+                        pageId = self.selectedIndex
+                        self.dismiss(animated: true)
+                    })
+                }
+            })
+        } else {
+            var videoData: Data!
+            var pathURL: URL
+            pathURL = url
+            do {
+                videoData = try Data(contentsOf: url)
+            }  catch {
+                        print(error)
+                    }
+            let requestPage : GraphRequest = (isSchedule ? GraphRequest(graphPath: "\(pageID)/videos", parameters: ["description":message, pathURL.absoluteString: videoData!], tokenString: pageAccessToken, version: nil , httpMethod: .post ):GraphRequest(graphPath: "\(pageID)/videos", parameters: [pathURL.absoluteString: videoData!,"description":message,"scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post ))
+            requestPage.start(completion: { (connection, result, error) -> Void in
+                showLoader()
+                if let error = error {
+                    print(error.localizedDescription)
+                  } else {
+                      
+                    showAlertWithSingleAction1(sender: self, message: "Post Added successfully", onSuccess: {
+                        pageName = self.lbl.text ?? ""
+                        pageId = self.selectedIndex
+                        self.dismiss(animated: true)
+                    })
+                  }
+            })
+        }
     }
     
     fileprivate func set1(data:Any)->[MultipartData] {

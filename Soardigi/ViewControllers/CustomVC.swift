@@ -9,6 +9,7 @@ import UIKit
 
 class CustomVC: UIViewController {
     fileprivate let facebookLogin = FacebookLogin()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +21,17 @@ class CustomVC: UIViewController {
     }
     
     @IBAction func onClickLibrary(_ sender: UIButton) {
-        showAlertWithSingleAction(sender: self, message: "Coming Soon")
+//        showAlertWithSingleAction(sender: self, message: "Coming Soon")
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "LibraryVC") as! LibraryVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func onClickVideoCustom(_ sender: UIButton) {
+        
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "LandscapeVC") as! LandscapeVC
+        vc.type = true
+        vc.isFromVideo = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func onClickFaceBookAnalytics(_ sender: UIButton) {

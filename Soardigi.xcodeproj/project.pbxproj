@@ -35,9 +35,11 @@
 		8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B41DA2029214C0E00CB0F94 /* HomeVC.swift */; };
 		8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */; };
 		8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */; };
+		8B51AED22A3DBE0B00E8CC87 /* 123.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B51AED12A3DBE0900E8CC87 /* 123.png */; };
 		8B54F90A29E87936001A1260 /* DownloadSampleImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54F90929E87936001A1260 /* DownloadSampleImageVC.swift */; };
 		8B5605F629C0AED300E2ED37 /* CustomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5605F529C0AED200E2ED37 /* CustomVC.swift */; };
 		8B5BE10B2989791400920FB3 /* SubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */; };
+		8B5D1C692A2A1BF7001EB778 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D1C682A2A1BF7001EB778 /* GoogleService-Info.plist */; };
 		8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D28942972EB41008D36DA /* SearchHomeVC.swift */; };
 		8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */; };
 		8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */; };
@@ -84,6 +86,7 @@
 		8BCD6F64298FC7CF008D942D /* NoSubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */; };
 		8BED4E0029D0A54400EF7F31 /* CreateCustomRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED4DFF29D0A54400EF7F31 /* CreateCustomRequestVC.swift */; };
 		8BED4E0229D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED4E0129D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift */; };
+		8BF38C722A4C733C00874BE4 /* LibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF38C712A4C733C00874BE4 /* LibraryVC.swift */; };
 		8BF6E95F2A153AF800F9A1A8 /* LandscapeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6E95E2A153AF700F9A1A8 /* LandscapeVC.swift */; };
 		8BF6E9612A153B1A00F9A1A8 /* PortraitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6E9602A153B1A00F9A1A8 /* PortraitVC.swift */; };
 /* End PBXBuildFile section */
@@ -127,6 +130,7 @@
 		528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi_SoardigiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2E99262A13F2DD00AE98FF /* LandscapePortraitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapePortraitVC.swift; sourceTree = "<group>"; };
+		8B2F5EA02A20E7ED007A115E /* Soardigi Bridging Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Soardigi Bridging Header.h"; sourceTree = "<group>"; };
 		8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPagePickerVC.swift; sourceTree = "<group>"; };
 		8B36DB0328FD7C7E0035BA59 /* Soardigi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soardigi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,9 +160,11 @@
 		8B41DA2029214C0E00CB0F94 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessVC.swift; sourceTree = "<group>"; };
 		8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessCategoryVC.swift; sourceTree = "<group>"; };
+		8B51AED12A3DBE0900E8CC87 /* 123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123.png; sourceTree = "<group>"; };
 		8B54F90929E87936001A1260 /* DownloadSampleImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSampleImageVC.swift; sourceTree = "<group>"; };
 		8B5605F529C0AED200E2ED37 /* CustomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVC.swift; sourceTree = "<group>"; };
 		8B5BE10A2989791400920FB3 /* SubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionVC.swift; sourceTree = "<group>"; };
+		8B5D1C682A2A1BF7001EB778 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B5D28942972EB41008D36DA /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
 		8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 		8BCD6F63298FC7CF008D942D /* NoSubscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSubscriptionVC.swift; sourceTree = "<group>"; };
 		8BED4DFF29D0A54400EF7F31 /* CreateCustomRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCustomRequestVC.swift; sourceTree = "<group>"; };
 		8BED4E0129D0B9AB00EF7F31 /* CreateCustomListRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCustomListRequestVC.swift; sourceTree = "<group>"; };
+		8BF38C712A4C733C00874BE4 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVC.swift; sourceTree = "<group>"; };
 		8BF6E95E2A153AF700F9A1A8 /* LandscapeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeVC.swift; sourceTree = "<group>"; };
 		8BF6E9602A153B1A00F9A1A8 /* PortraitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitVC.swift; sourceTree = "<group>"; };
 		9A79C2DBEA13D03035BEF33A /* Pods-Soardigi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi/Pods-Soardigi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +260,7 @@
 		8B36DAFA28FD7C7E0035BA59 = {
 			isa = PBXGroup;
 			children = (
+				8B2F5EA02A20E7ED007A115E /* Soardigi Bridging Header.h */,
 				8B36DB0528FD7C7E0035BA59 /* Soardigi */,
 				8B36DB1C28FD7C820035BA59 /* SoardigiTests */,
 				8B36DB2628FD7C820035BA59 /* SoardigiUITests */,
@@ -275,6 +283,8 @@
 		8B36DB0528FD7C7E0035BA59 /* Soardigi */ = {
 			isa = PBXGroup;
 			children = (
+				8B51AED12A3DBE0900E8CC87 /* 123.png */,
+				8B5D1C682A2A1BF7001EB778 /* GoogleService-Info.plist */,
 				8B904D16298A6A9700C200D9 /* AppInvokeSDK.xcframework */,
 				8B964BDF2940FC9200426078 /* Soardigi.entitlements */,
 				8B7D3E6129005A4F00F4577B /* SoardigiStruct */,
@@ -360,6 +370,7 @@
 				8BF6E95E2A153AF700F9A1A8 /* LandscapeVC.swift */,
 				8BF6E9602A153B1A00F9A1A8 /* PortraitVC.swift */,
 				8B7A7FAC2A1CFA3B00B37548 /* DeleteDownloadVC.swift */,
+				8BF38C712A4C733C00874BE4 /* LibraryVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -767,8 +778,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B51AED22A3DBE0B00E8CC87 /* 123.png in Resources */,
 				8BCBD23729000AF100CED2C8 /* SwiftCountryPicker.bundle in Resources */,
 				8B36DB1328FD7C810035BA59 /* LaunchScreen.storyboard in Resources */,
+				8B5D1C692A2A1BF7001EB778 /* GoogleService-Info.plist in Resources */,
 				8B36DB1028FD7C810035BA59 /* Assets.xcassets in Resources */,
 				8B36DB0E28FD7C7E0035BA59 /* Main.storyboard in Resources */,
 			);
@@ -898,6 +911,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF38C722A4C733C00874BE4 /* LibraryVC.swift in Sources */,
 				8B36DB0B28FD7C7E0035BA59 /* ViewController.swift in Sources */,
 				8B904D1C298ABD0100C200D9 /* FeedTVC.swift in Sources */,
 				8B7D3E5D2900591200F4577B /* UserViewModel.swift in Sources */,
@@ -1148,20 +1162,20 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Soardigi wants to access the library to add the business photo";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera permission to record the custom video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone permission to record the video";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Library permission to save photos in the gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1169,6 +1183,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Soardigi Bridging Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1188,20 +1203,20 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Soardigi wants to access the library to add the business photo";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera permission to record the custom video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone permission to record the video";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Library permission to save photos in the gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1209,6 +1224,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Soardigi Bridging Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -8,7 +8,10 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import FirebaseCore
+import Firebase
 import Alamofire
+import FirebaseMessaging
 class HomeVC: UIViewController, SliderCollectionCell {
     func didPressedSlide(value: String) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
@@ -22,6 +25,13 @@ class HomeVC: UIViewController, SliderCollectionCell {
     @IBOutlet weak fileprivate var lblBusinessName:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        Messaging.messaging().subscribe(toTopic: "newCategory") { error in
+            if error != nil {
+                print("Topic not subscribed sucessfully")
+            }
+        }
+       // Messaging.messaging().subscribe(toTopic: "newCategory")
+        //Messaging.messaging().subscribe(toTopic: "newCategory")
       // Do any additional setup after loading the view.
     }
     

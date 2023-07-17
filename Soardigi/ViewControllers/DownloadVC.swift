@@ -6,19 +6,22 @@
 //
 
 import UIKit
+import AVFoundation
+import Kingfisher
 enum DownLoadType {
     case image
-    //case video
+    case video
     case custom
 }
 class DownloadVC: UIViewController {
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
     @IBOutlet weak fileprivate var view1:UIView!
-   // @IBOutlet weak fileprivate var view2:UIView!
+    @IBOutlet weak fileprivate var view2:UIView!
     @IBOutlet weak fileprivate var view3:UIView!
     var downLoadType:DownLoadType = .image
     var saveImageModel:[SaveImageModel] = [SaveImageModel]()
     var customImageModel:[CustomImageModel] = [CustomImageModel]()
+    var saveVideoModel:[SaveVideoModel] = [SaveVideoModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -48,22 +51,33 @@ class DownloadVC: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    func loadVideoData() {
+        if let data = UserDefaults.standard.saveVideoModel {
+            saveVideoModel = data
+            downLoadType = .video
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     @IBAction func onClickImage(_ sender:UIButton) {
         view1.isHidden = false
-        //view2.isHidden = true
+        view2.isHidden = true
         view3.isHidden = true
         loadData()
     }
     
     @IBAction func onClickVideo(_ sender:UIButton) {
         view1.isHidden = true
-       // view2.isHidden = false
+        view2.isHidden = false
         view3.isHidden = true
+        loadVideoData()
     }
     
     @IBAction func onClickCustom(_ sender:UIButton) {
         view1.isHidden = true
-       // view2.isHidden = true
+        view2.isHidden = true
         view3.isHidden = false
         loadCustomData()
     }
@@ -90,7 +104,8 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         switch downLoadType {
         case .image:
             return saveImageModel.count
-       
+        case .video:
+            return saveVideoModel.count
         case .custom:
             return customImageModel.count
         }
@@ -106,6 +121,13 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             if let downloadedImage = UIImage(data: data.imageSave!){
                 cell.imageView.image = downloadedImage
             }
+            cell.titleLbl.isHidden = true
+        case .video:
+            print("")
+            let data = saveVideoModel[indexPath.row]
+            let url = data.videoSave!
+            
+            cell.imageView.image = URL(fileURLWithPath: url).generateThumbnail()
             cell.titleLbl.isHidden = true
         case .custom:
             let data = customImageModel[indexPath.row]
@@ -133,6 +155,8 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                     case .image:
                         UserDefaults.standard.saveImageModel?.remove(at: indexPath.item)
                         self.loadData()
+                    case .video:
+                        print("")
                     case .custom:
                         UserDefaults.standard.customImageModel?.remove(at: indexPath.item)
                         self.loadCustomData()
@@ -153,6 +177,8 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                         //vc.dataUrl = selectedImageURL
                     vc.typeSelected = 0
                         self.navigationController?.pushViewController(vc, animated: true)
+                    case .video:
+                        print("")
                     case .custom:
                         let data = self.customImageModel[indexPath.item]
                         let downloadedImage = UIImage(data: data.imageSave!)
@@ -169,5 +195,25 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             
          }
         self.present(vc, animated: true, completion: nil)
+    }
+}
+
+extension URL {
+    func generateThumbnail() -> UIImage? {
+        do {
+            let asset = AVURLAsset(url: self)
+            let imageGenerator = AVAssetImageGenerator(asset: asset)
+            imageGenerator.appliesPreferredTrackTransform = true
+            
+            // Swift 5.3
+            let cgImage = try imageGenerator.copyCGImage(at: .zero,
+                                                         actualTime: nil)
+
+            return UIImage(cgImage: cgImage)
+        } catch {
+            print(error.localizedDescription)
+
+            return nil
+        }
     }
 }

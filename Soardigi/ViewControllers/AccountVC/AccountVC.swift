@@ -78,7 +78,20 @@ class AccountVC: UIViewController {
 //        let window = UIApplication.shared.keyWindow
 //        window?.overrideUserInterfaceStyle = .light
         
-        showAlertWithSingleAction(sender: self, message: "Coming Soon")
+//        showAlertWithSingleAction(sender: self, message: "Coming Soon")
+        let window = UIApplication.shared.keyWindow
+        switch traitCollection.userInterfaceStyle {
+        case .light:
+        window?.overrideUserInterfaceStyle = .dark
+        case .dark:
+        window?.overrideUserInterfaceStyle = .light
+        case .unspecified:
+            print("")
+        @unknown default:
+            print("")
+        }
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -112,6 +125,19 @@ class AccountVC: UIViewController {
        }, onCancel: {
            
        })
+    }
+    
+    
+    @IBAction func onClickDelete(_ sender:UIButton) {
+        showAlertWithTwoActions(sender: self, message: "Are you sure want to Delete Account?", title: "Yes", secondTitle: "No", onSuccess: {
+            self.homeViewModel.userLogout(sender: self, onSuccess: {
+                SceneDelegate().logout(self.view)
+            }, onFailure: {
+                
+            })
+        }, onCancel: {
+            
+        })
     }
 
     /*

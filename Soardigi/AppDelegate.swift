@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     application,
                     didFinishLaunchingWithOptions: launchOptions
                 )
-//        FirebaseApp.configure()
-//        self.registerApns(application: application)
+        FirebaseApp.configure()
+       self.registerApns(application: application)
         return true
     }
 
@@ -172,8 +172,6 @@ extension AppDelegate {
     //MARK: Notification Methods-
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        deviceTokenNew = Messaging.messaging().fcmToken ?? ""
-        
         Messaging.messaging().token { token, error in
             fcmToken =  token ?? ""
         }
@@ -184,6 +182,9 @@ extension AppDelegate {
         print("APNs token retrieved: \(token)")
      }
     
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+            
+        }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
@@ -196,13 +197,12 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
     
     //Called when a notification is delivered to a foreground app.
     
-   
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         let userInfo = notification.request.content.userInfo
         // create a sound ID, in this case its the tweet sound.
         
-        let systemSoundID: SystemSoundID = 1315//1003 // SMSReceived (see SystemSoundID below)
+        let systemSoundID: SystemSoundID = 1315
         // to play sound
         AudioServicesPlaySystemSound (systemSoundID)
         
@@ -232,22 +232,6 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive resRPUsernse: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         let userInfo = resRPUsernse.notification.request.content.userInfo
-        
-        
-//        if isFromKilled == "2"{
-//            isFromKilled = "1"
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//
-//                _ =  self.didReceiveRemoteNotification(userAction: true,resRPUsernse: userInfo)
-//                   }
-//        }else{
-//
-//                _ =  self.didReceiveRemoteNotification(userAction: true,resRPUsernse: userInfo)
-//
-//        }
-        
-        
-      
         completionHandler()
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import AVFoundation
 class ShareDetailVC: UIViewController {
     var typeSelected:Int = 0
     fileprivate var pageAccessToken:String = ""
@@ -17,36 +18,49 @@ class ShareDetailVC: UIViewController {
     fileprivate let facebookLogin = FacebookLogin()
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak fileprivate var imageView:UIImageView!
+    @IBOutlet weak fileprivate var videoView:UIView!
     var image:UIImage!
+    var url:URL!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let w1 = self.imageView.bounds.width
-        let h1  = CGFloat(1600)/CGFloat(1600) * w1
-        DispatchQueue.main.async {
-            self.imageHeightConstraint.constant = h1
+        if typeSelected == 0 {
+            self.imageView.isHidden = false
+            self.videoView.isHidden = true
+            let w1 = self.imageView.bounds.width
+            let h1  = CGFloat(1600)/CGFloat(1600) * w1
+            DispatchQueue.main.async {
+                self.imageHeightConstraint.constant = h1
+            }
+            imageView.image = image
+        } else {
+            self.imageView.isHidden = true
+            self.videoView.isHidden = false
+            let player = AVPlayer(url: url)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = self.videoView.bounds
+            self.videoView.layer.addSublayer(playerLayer)
+            player.play()
         }
-        imageView.image = image
     }
 }
 
 extension ShareDetailVC {
     
     @IBAction func onClickShare(_ sender:UIButton) {
-       
-                
-                // set up activity view controller
-                let imageToShare = [ image! ]
-                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-                
-                // exclude some activity types from the list (optional)
-       
-        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.postToTwitter ]
-                
-                // present the view controller
-                self.present(activityViewController, animated: true, completion: nil)
+        if typeSelected == 0 {
+            let imageToShare = [ image! ]
+            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        } else {
+            let videoToShare = [url!]
+            let activityViewController = UIActivityViewController(activityItems: videoToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
-    @IBAction func onClickConnect(_ sender:UIButton) {
+    
+    @IBAction func onClickInstaConnect(_ sender:UIButton) {
         if AccessToken.current?.tokenString != nil {
             showLoader(status: true)
             let graphRequest
@@ -110,6 +124,93 @@ extension ShareDetailVC {
                             let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
                             vc.fbPageData = self.fbPageData
                             vc.createdImage = imageView.image
+                            vc.typeSelected = typeSelected
+                            self.present(vc, animated: true, completion: nil)
+                        } else {
+                            showLoader()
+                            showAlertWithSingleAction(sender: self, message: "No page found")
+                        }
+                        print(fbPageData)
+                    }
+                    
+                })
+                //}
+            }
+        }
+    }
+    @IBAction func onClickConnect(_ sender:UIButton) {
+        if AccessToken.current?.tokenString != nil {
+            showLoader(status: true)
+            let graphRequest
+            = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":AccessToken.current?.tokenString])
+            graphRequest.start( completion: { [self] (connection, result, error)-> Void in
+                if ((error) != nil)
+                {
+                    print("Error: \(String(describing: error))")
+                }
+                else
+                {
+                    
+                    let array = ((result as! NSDictionary).value(forKey: "data") as! NSArray)
+                    if array.count > 0 {
+                        showLoader()
+                        for tokens in array {
+                            let tkn = ((tokens as! NSDictionary).value(forKey: "access_token")) as! String
+                            let id = ((tokens as! NSDictionary).value(forKey: "id")) as! String
+                            let name = ((tokens as! NSDictionary).value(forKey: "name")) as! String
+                            fbPageData.append(FBPageData(name: name, id: id, accessToken: tkn))
+                        }
+                        let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
+                        vc.fbPageData = self.fbPageData
+                        if typeSelected == 0 {
+                            vc.createdImage = imageView.image
+                        } else {
+                            vc.dataUrl = url
+                        }
+                        vc.typeSelected = typeSelected
+                        self.present(vc, animated: true, completion: nil)
+                    } else {
+                        showLoader()
+                        showAlertWithSingleAction(sender: self, message: "No page found")
+                    }
+                    
+                    print(fbPageData)
+                }
+                
+            })
+        } else {
+            facebookLogin.facebookLogin(withController:self) { (success,user) in
+                print("THE FACEBOOK USER IS------>",user)
+                
+                showLoader(status: true)
+                //"https://graph.facebook.com/{user-id}/accounts
+                //?access_token={user-access-token}"
+                let graphRequest
+                = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":AccessToken.current?.tokenString ?? ""])
+                graphRequest.start( completion: { [self] (connection, result, error)-> Void in
+                    if ((error) != nil)
+                    {
+                        print("Error: \(error)")
+                    }
+                    else
+                    {
+                        let array = ((result as! NSDictionary).value(forKey: "data") as! NSArray)
+                        if array.count > 0 {
+                            showLoader()
+                            for tokens in array {
+                                let tkn = ((tokens as! NSDictionary).value(forKey: "access_token")) as! String
+                                let id = ((tokens as! NSDictionary).value(forKey: "id")) as! String
+                                let name = ((tokens as! NSDictionary).value(forKey: "name")) as! String
+                                fbPageData.append(FBPageData(name: name, id: id, accessToken: tkn))
+                            }
+                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
+                            vc.fbPageData = self.fbPageData
+                            if typeSelected == 0 {
+                                vc.createdImage = imageView.image
+                            } else {
+                                vc.dataUrl = url
+                            }
+                           
                             vc.typeSelected = typeSelected
                             self.present(vc, animated: true, completion: nil)
                         } else {

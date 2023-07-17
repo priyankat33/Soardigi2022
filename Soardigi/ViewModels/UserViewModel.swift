@@ -21,7 +21,7 @@ class UserViewModel: NSObject {
                 }else if phone.count < 10{
                     showAlertWithSingleAction(sender:sender, message: "Mobile number must be of 10 digits")
                 }else {
-                    let params:[String:Any] = ["phone":phone,"device":"12122", "code": code, "type":type ]
+                    let params:[String:Any] = ["phone":phone,"device":"12", "code": code, "type":type ]
                     showLoader(status: true)
                     ServerManager.shared.httpPost(request:  baseURL + "api/auth/v1/" + API.kLogin, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                         
@@ -64,7 +64,7 @@ class UserViewModel: NSObject {
                 }else if !email.isEmail{
                     showAlertWithSingleAction(sender:sender, message: "Please enter valid email")
                 }else {
-                    let params:[String:Any] = ["phone":email,"device":"12122", "code": code, "type":type ]
+                    let params:[String:Any] = ["phone":email,"device":"12", "code": code, "type":type ]
                     showLoader(status: true)
                     ServerManager.shared.httpPost(request:  baseURL + "api/auth/v1/" + API.kLogin, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                         
@@ -142,7 +142,7 @@ class UserViewModel: NSObject {
                      showLoader()
                     return
                }
-                let params:[String:Any] = ["name":name,"email":email, "phone":mobile , "ref_code" :refreal, "code":countryCode,"device":"12122"]
+                let params:[String:Any] = ["name":name,"email":email, "phone":mobile , "ref_code" :refreal, "code":countryCode,"device":"12"]
                 showLoader(status: true)
                 ServerManager.shared.httpUpload(request:  baseURL + "api/auth/v1/" + API.kRegisterOTP, params: params,headers: ServerManager.shared.apiHeaders,multipartObject: array, successHandler: { (responseData:Data,status)  in
                     
@@ -248,7 +248,7 @@ class UserViewModel: NSObject {
             }
             else{
                 if isFromLogin {
-                    let params:[String:Any] = ["device":"12122","phone":phone.isEmpty ? email : phone,"code":code,"otp":otp,"type":type]
+                    let params:[String:Any] = ["device":"12","phone":phone.isEmpty ? email : phone,"code":code,"otp":otp,"type":type]
                     showLoader(status: true)
                     ServerManager.shared.httpPost(request:  baseURL  + "api/auth/v1/" + API.kLoginOTP, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                         DispatchQueue.main.async {
@@ -280,7 +280,7 @@ class UserViewModel: NSObject {
                         }
                     })
                 } else {
-                    let params:[String:Any] = ["device":"12122","phone":phone,"code":code,"name":name,"email":email,"otp":otp]
+                    let params:[String:Any] = ["device":"12","phone":phone,"code":code,"name":name,"email":email,"otp":otp]
                     showLoader(status: true)
                     ServerManager.shared.httpPost(request:  baseURL + "api/auth/v1/" + API.kVerifyOtpCode, params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
                         DispatchQueue.main.async {

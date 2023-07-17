@@ -132,7 +132,7 @@ var accessToken:String{
 
 var fcmToken:String {
     get{
-        guard let userId = UserDefaults.NTDefault(objectForKey: kFcmToken) as? String else { return "" }
+        guard let userId = UserDefaults.NTDefault(objectForKey: kFcmToken) as? String else { return "xcxc" }
         return userId
     }
     set{
@@ -142,7 +142,7 @@ var fcmToken:String {
 
 var deviceTokenNew:String {
     get{
-        guard let userId = UserDefaults.NTDefault(objectForKey: kDeviceToken) as? String else { return "" }
+        guard let userId = UserDefaults.NTDefault(objectForKey: kDeviceToken) as? String else { return "xcxxc" }
         return userId
     }
     set{
@@ -239,8 +239,18 @@ struct SaveImageModel:Mappable {
     var imageId:String?
 }
 
+struct SaveDownloadImageModel:Mappable {
+    var imageURL:String?
+    var id:String?
+    var selectedId:Int?
+}
+
 struct CustomImageModel:Mappable {
     var imageSave:Data?
     var frameId:Int?
     var imageId:String?
+}
+
+struct SaveVideoModel:Mappable {
+    var videoSave: String?
 }

@@ -165,6 +165,8 @@ extension SceneDelegate {
 extension SceneDelegate {
     func logout(_ view: UIView){
         UserDefaults.NTDefault(removeObjectForKey: kIsLogin)
+        UserDefaults.NTDefault(removeObjectForKey: "SaveDownloadImageModel")
+        
         DispatchQueue.main.async {
         self.setUpLogin(view)
         }

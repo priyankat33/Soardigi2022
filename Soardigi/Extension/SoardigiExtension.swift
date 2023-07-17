@@ -158,6 +158,17 @@ extension UserDefaults {
         }
     
     
+    var saveDownloadImageModel: [SaveDownloadImageModel]? {
+            get {
+                guard let data = UserDefaults.standard.data(forKey: "SaveDownloadImageModel") else { return [] }
+                return (try? PropertyListDecoder().decode([SaveDownloadImageModel].self, from: data)) ?? []
+            }
+            set {
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(newValue), forKey: "SaveDownloadImageModel")
+            }
+        }
+    
+    
     var customImageModel: [CustomImageModel]? {
             get {
                 guard let data = UserDefaults.standard.data(forKey: "CustomImageModel") else { return [] }
@@ -165,6 +176,16 @@ extension UserDefaults {
             }
             set {
                 UserDefaults.standard.set(try? PropertyListEncoder().encode(newValue), forKey: "CustomImageModel")
+            }
+        }
+    
+    var saveVideoModel: [SaveVideoModel]? {
+            get {
+                guard let data = UserDefaults.standard.data(forKey: "SaveVideoModel") else { return [] }
+                return (try? PropertyListDecoder().decode([SaveVideoModel].self, from: data)) ?? []
+            }
+            set {
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(newValue), forKey: "SaveVideoModel")
             }
         }
     
