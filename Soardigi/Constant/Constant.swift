@@ -13,6 +13,8 @@ import KRProgressHUD
 let kAuthTokenKey   =  "AuthToken"
 let kWaterMake   =  "waterMake"
 let kIsLogin   =  "isLogin"
+let kIsDarkMode = "isDarkMode"
+let kIsDarkModeOn = "isDarkModeOn"
 let kPageName   =  "PageName"
 let kPageId = "PageId"
 let kRoleCode = "RoleCode"
@@ -170,6 +172,27 @@ var isLogin:Bool{
         UserDefaults.NTDefault(setObject: newValue, forKey: kIsLogin )
     }
 }
+
+var isDarkMode:Bool{
+    get{
+        guard let isLogin = UserDefaults.NTDefault(objectForKey: kIsDarkMode) as? Bool else { return false }
+        return isLogin
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kIsDarkMode )
+    }
+}
+
+var isDarkModeOn:Bool{
+    get{
+        guard let isLogin = UserDefaults.NTDefault(objectForKey: kIsDarkModeOn) as? Bool else { return false }
+        return isLogin
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kIsDarkModeOn)
+    }
+}
+
 
 var pageName:String {
     get{

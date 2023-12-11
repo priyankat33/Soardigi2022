@@ -51,20 +51,11 @@ class LandscapeVC: UIViewController, UIImagePickerControllerDelegate,UINavigatio
 extension LandscapeVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func newVideoCode(path: URL) {
-        
-        //let path = Bundle.main.path(forResource: "sample_video", ofType:"mp4")
-//        let fileURL = NSURL(fileURLWithPath: path!)
-        let fileURL = path
-
         let composition = AVMutableComposition()
-//        let vidAsset = AVURLAsset(url: fileURL as URL, options: nil)
         let vidAsset = AVURLAsset(url: path, options: nil)
-
-        // get video track
         let vtrack =  vidAsset.tracks(withMediaType: AVMediaType.video)
         let videoTrack: AVAssetTrack = vtrack[0]
         let vid_timerange = CMTimeRangeMake(start: CMTime.zero, duration: vidAsset.duration)
-
         let tr: CMTimeRange = CMTimeRange(start: CMTime.zero, duration: CMTime(seconds: 10.0, preferredTimescale: 600))
         composition.insertEmptyTimeRange(tr)
 
@@ -100,8 +91,6 @@ extension LandscapeVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         parentlayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         parentlayer.addSublayer(videolayer)
         parentlayer.addSublayer(imglayer)
-       // parentlayer.addSublayer(titleLayer)
-
         let layercomposition = AVMutableVideoComposition()
         layercomposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
         layercomposition.renderSize = size
@@ -118,7 +107,7 @@ extension LandscapeVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         //  create new file to receive data
         let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let docsDir = dirPaths[0] as NSString
-        let movieFilePath = docsDir.appendingPathComponent("result.mov")
+        let movieFilePath = docsDir.appendingPathComponent("\(path.lastPathComponent)")
         let movieDestinationUrl = NSURL(fileURLWithPath: movieFilePath)
 
         // use AVAssetExportSession to export video
@@ -126,7 +115,7 @@ extension LandscapeVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         assetExport?.outputFileType = AVFileType.mov
         assetExport?.videoComposition = layercomposition
 
-        // Check exist and remove old file
+//        // Check exist and remove old file
         FileManager.default.removeItemIfExisted(movieDestinationUrl as URL)
 
         assetExport?.outputURL = movieDestinationUrl as URL
@@ -159,9 +148,6 @@ extension LandscapeVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
                        
                     }
                 }
-
-               
-
             }
         })
 

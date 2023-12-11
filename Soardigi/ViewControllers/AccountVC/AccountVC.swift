@@ -75,24 +75,23 @@ class AccountVC: UIViewController {
     
     
     @IBAction func onClickThemeChange(_ sender:UIButton) {
-//        let window = UIApplication.shared.keyWindow
-//        window?.overrideUserInterfaceStyle = .light
-        
-//        showAlertWithSingleAction(sender: self, message: "Coming Soon")
         let window = UIApplication.shared.keyWindow
         switch traitCollection.userInterfaceStyle {
         case .light:
-        window?.overrideUserInterfaceStyle = .dark
+            window?.overrideUserInterfaceStyle = .dark
+            isDarkModeOn = false
+            isDarkMode = true
         case .dark:
-        window?.overrideUserInterfaceStyle = .light
+            window?.overrideUserInterfaceStyle = .light
+            isDarkMode = true
+            isDarkModeOn = true
         case .unspecified:
             print("")
         @unknown default:
             print("")
         }
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         homeViewModel.getUserProfile(sender: self, onSuccess: {
@@ -151,3 +150,4 @@ class AccountVC: UIViewController {
     */
 
 }
+

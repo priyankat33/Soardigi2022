@@ -285,7 +285,7 @@ class HomeDetailVC: UIViewController {
         //  create new file to receive data
         let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let docsDir = dirPaths[0] as NSString
-        let movieFilePath = docsDir.appendingPathComponent("result.mov")
+        let movieFilePath = docsDir.appendingPathComponent("\(path.lastPathComponent)")
         let movieDestinationUrl = NSURL(fileURLWithPath: movieFilePath)
 
         // use AVAssetExportSession to export video

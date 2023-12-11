@@ -62,8 +62,8 @@
             filePath = "Soardigi/ServerManager/ServiceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "requestTask(url:method:isBackgroundTask:params:headers:successHandler:failureHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6A5D9A5D-1383-4DC1-9C44-01DA3A95E92E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewModels/UserViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "otpVerification(type:isFromLogin:name:phone:code:sender:email:otp:onSuccess:onFailure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "02C1957E-EF6A-4200-9EEB-A0733EF7DDDE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -142,8 +126,8 @@
             filePath = "Soardigi/ViewControllers/LandscapeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "export(videoURl:image:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +142,8 @@
             filePath = "Soardigi/ViewControllers/LandscapeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "export(videoURl:image:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,13 +158,13 @@
             filePath = "Soardigi/ViewControllers/LandscapeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "addWatermark(waterMarkimage:inputURL:outputURL:handler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2A7A14E7-8CE2-4303-90DE-6555192BCC20 - 3a253aaf6b17fbf5"
+                  uuid = "2A7A14E7-8CE2-4303-90DE-6555192BCC20 - 3a253aaf6b17fa2b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -190,12 +174,12 @@
                   urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewControllers/LandscapeVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "338"
-                  endingLineNumber = "338"
-                  offsetFromSymbolStart = "1556">
+                  startingLineNumber = "324"
+                  endingLineNumber = "324"
+                  offsetFromSymbolStart = "2222">
                </Location>
                <Location
-                  uuid = "2A7A14E7-8CE2-4303-90DE-6555192BCC20 - f3c90c5799bf60fd"
+                  uuid = "2A7A14E7-8CE2-4303-90DE-6555192BCC20 - f3c90c5799bf612f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -205,8 +189,8 @@
                   urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewControllers/LandscapeVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "339"
-                  endingLineNumber = "339"
+                  startingLineNumber = "325"
+                  endingLineNumber = "325"
                   offsetFromSymbolStart = "148">
                </Location>
             </Locations>
@@ -222,13 +206,13 @@
             filePath = "Soardigi/ViewControllers/LandscapeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "addWatermark(waterMarkimage:inputURL:outputURL:handler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9821DE2A-3C55-45C0-9605-2190B3C3444D - f3c90c5799bf6f3f"
+                  uuid = "9821DE2A-3C55-45C0-9605-2190B3C3444D - f3c90c5799bf6169"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -238,12 +222,12 @@
                   urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewControllers/LandscapeVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "316">
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "387">
                </Location>
                <Location
-                  uuid = "9821DE2A-3C55-45C0-9605-2190B3C3444D - f3c90c5799bf6f3f"
+                  uuid = "9821DE2A-3C55-45C0-9605-2190B3C3444D - f3c90c5799bf6169"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -253,12 +237,12 @@
                   urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewControllers/LandscapeVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "464">
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "585">
                </Location>
                <Location
-                  uuid = "9821DE2A-3C55-45C0-9605-2190B3C3444D - f3c90c5799bf6f3f"
+                  uuid = "9821DE2A-3C55-45C0-9605-2190B3C3444D - f3c90c5799bf6169"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -268,9 +252,9 @@
                   urlString = "file:///Users/developer/Documents/MyProject/Soardigi2022/Soardigi/ViewControllers/LandscapeVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "488">
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "611">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -278,112 +262,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA57FFEF-2C6F-476C-A55B-5CD3DEB587A7"
+            uuid = "15910A0F-A2CB-4913-ACCB-97BF42B8CE61"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/ViewControllers/LandscapeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "generateThumbnail()"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "newVideoCode(path:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58DB4419-1EB3-4F42-9D6C-D8D2BE044FD5"
+            uuid = "36499E2F-0601-4F47-B02B-F71151405705"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/ViewControllers/LandscapeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "generateThumbnail()"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "newVideoCode(path:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF9FE3A4-9C78-462F-BA68-931D4CA6EDF4"
+            uuid = "F7C46F6A-50BC-4126-96D2-D3F848FB81B9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "generateThumbnail()"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "968252F4-E5A7-4381-9943-D5C7962104C7"
+            uuid = "ADE42239-7004-4A07-B528-C7CFD7067F49"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C2B24015-12DF-45AF-AE14-38E04668102C"
+            uuid = "556D4612-31A1-4BC6-8B3C-0E89BC388559"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B449B1D4-0853-4BC4-9FDE-6EE18270A3BB"
+            uuid = "699009A5-7ECA-44D3-9222-569697A75B9C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D721D08B-3A02-49FB-9C70-0BA6295662E4"
+            uuid = "F83A628B-0442-463F-A8B9-F4A415CEA398"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/DownloadVC.swift"
+            filePath = "Soardigi/ViewModels/UserViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "login(selectedType:sender:email:phone:code:type:onSuccess:onFailure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93B7673D-3618-42B4-A55A-C2856BC5E319"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Soardigi/ViewModels/UserViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "login(selectedType:sender:email:phone:code:type:onSuccess:onFailure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0448BD0B-ACC4-45A2-AE10-4399D6633046"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Soardigi/ServerManager/ServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "requestTask(url:method:isBackgroundTask:params:headers:successHandler:failureHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FD4BA45-5E4C-4463-AEC2-0E14CAFC5715"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Soardigi/ServerManager/ServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "requestTask(url:method:isBackgroundTask:params:headers:successHandler:failureHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

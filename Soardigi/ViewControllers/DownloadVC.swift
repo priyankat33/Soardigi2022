@@ -81,17 +81,6 @@ class DownloadVC: UIViewController {
         view3.isHidden = false
         loadCustomData()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -114,7 +103,7 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessCategoryCVC", for: indexPath) as! BusinessCategoryCVC
-       
+        
         switch downLoadType {
         case .image:
             let data = saveImageModel[indexPath.row]
@@ -126,7 +115,6 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             print("")
             let data = saveVideoModel[indexPath.row]
             let url = data.videoSave!
-            
             cell.imageView.image = URL(fileURLWithPath: url).generateThumbnail()
             cell.titleLbl.isHidden = true
         case .custom:
@@ -136,17 +124,15 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }
             cell.titleLbl.isHidden = true
         }
-        
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "DeleteDownloadVC") as! DeleteDownloadVC
-//        let data = homeViewModel.getSubscription[index]
-//        vc.selectedId = data.id ?? 0
-//        vc.amount = data.price ?? "0"
-//        vc.points = data.points ?? 0
+        //        let data = homeViewModel.getSubscription[index]
+        //        vc.selectedId = data.id ?? 0
+        //        vc.amount = data.price ?? "0"
+        //        vc.points = data.points ?? 0
         vc.callback = { value in
             
             if value {
@@ -156,7 +142,8 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                         UserDefaults.standard.saveImageModel?.remove(at: indexPath.item)
                         self.loadData()
                     case .video:
-                        print("")
+                        UserDefaults.standard.saveVideoModel?.remove(at: indexPath.item)
+                        self.loadVideoData()
                     case .custom:
                         UserDefaults.standard.customImageModel?.remove(at: indexPath.item)
                         self.loadCustomData()
@@ -166,19 +153,22 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                 
             } else {
                 self.dismiss(animated: true, completion: {
-                   
+                    
                     switch self.downLoadType {
                     case .image:
-                      print("")
+                        print("")
                         let data = self.saveImageModel[indexPath.item]
                         let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
                         let downloadedImage = UIImage(data: data.imageSave!)
                         vc.image = downloadedImage
-                        //vc.dataUrl = selectedImageURL
-                    vc.typeSelected = 0
+                        vc.typeSelected = 0
                         self.navigationController?.pushViewController(vc, animated: true)
                     case .video:
-                        print("")
+                        let data = self.saveVideoModel[indexPath.item]
+                        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
+                        vc.url = URL(fileURLWithPath: data.videoSave!)
+                        vc.typeSelected = 1
+                        self.navigationController?.pushViewController(vc, animated: true)
                     case .custom:
                         let data = self.customImageModel[indexPath.item]
                         let downloadedImage = UIImage(data: data.imageSave!)
@@ -193,7 +183,7 @@ extension DownloadVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                 
             }
             
-         }
+        }
         self.present(vc, animated: true, completion: nil)
     }
 }
@@ -208,11 +198,11 @@ extension URL {
             // Swift 5.3
             let cgImage = try imageGenerator.copyCGImage(at: .zero,
                                                          actualTime: nil)
-
+            
             return UIImage(cgImage: cgImage)
         } catch {
             print(error.localizedDescription)
-
+            
             return nil
         }
     }

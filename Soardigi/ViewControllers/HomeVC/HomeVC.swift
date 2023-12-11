@@ -53,9 +53,7 @@ class HomeVC: UIViewController, SliderCollectionCell {
     
     
     @IBAction func onClickNotification(_ sender:UIButton) {
-//        let window = UIApplication.shared.keyWindow
-//        window?.overrideUserInterfaceStyle = .light
-        
+
         showAlertWithSingleAction(sender: self, message: "Coming Soon")
     }
     @IBAction func onClickBusinessName(_ sender:UIButton) {
@@ -221,8 +219,8 @@ class FacebookLogin: NSObject {
         let fbLoginManager : LoginManager = LoginManager()
         //fbLoginManager.loginBehavior = LoginBehavior.browser
         fbLoginManager.logOut()
-        fbLoginManager.logIn(permissions: [FacebookPermissions.publicProfile.rawValue,FacebookPermissions.email.rawValue,"instagram_basic", "pages_show_list","pages_read_engagement","publish_video","pages_manage_posts"], from: withController) { (result, error) in
-            if error != nil{
+        fbLoginManager.logIn(permissions: ["instagram_basic", "pages_show_list","pages_read_engagement","pages_manage_posts"], from: withController) { (result, error) in
+            if error != nil {
                 print(error.debugDescription)
                 // Calling back to previous class if error occured
                 success(false,error as! FacebookUserData)
